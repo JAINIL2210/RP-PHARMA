@@ -4,16 +4,28 @@ from app.config import config
 from app.models import db, Product, Category, Enquiry, SiteSetting, AdminUser
 from app.seed_data import seed_database
 
-def create_app(config_name='default'):
+def create_app(config_name=None):
     """Flask application factory."""
+    if config_name is None:
+        config_name = os.environ.get('FLASK_ENV', 'default')
+        
     app = Flask(__name__)
-    app.config.from_object(config.get(config_name, config['default']))
+    cfg_class = config.get(config_name, config['default'])
+    app.config.from_object(cfg_class)
     
-    # Ensure directories exist
-    os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
-    os.makedirs(os.path.join(app.config['UPLOAD_FOLDER'], 'enquiries'), exist_ok=True)
-    os.makedirs(os.path.join(app.config['UPLOAD_FOLDER'], 'products'), exist_ok=True)
-    os.makedirs(os.path.join(app.root_path, '..', 'instance'), exist_ok=True)
+    # Safely handle directory creation without crashing on read-only serverless filesystems
+    upload_folder = app.config.get('UPLOAD_FOLDER', '/tmp/uploads')
+    try:
+        os.makedirs(upload_folder, exist_ok=True)
+        os.makedirs(os.path.join(upload_folder, 'enquiries'), exist_ok=True)
+        os.makedirs(os.path.join(upload_folder, 'products'), exist_ok=True)
+    except Exception as e:
+        print(f"[!] Upload dir notice: {e}")
+
+    try:
+        os.makedirs(os.path.join(app.root_path, '..', 'instance'), exist_ok=True)
+    except Exception as e:
+        pass
     
     # Initialize extensions
     db.init_app(app)
@@ -34,7 +46,6 @@ def create_app(config_name='default'):
             for s in settings:
                 settings_dict[s.key] = s.value
         except Exception:
-            # Fallback before db tables are initialized
             pass
             
         pharma_cats = []
@@ -61,18 +72,18 @@ def create_app(config_name='default'):
     @app.errorhandler(500)
     def internal_server_error(e):
         return render_template('500.html'), 500
-
+        
     # Register Blueprints
     from app.routes.main import main_bp
     from app.routes.products import products_bp
     from app.routes.enquiries import enquiries_bp
-    from app.routes.admin import admin_bp
     from app.routes.api import api_bp
+    from app.routes.admin import admin_bp
     
     app.register_blueprint(main_bp)
     app.register_blueprint(products_bp)
     app.register_blueprint(enquiries_bp)
-    app.register_blueprint(admin_bp, url_prefix='/admin')
     app.register_blueprint(api_bp, url_prefix='/api')
+    app.register_blueprint(admin_bp, url_prefix='/admin')
     
     return app
