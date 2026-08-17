@@ -12,16 +12,19 @@ class Config:
     IS_SERVERLESS = os.environ.get('VERCEL') == '1' or 'AWS_LAMBDA_FUNCTION_NAME' in os.environ
     
     if IS_SERVERLESS:
-        db_path = "/tmp/rp_pharma.db"
-        UPLOAD_FOLDER = "/tmp/uploads"
+        tmp_dir = os.path.abspath(tempfile.gettempdir())
+        db_path = str(Path(tmp_dir) / 'rp_pharma.db').replace('\\', '/')
+        db_uri = f"sqlite:///{db_path}"
+        UPLOAD_FOLDER = os.path.join(tmp_dir, 'uploads')
     else:
         db_path = str(BASE_DIR / 'instance' / 'rp_pharma.db').replace('\\', '/')
+        db_uri = f"sqlite:///{db_path}"
         UPLOAD_FOLDER = str(BASE_DIR / 'app' / 'static' / 'uploads')
         
     # Database Configuration (supports MySQL, Postgres or SQLite)
     SQLALCHEMY_DATABASE_URI = os.environ.get(
         'DATABASE_URI',
-        f"sqlite:///{db_path}"
+        db_uri
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     

@@ -4,12 +4,20 @@ from app.config import config
 from app.models import db, Product, Category, Enquiry, SiteSetting, AdminUser
 from app.seed_data import seed_database
 
+import tempfile
+
 def create_app(config_name=None):
     """Flask application factory."""
     if config_name is None:
         config_name = os.environ.get('FLASK_ENV', 'default')
         
-    app = Flask(__name__)
+    is_serverless = os.environ.get('VERCEL') == '1' or 'AWS_LAMBDA_FUNCTION_NAME' in os.environ
+    
+    if is_serverless:
+        app = Flask(__name__, instance_path=os.path.abspath(tempfile.gettempdir()))
+    else:
+        app = Flask(__name__)
+        
     cfg_class = config.get(config_name, config['default'])
     app.config.from_object(cfg_class)
     
