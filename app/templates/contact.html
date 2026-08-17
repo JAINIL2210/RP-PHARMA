@@ -1,141 +1,99 @@
 {% extends 'base.html' %}
 
-{% block title %}Contact Us | RP PHARMA — Corporate &amp; Export Office{% endblock %}
-{% block meta_description %}Contact RP PHARMA for international pharmaceutical and nutraceutical business inquiries, export documentation, and distributor representation.{% endblock %}
+{% block title %}Contact RP PHARMA | Direct Phone: +91 84690 34869{% endblock %}
+{% block meta_description %}Contact RP PHARMA corporate & export headquarters. Call or WhatsApp +91 84690 34869 for pharmaceutical and nutraceutical supply inquiries.{% endblock %}
 
 {% block content %}
 
 <!-- Header Banner -->
 <section class="py-5" style="background: radial-gradient(circle at 80% 20%, rgba(0, 168, 150, 0.15) 0%, rgba(11, 37, 69, 0.04) 70%), #F8FAFD; border-bottom:1px solid var(--border-light);">
-  <div class="container py-4">
+  <div class="container py-3">
     <div class="row align-items-center">
       <div class="col-lg-8">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb small">
+          <ol class="breadcrumb small mb-2">
             <li class="breadcrumb-item"><a href="{{ url_for('main.index') }}">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
           </ol>
         </nav>
-        <span class="section-tag"><i class="fa-solid fa-headset"></i> Get In Touch</span>
-        <h1 class="display-5 fw-bold text-primary mb-3">Contact RP PHARMA</h1>
+        <span class="section-tag"><i class="fa-solid fa-headset"></i> Immediate Support &amp; Enquiries</span>
+        <h1 class="display-6 fw-bold text-primary mb-2">Contact RP PHARMA</h1>
         <p class="lead text-body fs-6 mb-0">
-          Our corporate and export desks are ready to assist with commercial inquiries, product information, and international business partnerships.
+          Reach out to our export desk and commercial teams for product catalogs, pricing quotations, and global partnership inquiries.
         </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Contact Details & Form Section -->
-<section class="py-5 bg-white">
-  <div class="container py-4">
-    <div class="row g-5">
+<!-- Direct Contact Highlights Bar -->
+<section class="py-4 bg-white border-bottom">
+  <div class="container">
+    <div class="row g-3 justify-content-center">
       
-      <!-- Left Column: Contact Cards & Placeholders -->
-      <div class="col-lg-5">
-        <div class="section-tag"><i class="fa-solid fa-building"></i> Corporate Information</div>
-        <h3 class="fw-bold text-primary mb-4">RP PHARMA Offices</h3>
-
-        <!-- Office Address Card -->
-        <div class="p-4 rounded-4 bg-light border mb-4 shadow-sm">
-          <div class="d-flex gap-3">
-            <div class="card-icon-wrap card-icon-blue mb-0" style="width:48px;height:48px;font-size:1.25rem;">
-              <i class="fa-solid fa-location-dot"></i>
-            </div>
-            <div>
-              <h5 class="fw-bold text-primary mb-1">Registered / Corporate Office</h5>
-              <p class="text-body small mb-0">{{ site_settings.get('office_address', '[Complete Office Address], [City, State, PIN Code], India') }}</p>
-            </div>
+      <!-- Phone Call Card -->
+      <div class="col-md-4">
+        <div class="p-3 p-xl-4 rounded-4 bg-light border h-100 d-flex align-items-center gap-3">
+          <div class="bg-primary text-teal rounded-3 p-3 d-flex align-items-center justify-content-center" style="width:52px;height:52px;font-size:1.35rem;">
+            <i class="fa-solid fa-phone"></i>
           </div>
-        </div>
-
-        <!-- Contact Methods Grid -->
-        <div class="row g-3 mb-4">
-          <!-- Official Email -->
-          <div class="col-12">
-            <div class="p-3 bg-light rounded-3 border d-flex align-items-center justify-content-between">
-              <div>
-                <div class="small text-muted fw-semibold">Official Email</div>
-                <div class="fw-bold text-primary small">{{ site_settings.get('official_email', '[Official Email Address]') }}</div>
-              </div>
-              <a href="mailto:{{ site_settings.get('official_email', 'contact@rppharma.com') }}" class="btn btn-sm btn-rp-outline">
-                <i class="fa-solid fa-envelope me-1"></i> Email
-              </a>
-            </div>
+          <div class="flex-grow-1">
+            <div class="small text-muted fw-semibold">Direct Call Support</div>
+            <a href="tel:{{ site_settings.get('official_phone', '+918469034869') }}" class="fs-5 fw-bold text-primary text-decoration-none d-block">
+              {{ site_settings.get('official_phone', '+91 84690 34869') }}
+            </a>
+            <span class="badge bg-success bg-opacity-10 text-success small py-1 px-2 mt-1">Mon - Sat Available</span>
           </div>
-
-          <!-- Business Email -->
-          <div class="col-12">
-            <div class="p-3 bg-light rounded-3 border d-flex align-items-center justify-content-between">
-              <div>
-                <div class="small text-muted fw-semibold">Business Enquiries</div>
-                <div class="fw-bold text-primary small">{{ site_settings.get('business_email', '[Business Email]') }}</div>
-              </div>
-              <a href="mailto:{{ site_settings.get('business_email', 'business@rppharma.com') }}" class="btn btn-sm btn-rp-outline">
-                <i class="fa-solid fa-paper-plane me-1"></i> Enquire
-              </a>
-            </div>
-          </div>
-
-          <!-- Export Email -->
-          <div class="col-12">
-            <div class="p-3 bg-light rounded-3 border d-flex align-items-center justify-content-between">
-              <div>
-                <div class="small text-muted fw-semibold">Export Department</div>
-                <div class="fw-bold text-primary small">{{ site_settings.get('export_email', '[Export Email]') }}</div>
-              </div>
-              <a href="mailto:{{ site_settings.get('export_email', 'export@rppharma.com') }}" class="btn btn-sm btn-rp-outline">
-                <i class="fa-solid fa-globe me-1"></i> Export
-              </a>
-            </div>
-          </div>
-
-          <!-- Official Phone -->
-          <div class="col-sm-6">
-            <div class="p-3 bg-light rounded-3 border h-100">
-              <div class="small text-muted fw-semibold">Phone Support</div>
-              <div class="fw-bold text-primary small mb-2">{{ site_settings.get('official_phone', '[Official Phone Number]') }}</div>
-              <a href="tel:{{ site_settings.get('official_phone', '') }}" class="btn btn-xs btn-rp-outline w-100 btn-sm">
-                <i class="fa-solid fa-phone me-1"></i> Call
-              </a>
-            </div>
-          </div>
-
-          <!-- WhatsApp Number -->
-          <div class="col-sm-6">
-            <div class="p-3 bg-light rounded-3 border h-100">
-              <div class="small text-muted fw-semibold">WhatsApp Desk</div>
-              <div class="fw-bold text-primary small mb-2">{{ site_settings.get('whatsapp_number', '[Official WhatsApp Number]') }}</div>
-              {% set raw_wa = site_settings.get('whatsapp_raw_number', '919876543210') %}
-              <a href="https://wa.me/{{ raw_wa }}" target="_blank" class="btn btn-xs btn-rp-secondary w-100 btn-sm">
-                <i class="fa-brands fa-whatsapp me-1"></i> WhatsApp
-              </a>
-            </div>
-          </div>
-
-          <!-- Working Hours -->
-          <div class="col-12">
-            <div class="p-3 bg-light rounded-3 border">
-              <div class="small text-muted fw-semibold">Working Hours</div>
-              <div class="fw-semibold text-primary small"><i class="fa-regular fa-clock text-teal me-2"></i>{{ site_settings.get('working_hours', 'Monday – Saturday: 9:00 AM – 6:00 PM (IST)') }}</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Google Maps Placeholder Box -->
-        <div class="p-4 rounded-4 border bg-light text-center">
-          <i class="fa-solid fa-map-location-dot text-teal fs-2 mb-2"></i>
-          <h6 class="fw-bold text-primary mb-1">Corporate Location (India)</h6>
-          <p class="small text-muted mb-0">Headquartered in India with pan-India manufacturing partner network.</p>
         </div>
       </div>
 
-      <!-- Right Column: Contact Form -->
+      <!-- WhatsApp Card -->
+      <div class="col-md-4">
+        <div class="p-3 p-xl-4 rounded-4 bg-light border h-100 d-flex align-items-center gap-3">
+          <div class="rounded-3 p-3 d-flex align-items-center justify-content-center text-white" style="width:52px;height:52px;font-size:1.6rem;background-color:#25D366;">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <div class="flex-grow-1">
+            <div class="small text-muted fw-semibold">Instant WhatsApp Chat</div>
+            <a href="https://wa.me/{{ site_settings.get('whatsapp_raw_number', '918469034869') }}?text=Hello%20RP%20PHARMA,%20I%20would%20like%20to%20enquire%20about%20your%20products." target="_blank" class="fs-5 fw-bold text-success text-decoration-none d-block">
+              {{ site_settings.get('whatsapp_number', '+91 84690 34869') }}
+            </a>
+            <span class="small text-muted">Click to chat directly</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email Card -->
+      <div class="col-md-4">
+        <div class="p-3 p-xl-4 rounded-4 bg-light border h-100 d-flex align-items-center gap-3">
+          <div class="bg-primary text-teal rounded-3 p-3 d-flex align-items-center justify-content-center" style="width:52px;height:52px;font-size:1.35rem;">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <div class="flex-grow-1">
+            <div class="small text-muted fw-semibold">Official Email Desk</div>
+            <a href="mailto:{{ site_settings.get('official_email', 'info@rppharma.com') }}" class="fw-bold text-primary text-decoration-none text-truncate d-block">
+              {{ site_settings.get('official_email', 'info@rppharma.com') }}
+            </a>
+            <span class="small text-muted">Business: {{ site_settings.get('business_email', 'business@rppharma.com') }}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Contact Form & Details Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row g-4 align-items-stretch">
+      
+      <!-- Left Column: Working Contact Form -->
       <div class="col-lg-7">
-        <div class="p-4 p-md-5 rounded-4 border bg-white shadow-sm">
+        <div class="p-4 p-md-5 rounded-4 border bg-white shadow-sm h-100">
           <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
-            <i class="fa-solid fa-envelope text-teal fs-4"></i>
-            <h3 class="fw-bold fs-4 text-primary mb-0">Send a Direct Message</h3>
+            <i class="fa-solid fa-paper-plane text-teal fs-4"></i>
+            <h3 class="fw-bold fs-4 text-primary mb-0">Send an Enquiry</h3>
           </div>
 
           <form action="{{ url_for('enquiries.submit_enquiry') }}" method="POST">
@@ -148,12 +106,12 @@
 
             <div class="row g-3">
               <div class="col-md-6">
-                <label class="form-label form-label-custom">Full Name <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-custom" name="full_name" required placeholder="Your full name">
+                <label class="form-label form-label-custom">Your Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control form-control-custom" name="full_name" required placeholder="Full name">
               </div>
 
               <div class="col-md-6">
-                <label class="form-label form-label-custom">Company / Organization</label>
+                <label class="form-label form-label-custom">Company / Business</label>
                 <input type="text" class="form-control form-control-custom" name="company_name" placeholder="Company name">
               </div>
 
@@ -163,39 +121,110 @@
               </div>
 
               <div class="col-md-6">
-                <label class="form-label form-label-custom">Phone / WhatsApp</label>
-                <input type="text" class="form-control form-control-custom" name="phone" placeholder="+Country Code - Phone">
+                <label class="form-label form-label-custom">Phone / WhatsApp <span class="text-danger">*</span></label>
+                <input type="text" class="form-control form-control-custom" name="phone" required placeholder="+91 / Country Code - Number">
               </div>
 
               <div class="col-md-6">
-                <label class="form-label form-label-custom">Country <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-custom" name="country" required placeholder="Your country">
+                <label class="form-label form-label-custom">Country of Operation <span class="text-danger">*</span></label>
+                <input type="text" class="form-control form-control-custom" name="country" required placeholder="e.g. India, UAE, Vietnam, Kenya">
               </div>
 
               <div class="col-md-6">
                 <label class="form-label form-label-custom">Subject <span class="text-danger">*</span></label>
-                <input type="text" class="form-control form-control-custom" name="subject" required placeholder="e.g. Product Inquiry / Distribution / Dossier">
+                <input type="text" class="form-control form-control-custom" name="subject" required placeholder="Product Enquiry / Distribution / Dossier">
               </div>
 
               <div class="col-12">
-                <label class="form-label form-label-custom">Message <span class="text-danger">*</span></label>
-                <textarea class="form-control form-control-custom" name="message" rows="4" required placeholder="Please write your inquiry or message here..."></textarea>
+                <label class="form-label form-label-custom">Enquiry Message <span class="text-danger">*</span></label>
+                <textarea class="form-control form-control-custom" name="message" rows="4" required placeholder="Please describe your requirements, formulation interest, or estimated order volume..."></textarea>
               </div>
 
-              <!-- Anti-Spam Verification -->
+              <!-- Security Check -->
               <div class="col-md-6">
-                <label class="form-label form-label-custom">Security Question: 5 + 3 = ? <span class="text-danger">*</span></label>
+                <label class="form-label form-label-custom">Security Question: 4 + 4 = ? <span class="text-danger">*</span></label>
                 <input type="hidden" name="captcha_expected" value="8">
-                <input type="text" class="form-control form-control-custom" name="captcha_answer" required placeholder="Answer">
+                <input type="text" class="form-control form-control-custom" name="captcha_answer" required placeholder="Enter 8">
               </div>
 
               <div class="col-12 pt-2">
-                <button type="submit" class="btn btn-rp-secondary w-100 py-3">
+                <button type="submit" class="btn btn-rp-secondary w-100 py-3 fs-6">
                   <i class="fa-solid fa-paper-plane me-2"></i> Submit Message
                 </button>
               </div>
             </div>
           </form>
+        </div>
+      </div>
+
+      <!-- Right Column: Corporate Details & Working Hours -->
+      <div class="col-lg-5">
+        <div class="p-4 p-md-5 rounded-4 border bg-white shadow-sm h-100 d-flex flex-column justify-content-between">
+          <div>
+            <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+              <i class="fa-solid fa-building text-teal fs-4"></i>
+              <h3 class="fw-bold fs-4 text-primary mb-0">Corporate Office</h3>
+            </div>
+
+            <!-- Address Card -->
+            <div class="mb-4">
+              <div class="d-flex gap-3 align-items-start">
+                <i class="fa-solid fa-location-dot text-teal fs-5 mt-1"></i>
+                <div>
+                  <h6 class="fw-bold text-primary mb-1">Registered &amp; Corporate Office</h6>
+                  <p class="text-muted small mb-0">{{ site_settings.get('office_address', '[Complete Corporate Office Address], India') }}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Working Hours -->
+            <div class="mb-4">
+              <div class="d-flex gap-3 align-items-start">
+                <i class="fa-regular fa-clock text-teal fs-5 mt-1"></i>
+                <div>
+                  <h6 class="fw-bold text-primary mb-1">Business Hours</h6>
+                  <p class="text-muted small mb-0">{{ site_settings.get('working_hours', 'Monday – Saturday: 9:00 AM – 6:30 PM (IST)') }}</p>
+                  <p class="text-muted small mb-0">Sunday: Closed (Emergency export desk on WhatsApp)</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Departments Direct -->
+            <div class="mb-4 pt-3 border-top">
+              <h6 class="fw-bold text-primary mb-3">Key Contact Departments</h6>
+              <div class="d-flex flex-column gap-2 small">
+                <div class="d-flex justify-content-between">
+                  <span class="text-muted">General Enquiries:</span>
+                  <a href="mailto:{{ site_settings.get('official_email', 'info@rppharma.com') }}" class="fw-semibold">{{ site_settings.get('official_email', 'info@rppharma.com') }}</a>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="text-muted">Business Partnerships:</span>
+                  <a href="mailto:{{ site_settings.get('business_email', 'business@rppharma.com') }}" class="fw-semibold">{{ site_settings.get('business_email', 'business@rppharma.com') }}</a>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="text-muted">Export Documentation:</span>
+                  <a href="mailto:{{ site_settings.get('export_email', 'export@rppharma.com') }}" class="fw-semibold">{{ site_settings.get('export_email', 'export@rppharma.com') }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div class="pt-3 border-top">
+            <div class="row g-2">
+              <div class="col-6">
+                <a href="tel:{{ site_settings.get('official_phone', '+918469034869') }}" class="btn btn-rp-outline w-100 btn-sm py-2">
+                  <i class="fa-solid fa-phone me-1"></i> Call Now
+                </a>
+              </div>
+              <div class="col-6">
+                <a href="https://wa.me/{{ site_settings.get('whatsapp_raw_number', '918469034869') }}" target="_blank" class="btn btn-rp-secondary w-100 btn-sm py-2">
+                  <i class="fa-brands fa-whatsapp me-1"></i> WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 

@@ -54,19 +54,22 @@
 <body>
 
   <!-- 1. Top Utility Bar -->
-  <div class="top-bar d-none d-lg-block">
+  <div class="top-bar d-none d-md-block">
     <div class="container">
       <div class="d-flex justify-content-between align-items-center">
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center flex-wrap gap-3">
           <span class="info-pill"><i class="fa-solid fa-location-dot text-teal"></i> India &bull; Global B2B Export</span>
-          <span class="info-pill"><i class="fa-regular fa-clock text-teal"></i> {{ site_settings.get('working_hours', 'Mon - Sat: 9:00 AM - 6:00 PM IST') }}</span>
+          <span class="info-pill"><i class="fa-regular fa-clock text-teal"></i> {{ site_settings.get('working_hours', 'Mon - Sat: 9:00 AM - 6:30 PM IST') }}</span>
         </div>
         <div class="d-flex align-items-center gap-3">
-          <a href="mailto:{{ site_settings.get('business_email', site_settings.get('official_email', 'contact@rppharma.com')) }}" class="info-pill">
-            <i class="fa-regular fa-envelope text-teal"></i> {{ site_settings.get('business_email', '[Business Email]') }}
+          <a href="tel:{{ site_settings.get('official_phone', '+918469034869') }}" class="info-pill fw-semibold">
+            <i class="fa-solid fa-phone text-teal"></i> {{ site_settings.get('official_phone', '+91 84690 34869') }}
           </a>
-          <a href="{{ url_for('admin.login') }}" class="text-white-50 text-decoration-none ms-2" title="Admin Portal">
-            <i class="fa-solid fa-lock text-teal"></i> Admin
+          <a href="https://wa.me/{{ site_settings.get('whatsapp_raw_number', '918469034869') }}" target="_blank" class="info-pill text-teal fw-semibold">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
+          <a href="mailto:{{ site_settings.get('official_email', 'info@rppharma.com') }}" class="info-pill">
+            <i class="fa-regular fa-envelope text-teal"></i> {{ site_settings.get('official_email', 'info@rppharma.com') }}
           </a>
         </div>
       </div>
@@ -85,14 +88,19 @@
         </div>
       </a>
 
-      <!-- Mobile Toggle -->
-      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fa-solid fa-bars-staggered text-primary fs-3"></i>
-      </button>
+      <!-- Mobile Call & Toggle -->
+      <div class="d-flex align-items-center gap-2 d-lg-none">
+        <a href="tel:{{ site_settings.get('official_phone', '+918469034869') }}" class="btn btn-sm btn-rp-outline py-1 px-2" aria-label="Call RP PHARMA">
+          <i class="fa-solid fa-phone text-teal"></i>
+        </a>
+        <button class="navbar-toggler border-0 shadow-none p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars-staggered text-primary fs-4"></i>
+        </button>
+      </div>
 
       <!-- Nav Links -->
       <div class="collapse navbar-collapse" id="navbarMain">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 py-2 py-lg-0">
           <li class="nav-item">
             <a class="nav-link nav-link-custom {% if request.path == '/' %}active{% endif %}" href="{{ url_for('main.index') }}">Home</a>
           </li>
@@ -123,9 +131,9 @@
         </ul>
 
         <!-- Right Action Button -->
-        <div class="d-flex align-items-center gap-2">
-          <a href="{{ url_for('main.business_enquiry') }}" class="btn btn-rp-secondary btn-sm-custom">
-            <i class="fa-solid fa-paper-plane"></i> Request a Quote
+        <div class="d-flex align-items-center gap-2 pt-2 pt-lg-0">
+          <a href="{{ url_for('main.contact') }}" class="btn btn-rp-secondary btn-sm-custom w-100 w-lg-auto">
+            <i class="fa-solid fa-paper-plane me-1"></i> Contact Us
           </a>
         </div>
       </div>
@@ -309,14 +317,31 @@
           </ul>
         </div>
 
-        <!-- Col 5: Contact Placeholders -->
-        <div class="col-lg-2 col-md-6">
-          <h4 class="footer-heading">Contact</h4>
+        <!-- Col 5: Direct Contact -->
+        <div class="col-lg-3 col-md-6">
+          <h4 class="footer-heading">Contact Direct</h4>
           <ul class="footer-links small text-secondary">
-            <li class="mb-2"><i class="fa-solid fa-location-dot text-teal me-2"></i> {{ site_settings.get('office_address', '[Complete Corporate Office Address], India') }}</li>
-            <li class="mb-2"><i class="fa-solid fa-envelope text-teal me-2"></i> {{ site_settings.get('official_email', '[Official Email Address]') }}</li>
-            <li class="mb-2"><i class="fa-solid fa-phone text-teal me-2"></i> {{ site_settings.get('official_phone', '[Official Phone Number]') }}</li>
-            <li class="mb-2"><i class="fa-brands fa-whatsapp text-teal me-2"></i> {{ site_settings.get('whatsapp_number', '[Official WhatsApp Number]') }}</li>
+            <li class="mb-2">
+              <i class="fa-solid fa-location-dot text-teal me-2"></i> {{ site_settings.get('office_address', '[Complete Corporate Office Address], India') }}
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-phone text-teal me-2"></i> 
+              <a href="tel:{{ site_settings.get('official_phone', '+918469034869') }}" class="text-white fw-bold">
+                {{ site_settings.get('official_phone', '+91 84690 34869') }}
+              </a>
+            </li>
+            <li class="mb-2">
+              <i class="fa-brands fa-whatsapp text-teal me-2"></i> 
+              <a href="https://wa.me/{{ site_settings.get('whatsapp_raw_number', '918469034869') }}" target="_blank" class="text-white">
+                {{ site_settings.get('whatsapp_number', '+91 84690 34869') }}
+              </a>
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-envelope text-teal me-2"></i> 
+              <a href="mailto:{{ site_settings.get('official_email', 'info@rppharma.com') }}">
+                {{ site_settings.get('official_email', 'info@rppharma.com') }}
+              </a>
+            </li>
           </ul>
         </div>
       </div>

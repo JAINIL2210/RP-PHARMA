@@ -20,15 +20,15 @@ def seed_database():
         ('vision', 'To become a trusted global partner for pharmaceutical and nutraceutical solutions.', 'Company Vision Statement', 'company'),
         ('mission', 'To deliver quality-focused, compliant and reliable healthcare products while building long-term relationships with customers and partners.', 'Company Mission Statement', 'company'),
         
-        # Contact Information (Placeholders as specified in prompt)
-        ('office_address', '[Complete Corporate Office Address], [City, State, PIN Code], India', 'Registered / Corporate Office Address', 'contact'),
-        ('official_email', '[Official Email Address]', 'General Official Email', 'contact'),
-        ('official_phone', '[Official Phone Number]', 'Official Phone Number', 'contact'),
-        ('whatsapp_number', '[Official WhatsApp Number]', 'Official WhatsApp Business Number (e.g. +91 98765 43210)', 'contact'),
-        ('whatsapp_raw_number', '919876543210', 'Raw WhatsApp Number for wa.me links (digits only)', 'contact'),
-        ('business_email', '[Business Email]', 'Business Enquiries Email', 'contact'),
-        ('export_email', '[Export Email]', 'Export Enquiries Email', 'contact'),
-        ('working_hours', 'Monday – Saturday: 9:00 AM – 6:00 PM (IST)', 'Office Working Hours', 'contact'),
+        # Contact Information
+        ('office_address', '[Complete Corporate Office Address], India', 'Registered / Corporate Office Address', 'contact'),
+        ('official_email', 'info@rppharma.com', 'General Official Email', 'contact'),
+        ('official_phone', '+91 84690 34869', 'Official Phone Number', 'contact'),
+        ('whatsapp_number', '+91 84690 34869', 'Official WhatsApp Business Number', 'contact'),
+        ('whatsapp_raw_number', '918469034869', 'Raw WhatsApp Number for wa.me links (digits only)', 'contact'),
+        ('business_email', 'business@rppharma.com', 'Business Enquiries Email', 'contact'),
+        ('export_email', 'export@rppharma.com', 'Export Enquiries Email', 'contact'),
+        ('working_hours', 'Monday – Saturday: 9:00 AM – 6:30 PM (IST)', 'Office Working Hours', 'contact'),
         ('google_maps_embed', '', 'Google Maps Embed URL / Iframe src', 'contact'),
         
         # Trust Statistics (Placeholders clearly marked)
