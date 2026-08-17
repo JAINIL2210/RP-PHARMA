@@ -1,15 +1,16 @@
 import os
 import sys
 import traceback
+import tempfile
 
-# Ensure root directory is on Python path
+# Force Vercel / serverless environment flag
+os.environ['VERCEL'] = '1'
+
+# Ensure root directory is in sys.path
 current_dir = os.path.dirname(os.path.abspath(__file__))
 root_dir = os.path.dirname(current_dir)
 if root_dir not in sys.path:
     sys.path.insert(0, root_dir)
-
-# Set Vercel environment marker
-os.environ['VERCEL'] = '1'
 
 try:
     from app import create_app
@@ -18,7 +19,7 @@ except Exception as e:
     sys.stderr.write(f"[FATAL VERCEL STARTUP ERROR]: {str(e)}\n")
     traceback.print_exc(file=sys.stderr)
     
-    # Fallback diagnostic app: Renders the exact traceback directly if container initialization fails
+    # Robust diagnostic fallback app so that Vercel always loads cleanly
     from flask import Flask, Response
     app = Flask(__name__)
     captured_err = traceback.format_exc()
@@ -29,10 +30,10 @@ except Exception as e:
         return Response(
             f"""<!DOCTYPE html>
             <html>
-            <head><title>RP PHARMA - Diagnostic Log</title></head>
+            <head><title>RP PHARMA - System Notice</title></head>
             <body style="font-family: monospace; padding: 2rem; background: #0A3D62; color: #fff;">
               <h2 style="color: #00E5CC;">RP PHARMA — Serverless Initialization Notice</h2>
-              <p>The application encountered the following startup exception:</p>
+              <p>Startup exception details:</p>
               <pre style="background: #061527; padding: 1.5rem; border-radius: 8px; overflow-x: auto; color: #ffb86c;">{captured_err}</pre>
             </body>
             </html>""",
@@ -40,6 +41,9 @@ except Exception as e:
             mimetype='text/html'
         )
 
-# Required for local testing or Vercel WSGI
+# Explicit top-level exports for Vercel WSGI / Python Serverless runtime
+application = app
+handler = app
+
 if __name__ == '__main__':
     app.run()

@@ -30,10 +30,11 @@ def create_app(config_name=None):
     except Exception as e:
         print(f"[!] Upload dir notice: {e}")
 
-    try:
-        os.makedirs(os.path.join(app.root_path, '..', 'instance'), exist_ok=True)
-    except Exception as e:
-        pass
+    if not is_serverless:
+        try:
+            os.makedirs(os.path.join(app.root_path, '..', 'instance'), exist_ok=True)
+        except Exception:
+            pass
     
     # Initialize extensions
     db.init_app(app)
