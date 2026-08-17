@@ -43,7 +43,9 @@ app/static/uploads/enquiries/*
 .vscode/
 .idea/
 *.swp
-*.swo
+# Tools & Binaries
+tools/
+*.zip
 
 # OS
 .DS_Store
