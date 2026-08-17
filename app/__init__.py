@@ -17,6 +17,14 @@ def create_app(config_name='default'):
     # Initialize extensions
     db.init_app(app)
     
+    with app.app_context():
+        try:
+            db.create_all()
+            from app.seed_data import seed_database
+            seed_database()
+        except Exception as e:
+            print(f"[!] DB init notice: {e}")
+    
     # Context processor to inject global settings & navigation categories into all templates
     @app.context_processor
     def inject_global_data():

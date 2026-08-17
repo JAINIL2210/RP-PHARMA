@@ -7,10 +7,10 @@ class Config:
     """Base application configuration."""
     SECRET_KEY = os.environ.get('SECRET_KEY', 'rp-pharma-secure-secret-key-2026-global-b2b')
     
-    # Database Configuration (SQLite default with MySQL support)
+    db_path = str(BASE_DIR / 'instance' / 'rp_pharma.db').replace('\\', '/')
     SQLALCHEMY_DATABASE_URI = os.environ.get(
         'DATABASE_URI',
-        f"sqlite:///{BASE_DIR / 'instance' / 'rp_pharma.db'}"
+        f"sqlite:///{db_path}"
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     
