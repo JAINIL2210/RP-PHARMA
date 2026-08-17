@@ -1,0 +1,118 @@
+{% extends 'admin/base_admin.html' %}
+
+{% block title %}Categories Management &bull; RP PHARMA Admin{% endblock %}
+{% block page_title %}Product Categories{% endblock %}
+
+{% block content %}
+
+<div class="row g-4">
+  
+  <!-- Left: Add New Category Form -->
+  <div class="col-lg-4">
+    <div class="admin-card">
+      <h5 class="fw-bold fs-6 text-primary mb-3">
+        <i class="fa-solid fa-folder-plus text-teal me-2"></i> Add New Category
+      </h5>
+
+      <form method="POST">
+        <input type="hidden" name="action" value="add">
+        
+        <div class="mb-3">
+          <label class="form-label form-label-custom">Category Name <span class="text-danger">*</span></label>
+          <input type="text" class="form-control form-control-custom" name="name" required placeholder="e.g. Antibiotics &amp; Anti-Infectives">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label form-label-custom">Division <span class="text-danger">*</span></label>
+          <select class="form-select form-select-custom" name="type" required>
+            <option value="pharmaceutical">Pharmaceutical</option>
+            <option value="nutraceutical">Nutraceutical</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label form-label-custom">Icon Class (Font Awesome)</label>
+          <input type="text" class="form-control form-control-custom" name="icon" value="fa-pills" placeholder="e.g. fa-capsules, fa-heart-pulse">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label form-label-custom">Display Order</label>
+          <input type="number" class="form-control form-control-custom" name="display_order" value="0">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label form-label-custom">Description</label>
+          <textarea class="form-control form-control-custom" name="description" rows="2" placeholder="Short description of this therapeutic segment..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-rp-primary w-100 py-2">
+          <i class="fa-solid fa-plus me-1"></i> Add Category
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Right: Existing Categories List -->
+  <div class="col-lg-8">
+    <div class="admin-card">
+      <h5 class="fw-bold fs-6 text-primary mb-3">
+        Active Categories ({{ categories|length }})
+      </h5>
+
+      {% if categories %}
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+          <thead class="table-light small">
+            <tr>
+              <th>Icon</th>
+              <th>Category Name</th>
+              <th>Division</th>
+              <th>Order</th>
+              <th>Products</th>
+              <th class="text-end">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="small">
+            {% for cat in categories %}
+            <tr>
+              <td>
+                <div class="bg-light border rounded p-2 text-center" style="width:36px;height:36px;">
+                  <i class="fa-solid {{ cat.icon or 'fa-pills' }} text-primary"></i>
+                </div>
+              </td>
+              <td>
+                <div class="fw-bold text-dark">{{ cat.name }}</div>
+                <div class="text-muted" style="font-size:0.75rem;">slug: {{ cat.slug }}</div>
+              </td>
+              <td>
+                <span class="badge {% if cat.type == 'pharmaceutical' %}bg-primary{% else %}bg-success{% endif %}">
+                  {{ cat.type|capitalize }}
+                </span>
+              </td>
+              <td>{{ cat.display_order }}</td>
+              <td>
+                <span class="badge bg-light text-dark border">{{ cat.products.count() }}</span>
+              </td>
+              <td class="text-end">
+                <form action="{{ url_for('admin.categories_list') }}" method="POST" class="d-inline form-delete-confirm">
+                  <input type="hidden" name="action" value="delete">
+                  <input type="hidden" name="category_id" value="{{ cat.id }}">
+                  <button type="submit" class="btn btn-xs btn-outline-danger btn-sm" title="Delete">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <p class="text-muted small mb-0">No categories found.</p>
+      {% endif %}
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

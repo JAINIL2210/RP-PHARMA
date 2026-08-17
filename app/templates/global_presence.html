@@ -1,0 +1,197 @@
+{% extends 'base.html' %}
+
+{% block title %}Global Presence | RP PHARMA — From India to Global Markets{% endblock %}
+{% block meta_description %}Explore RP PHARMA's global export reach from India across Southeast Asia, Africa, Middle East, CIS, and Latin America. Become an international distributor.{% endblock %}
+
+{% block content %}
+
+<!-- Header Banner -->
+<section class="py-5" style="background: radial-gradient(circle at 80% 20%, rgba(0, 168, 150, 0.15) 0%, rgba(11, 37, 69, 0.04) 70%), #F8FAFD; border-bottom:1px solid var(--border-light);">
+  <div class="container py-4">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb small">
+            <li class="breadcrumb-item"><a href="{{ url_for('main.index') }}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Global Presence</li>
+          </ol>
+        </nav>
+        <span class="section-tag"><i class="fa-solid fa-earth-americas"></i> International Markets</span>
+        <h1 class="display-5 fw-bold text-primary mb-3">From India to Global Markets</h1>
+        <p class="lead text-body fs-6 mb-0">
+          Connecting Indian pharmaceutical and nutraceutical manufacturing excellence with international distributors, healthcare systems, and institutional buyers worldwide.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Interactive Global Markets Section -->
+<section class="py-5 bg-white">
+  <div class="container py-4">
+    
+    <!-- Interactive Map Display Wrap -->
+    <div class="map-container-wrap mb-5">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <div class="p-3">
+            <span class="section-tag section-tag-light mb-3"><i class="fa-solid fa-location-crosshairs"></i> Regional Focus</span>
+            <h3 class="text-white fw-bold mb-3" id="activeRegionName">Global Export Footprint</h3>
+            <p class="text-light lead fs-6 mb-4" id="activeRegionDesc">
+              Hover over or select any continental region below to view our export readiness, regulatory dossier alignment, and partner support services.
+            </p>
+
+            <div class="d-flex flex-wrap gap-2 pt-2">
+              <span class="badge bg-white bg-opacity-10 text-light border border-white border-opacity-20 px-3 py-2">
+                <i class="fa-solid fa-plane-departure text-teal me-1"></i> Air Freight Support
+              </span>
+              <span class="badge bg-white bg-opacity-10 text-light border border-white border-opacity-20 px-3 py-2">
+                <i class="fa-solid fa-ship text-teal me-1"></i> Ocean FCL / LCL
+              </span>
+              <span class="badge bg-white bg-opacity-10 text-light border border-white border-opacity-20 px-3 py-2">
+                <i class="fa-solid fa-passport text-teal me-1"></i> Health Authority Registration
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="p-4 bg-white bg-opacity-10 rounded-4 border border-white border-opacity-15 text-center">
+            <div class="display-4 fw-bold text-white mb-1"><span class="text-teal">India</span> to World</div>
+            <p class="text-light small mb-3">Headquartered in India with proven export capabilities</p>
+            <a href="{{ url_for('main.business_enquiry') }}" class="btn btn-rp-secondary w-100">
+              <i class="fa-solid fa-handshake me-2"></i> Become a Business Partner
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Regions Grid Cards -->
+    <div class="row g-4 mb-5">
+      <!-- Asia -->
+      <div class="col-md-6 col-lg-4">
+        <div class="map-region-card h-100 bg-white border text-dark p-4 rounded-4 shadow-sm" data-region="asia">
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <h5 class="fw-bold text-primary mb-0"><i class="fa-solid fa-location-dot text-teal me-2"></i> Southeast &amp; South Asia</h5>
+            <span class="badge bg-primary text-white">Active Corridor</span>
+          </div>
+          <p class="small text-muted mb-3">
+            Supplying essential anti-infective, cardiovascular, and pain management finished formulations supported by full ACTD/CTD regulatory dossiers.
+          </p>
+          <ul class="list-unstyled small text-secondary mb-0">
+            <li><i class="fa-solid fa-check text-teal me-1"></i> Tropical stability data (Zone IVb)</li>
+            <li><i class="fa-solid fa-check text-teal me-1"></i> Customized multilingual blister packaging</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Africa -->
+      <div class="col-md-6 col-lg-4">
+        <div class="map-region-card h-100 bg-white border text-dark p-4 rounded-4 shadow-sm" data-region="africa">
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <h5 class="fw-bold text-primary mb-0"><i class="fa-solid fa-location-dot text-teal me-2"></i> Africa</h5>
+            <span class="badge bg-primary text-white">Key Export Region</span>
+          </div>
+          <p class="small text-muted mb-3">
+            Partnering with private healthcare distributors, retail pharmacy chains, and institutional procurement agencies across Sub-Saharan and North Africa.
+          </p>
+          <ul class="list-unstyled small text-secondary mb-0">
+            <li><i class="fa-solid fa-check text-teal me-1"></i> Essential medicines &amp; antibiotics</li>
+            <li><i class="fa-solid fa-check text-teal me-1"></i> High-potency vitamins and minerals</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Middle East -->
+      <div class="col-md-6 col-lg-4">
+        <div class="map-region-card h-100 bg-white border text-dark p-4 rounded-4 shadow-sm" data-region="middle-east">
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <h5 class="fw-bold text-primary mb-0"><i class="fa-solid fa-location-dot text-teal me-2"></i> Middle East &amp; GCC</h5>
+            <span class="badge bg-primary text-white">Emerging Markets</span>
+          </div>
+          <p class="small text-muted mb-3">
+            Focused on advanced nutraceutical wellness lines, premium softgel dietary supplements, and specialty therapeutic pharmaceuticals.
+          </p>
+          <ul class="list-unstyled small text-secondary mb-0">
+            <li><i class="fa-solid fa-check text-teal me-1"></i> Stringent COA &amp; Halal compliance data</li>
+            <li><i class="fa-solid fa-check text-teal me-1"></i> Premium packaging formats</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CIS -->
+      <div class="col-md-6 col-lg-4">
+        <div class="map-region-card h-100 bg-white border text-dark p-4 rounded-4 shadow-sm" data-region="cis">
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <h5 class="fw-bold text-primary mb-0"><i class="fa-solid fa-location-dot text-teal me-2"></i> CIS &amp; Central Asia</h5>
+            <span class="badge bg-primary text-white">Growing Market</span>
+          </div>
+          <p class="small text-muted mb-3">
+            Dossier support aligned with regional pharmacopeias and drug regulatory requirements for cardiovascular, metabolic, and respiratory formulations.
+          </p>
+          <ul class="list-unstyled small text-secondary mb-0">
+            <li><i class="fa-solid fa-check text-teal me-1"></i> CTD dossier Module 1-5 ready</li>
+            <li><i class="fa-solid fa-check text-teal me-1"></i> Bioequivalence study documentation</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Latin America -->
+      <div class="col-md-6 col-lg-4">
+        <div class="map-region-card h-100 bg-white border text-dark p-4 rounded-4 shadow-sm" data-region="latam">
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <h5 class="fw-bold text-primary mb-0"><i class="fa-solid fa-location-dot text-teal me-2"></i> Latin America</h5>
+            <span class="badge bg-primary text-white">Expansion Territory</span>
+          </div>
+          <p class="small text-muted mb-3">
+            Engaging prospective pharmaceutical importers, distributor networks, and hospital supply tenders across Central and South American territories.
+          </p>
+          <ul class="list-unstyled small text-secondary mb-0">
+            <li><i class="fa-solid fa-check text-teal me-1"></i> Competitive bulk and retail packaging</li>
+            <li><i class="fa-solid fa-check text-teal me-1"></i> Validated analytical testing reports</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- International Opportunity -->
+      <div class="col-md-6 col-lg-4">
+        <div class="map-region-card h-100 bg-light border border-teal text-dark p-4 rounded-4 shadow-sm" style="border-color: var(--secondary) !important;">
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <h5 class="fw-bold text-primary mb-0"><i class="fa-solid fa-globe text-teal me-2"></i> Other Global Markets</h5>
+            <span class="badge bg-secondary text-white">Inquiries Open</span>
+          </div>
+          <p class="small text-muted mb-3">
+            RP PHARMA welcomes international inquiries from licensed importers and healthcare enterprises worldwide seeking a dependable Indian partner.
+          </p>
+          <a href="{{ url_for('main.business_enquiry') }}" class="btn btn-sm btn-rp-outline w-100 mt-2">
+            Submit Market Inquiry <i class="fa-solid fa-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Partnership Callout Section -->
+    <div class="p-4 p-lg-5 bg-light rounded-4 border text-center">
+      <h3 class="fw-bold text-primary mb-3">Looking for a Pharmaceutical Partner in Your Market?</h3>
+      <p class="lead text-muted fs-6 mb-4 mx-auto" style="max-width: 680px;">
+        Join our growing international distributor network. We provide dedicated regulatory dossiers, competitive commercial pricing, marketing support, and guaranteed supply consistency.
+      </p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="{{ url_for('main.business_enquiry') }}" class="btn btn-rp-secondary">
+          <i class="fa-solid fa-handshake me-2"></i> Apply for Distribution Rights
+        </a>
+        <a href="{{ url_for('products.list_products') }}" class="btn btn-rp-outline">
+          <i class="fa-solid fa-capsules me-2"></i> View Available Formulations
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/map.js') }}"></script>
+{% endblock %}

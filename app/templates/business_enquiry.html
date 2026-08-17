@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+
+{% block title %}B2B Business &amp; Distributor Enquiry | RP PHARMA{% endblock %}
+{% block meta_description %}Submit a B2B business or distributor enquiry to RP PHARMA. Partner with a trusted Indian pharmaceutical and nutraceutical manufacturer and exporter.{% endblock %}
+
+{% block content %}
+
+<!-- Header Banner -->
+<section class="py-5" style="background: radial-gradient(circle at 80% 20%, rgba(0, 168, 150, 0.15) 0%, rgba(11, 37, 69, 0.04) 70%), #F8FAFD; border-bottom:1px solid var(--border-light);">
+  <div class="container py-4">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb small">
+            <li class="breadcrumb-item"><a href="{{ url_for('main.index') }}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Business Enquiry</li>
+          </ol>
+        </nav>
+        <span class="section-tag"><i class="fa-solid fa-handshake"></i> International B2B Partnerships</span>
+        <h1 class="display-5 fw-bold text-primary mb-3">Let's Build a Healthcare Partnership</h1>
+        <p class="lead text-body fs-6 mb-0">
+          We welcome inquiries from international pharmaceutical distributors, importers, wholesalers, and institutional healthcare buyers seeking reliable formulations and regulatory dossiers from India.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Business Enquiry Form & Information Section -->
+<section class="py-5 bg-white">
+  <div class="container py-4">
+    <div class="row g-5">
+      
+      <!-- Left Column: B2B Enquiry Form -->
+      <div class="col-lg-8">
+        <div class="p-4 p-md-5 rounded-4 border bg-white shadow-sm">
+          <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+            <i class="fa-solid fa-file-signature text-teal fs-4"></i>
+            <h3 class="fw-bold fs-4 text-primary mb-0">Business Partnership Form</h3>
+          </div>
+
+          <form action="{{ url_for('enquiries.submit_enquiry') }}" method="POST" enctype="multipart/form-data" id="businessEnquiryForm">
+            <input type="hidden" name="enquiry_type" value="business_partnership">
+            
+            <!-- Honeypot anti-spam trap (invisible to real humans) -->
+            <div style="display:none;" aria-hidden="true">
+              <input type="text" name="website_hp" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="row g-3">
+              <!-- Full Name -->
+              <div class="col-md-6">
+                <label class="form-label form-label-custom">Full Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control form-control-custom" name="full_name" required placeholder="e.g. John Doe / Dr. Jane Smith">
+              </div>
+
+              <!-- Company Name -->
+              <div class="col-md-6">
+                <label class="form-label form-label-custom">Company / Organization Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control form-control-custom" name="company_name" required placeholder="e.g. Global Health Pharma Ltd.">
+              </div>
+
+              <!-- Country -->
+              <div class="col-md-6">
+                <label class="form-label form-label-custom">Country of Operation / Import <span class="text-danger">*</span></label>
+                <input type="text" class="form-control form-control-custom" name="country" required placeholder="e.g. UAE, Philippines, Kenya, Peru">
+              </div>
+
+              <!-- Business Type -->
+              <div class="col-md-6">
+                <label class="form-label form-label-custom">Business Type <span class="text-danger">*</span></label>
+                <select class="form-select form-select-custom" name="business_type" required>
+                  <option value="" disabled selected>Select Business Type</option>
+                  <option value="Distributor">Distributor / Agent</option>
+                  <option value="Importer">Importer / Trader</option>
+                  <option value="Wholesaler">Wholesaler</option>
+                  <option value="Pharmaceutical Company">Pharmaceutical Company</option>
+                  <option value="Healthcare Company">Healthcare Company</option>
+                  <option value="Hospital / Institution">Hospital / Institution</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <!-- Email -->
+              <div class="col-md-6">
+                <label class="form-label form-label-custom">Official Business Email <span class="text-danger">*</span></label>
+                <input type="email" class="form-control form-control-custom" name="email" required placeholder="e.g. procurement@company.com">
+              </div>
+
+              <!-- Phone / WhatsApp -->
+              <div class="col-md-6">
+                <label class="form-label form-label-custom">Phone / WhatsApp Number <span class="text-danger">*</span></label>
+                <input type="text" class="form-control form-control-custom" name="phone" required placeholder="+Country Code - Number">
+              </div>
+
+              <!-- Product Interested In -->
+              <div class="col-md-6">
+                <label class="form-label form-label-custom">Product of Interest (Optional)</label>
+                <input type="text" class="form-control form-control-custom" name="product_name" value="{{ request.args.get('product', '') }}" placeholder="Specific formulation or molecule name">
+              </div>
+
+              <!-- Category -->
+              <div class="col-md-6">
+                <label class="form-label form-label-custom">Therapeutic / Wellness Category</label>
+                <select class="form-select form-select-custom" name="category">
+                  <option value="">Select Category</option>
+                  {% for cat in categories %}
+                  <option value="{{ cat.name }}">{{ cat.name }} ({{ cat.type|capitalize }})</option>
+                  {% endfor %}
+                </select>
+              </div>
+
+              <!-- Message -->
+              <div class="col-12">
+                <label class="form-label form-label-custom">Enquiry Details &amp; Requirements <span class="text-danger">*</span></label>
+                <textarea class="form-control form-control-custom" name="message" rows="4" required placeholder="Please describe your product requirements, target quantities, packaging preferences, and any specific regulatory requirements (such as CTD dossier, stability data, or COA)."></textarea>
+              </div>
+
+              <!-- Document Upload -->
+              <div class="col-12">
+                <label class="form-label form-label-custom">Upload Supporting Document (Optional)</label>
+                <input type="file" class="form-control form-control-custom" name="document" accept=".pdf,.doc,.docx,.jpg,.png">
+                <div class="form-help-text">Attach company profile, import license, tender spec, or formulation list. Max size: 10MB (PDF, DOCX, JPG, PNG).</div>
+              </div>
+
+              <!-- Simple Anti-Spam Math Challenge -->
+              <div class="col-md-6">
+                <label class="form-label form-label-custom">Security Check: What is 4 + 3? <span class="text-danger">*</span></label>
+                <input type="hidden" name="captcha_expected" value="7">
+                <input type="text" class="form-control form-control-custom" name="captcha_answer" required placeholder="Enter answer">
+              </div>
+
+              <!-- Submit Button -->
+              <div class="col-12 pt-3">
+                <button type="submit" class="btn btn-rp-secondary w-100 py-3 fs-6">
+                  <i class="fa-solid fa-paper-plane me-2"></i> Submit Business Enquiry
+                </button>
+                <div class="text-center small text-muted mt-2">
+                  <i class="fa-solid fa-lock text-teal me-1"></i> Your information is kept strictly confidential and used solely for business communications.
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Right Column: Partnership Benefits & Contact Info -->
+      <div class="col-lg-4">
+        <div class="p-4 rounded-4 bg-light border mb-4">
+          <h4 class="fw-bold fs-5 text-primary mb-3"><i class="fa-solid fa-handshake-angle text-teal me-2"></i> Partner With Us</h4>
+          <p class="small text-muted mb-4">
+            RP PHARMA acts as your dependable sourcing and formulation manufacturing partner in India.
+          </p>
+
+          <ul class="list-unstyled small mb-0">
+            <li class="mb-3 d-flex gap-2">
+              <i class="fa-solid fa-shield-check text-teal mt-1"></i>
+              <span><strong>WHO-GMP Compliance:</strong> Formulations produced through qualified partner facilities.</span>
+            </li>
+            <li class="mb-3 d-flex gap-2">
+              <i class="fa-solid fa-file-contract text-teal mt-1"></i>
+              <span><strong>Dossier Readiness:</strong> Complete CTD / ACTD documentation to accelerate market authorization.</span>
+            </li>
+            <li class="mb-3 d-flex gap-2">
+              <i class="fa-solid fa-box-open text-teal mt-1"></i>
+              <span><strong>Flexible Packaging:</strong> Alu-Alu, blister, bottle, and custom private label packaging.</span>
+            </li>
+            <li class="d-flex gap-2">
+              <i class="fa-solid fa-headset text-teal mt-1"></i>
+              <span><strong>Dedicated Support:</strong> Prompt responses from our international export desk.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Direct Contact Box -->
+        <div class="p-4 rounded-4" style="background: linear-gradient(145deg, #0B2545 0%, #134074 100%); color:#ffffff;">
+          <h5 class="text-white fw-bold mb-3"><i class="fa-solid fa-envelope-open-text text-teal me-2"></i> Export Desk Direct</h5>
+          <p class="small text-light mb-3">For urgent commercial inquiries or bulk procurement:</p>
+          <div class="small mb-2">
+            <i class="fa-solid fa-envelope text-teal me-2"></i> 
+            <a href="mailto:{{ site_settings.get('export_email', '[Export Email]') }}" class="text-white text-decoration-none">
+              {{ site_settings.get('export_email', '[Export Email]') }}
+            </a>
+          </div>
+          <div class="small mb-2">
+            <i class="fa-solid fa-phone text-teal me-2"></i> 
+            <span class="text-light">{{ site_settings.get('official_phone', '[Official Phone Number]') }}</span>
+          </div>
+          <div class="small">
+            <i class="fa-brands fa-whatsapp text-teal me-2"></i> 
+            <span class="text-light">{{ site_settings.get('whatsapp_number', '[Official WhatsApp Number]') }}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Privacy Policy | RP PHARMA{% endblock %}
+{% block meta_description %}Privacy Policy for RP PHARMA corporate website and international business communications.{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light border-bottom">
+  <div class="container py-3">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb small">
+        <li class="breadcrumb-item"><a href="{{ url_for('main.index') }}">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Privacy Policy</li>
+      </ol>
+    </nav>
+    <h1 class="display-6 fw-bold text-primary">Privacy Policy</h1>
+    <p class="text-muted small mb-0">Last updated: January 2026</p>
+  </div>
+</section>
+
+<section class="py-5 bg-white">
+  <div class="container py-2" style="max-width: 860px;">
+    <div class="text-body lead fs-6">
+      <h4 class="fw-bold text-primary mt-4 mb-3">1. Introduction</h4>
+      <p>
+        RP PHARMA ("we", "our", or "us") respects your privacy and is committed to protecting the business and personal information you provide when using our corporate website and B2B communication channels.
+      </p>
+
+      <h4 class="fw-bold text-primary mt-4 mb-3">2. Information We Collect</h4>
+      <p>
+        We collect information that you explicitly submit through our contact forms, product inquiry forms, and business partnership applications, including:
+      </p>
+      <ul>
+        <li>Contact information (Full Name, Official Email Address, Phone/WhatsApp Number, Country).</li>
+        <li>Company information (Business Name, Business Type, Operating Markets).</li>
+        <li>Product specifications, estimated volumes, and attached registration or company documents.</li>
+      </ul>
+
+      <h4 class="fw-bold text-primary mt-4 mb-3">3. How We Use Your Information</h4>
+      <p>
+        The information collected is used exclusively for:
+      </p>
+      <ul>
+        <li>Responding to your product inquiries and commercial quotation requests.</li>
+        <li>Evaluating distribution rights, dossier licensing, and contract manufacturing proposals.</li>
+        <li>Complying with applicable export, regulatory, and legal verification standards.</li>
+      </ul>
+
+      <h4 class="fw-bold text-primary mt-4 mb-3">4. Information Confidentiality &amp; Security</h4>
+      <p>
+        RP PHARMA does not sell, lease, or share business inquiry data with third-party marketing entities. Information is accessed solely by authorized regulatory, commercial, and technical personnel.
+      </p>
+
+      <h4 class="fw-bold text-primary mt-4 mb-3">5. Contact Us Regarding Privacy</h4>
+      <p>
+        If you have questions regarding this Privacy Policy, please contact our administrative desk at: 
+        <a href="mailto:{{ site_settings.get('official_email', 'contact@rppharma.com') }}" class="text-primary fw-semibold">{{ site_settings.get('official_email', 'contact@rppharma.com') }}</a>.
+      </p>
+    </div>
+  </div>
+</section>
+{% endblock %}

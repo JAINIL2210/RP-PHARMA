@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+
+{% block title %}Quality &amp; Regulatory Compliance | RP PHARMA{% endblock %}
+{% block meta_description %}Learn about RP PHARMA's commitment to quality assurance, QC testing, WHO-GMP partner standards, CTD regulatory dossiers, and Zone IVb stability testing.{% endblock %}
+
+{% block content %}
+
+<!-- Header Banner -->
+<section class="py-5" style="background: radial-gradient(circle at 80% 20%, rgba(0, 168, 150, 0.15) 0%, rgba(11, 37, 69, 0.04) 70%), #F8FAFD; border-bottom:1px solid var(--border-light);">
+  <div class="container py-4">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb small">
+            <li class="breadcrumb-item"><a href="{{ url_for('main.index') }}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Quality &amp; Compliance</li>
+          </ol>
+        </nav>
+        <span class="section-tag"><i class="fa-solid fa-certificate"></i> Compliance Framework</span>
+        <h1 class="display-5 fw-bold text-primary mb-3">Quality &amp; Regulatory Compliance</h1>
+        <p class="lead text-body fs-6 mb-0">
+          Unwavering commitment to quality assurance, rigorous laboratory testing, international GMP benchmarks, and comprehensive technical documentation.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Quality Philosophy -->
+<section class="py-5 bg-white">
+  <div class="container py-4">
+    <div class="row align-items-center g-5 mb-5">
+      <div class="col-lg-7">
+        <div class="section-tag"><i class="fa-solid fa-shield-halved"></i> Our Quality Policy</div>
+        <h2 class="section-title">Quality Built into Every Step of the Formulation Lifecycle</h2>
+        <p class="text-body lead fs-6 mb-3">
+          At RP PHARMA, quality is not merely a final inspection step; it is systematically engineered into formulation design, raw material procurement, manufacturing processes, and final packaging.
+        </p>
+        <p class="text-muted mb-4">
+          Our formulations are manufactured through state-of-the-art facilities across India that adhere to applicable WHO-GMP and EU-GMP standards and requirements. We maintain complete batch traceability and analytical transparency to ensure healthcare products meet the highest safety, efficacy, and regulatory criteria.
+        </p>
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <div class="p-3 bg-light rounded-3 border">
+              <h6 class="fw-bold text-primary mb-1"><i class="fa-solid fa-check-circle text-teal me-2"></i> Pharmacopeial Compliance</h6>
+              <p class="small text-muted mb-0">Products formulated to IP, BP, USP, and international monographs.</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="p-3 bg-light rounded-3 border">
+              <h6 class="fw-bold text-primary mb-1"><i class="fa-solid fa-check-circle text-teal me-2"></i> Batch Consistency</h6>
+              <p class="small text-muted mb-0">Stringent in-process controls verifying content uniformity and dissolution.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="p-4 p-lg-5 rounded-4" style="background: linear-gradient(145deg, #0B2545 0%, #134074 100%); color:#ffffff;">
+          <h4 class="fw-bold text-white mb-4"><i class="fa-solid fa-microscope text-teal me-2"></i> Quality Architecture</h4>
+          
+          <div class="mb-3 d-flex gap-3">
+            <div class="bg-white bg-opacity-10 p-3 rounded-circle d-flex align-items-center justify-content-center" style="width:50px;height:50px;">
+              <i class="fa-solid fa-vial text-teal fs-5"></i>
+            </div>
+            <div>
+              <div class="fw-bold text-white">Quality Control (QC)</div>
+              <div class="small text-light">HPLC, GC, dissolution profiling, and microbiological assays.</div>
+            </div>
+          </div>
+
+          <div class="mb-3 d-flex gap-3">
+            <div class="bg-white bg-opacity-10 p-3 rounded-circle d-flex align-items-center justify-content-center" style="width:50px;height:50px;">
+              <i class="fa-solid fa-file-signature text-teal fs-5"></i>
+            </div>
+            <div>
+              <div class="fw-bold text-white">Quality Assurance (QA)</div>
+              <div class="small text-light">SOP enforcement, change control, validation, and batch release protocols.</div>
+            </div>
+          </div>
+
+          <div class="d-flex gap-3">
+            <div class="bg-white bg-opacity-10 p-3 rounded-circle d-flex align-items-center justify-content-center" style="width:50px;height:50px;">
+              <i class="fa-solid fa-box-tissue text-teal fs-5"></i>
+            </div>
+            <div>
+              <div class="fw-bold text-white">Traceability &amp; Integrity</div>
+              <div class="small text-light">Comprehensive batch manufacturing records (BMR) and audit trails.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 Main Compliance Cards -->
+    <div class="text-center mb-5">
+      <div class="section-tag"><i class="fa-solid fa-file-contract"></i> Regulatory Support</div>
+      <h2 class="section-title">Comprehensive Technical Documentation</h2>
+      <p class="section-subtitle">We support our global distribution partners with end-to-end regulatory filings tailored to international health authorities.</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Quality Assurance -->
+      <div class="col-md-6 col-lg-3">
+        <div class="rp-card">
+          <div class="card-icon-wrap card-icon-teal">
+            <i class="fa-solid fa-shield-check"></i>
+          </div>
+          <h4 class="fw-bold fs-5 text-primary mb-2">Quality Assurance</h4>
+          <p class="small text-muted mb-0">Commitment to consistent product quality, certified manufacturing facilities, and comprehensive QA oversight across all production partners.</p>
+        </div>
+      </div>
+
+      <!-- Regulatory Documentation -->
+      <div class="col-md-6 col-lg-3">
+        <div class="rp-card">
+          <div class="card-icon-wrap card-icon-blue">
+            <i class="fa-solid fa-folder-open"></i>
+          </div>
+          <h4 class="fw-bold fs-5 text-primary mb-2">Regulatory Documentation</h4>
+          <p class="small text-muted mb-0">Technical and regulatory documentation supporting products, including CTD / ACTD format dossiers, Certificates of Pharmaceutical Product (COPP), and Free Sale Certificates.</p>
+        </div>
+      </div>
+
+      <!-- Stability -->
+      <div class="col-md-6 col-lg-3">
+        <div class="rp-card">
+          <div class="card-icon-wrap card-icon-teal">
+            <i class="fa-solid fa-temperature-full"></i>
+          </div>
+          <h4 class="fw-bold fs-5 text-primary mb-2">Stability Studies</h4>
+          <p class="small text-muted mb-0">Stability studies and supporting data where applicable, conducted under ICH Zone IVb conditions (30°C / 75% RH &amp; 40°C / 75% RH) for tropical climate stability.</p>
+        </div>
+      </div>
+
+      <!-- Validation -->
+      <div class="col-md-6 col-lg-3">
+        <div class="rp-card">
+          <div class="card-icon-wrap card-icon-blue">
+            <i class="fa-solid fa-list-check"></i>
+          </div>
+          <h4 class="fw-bold fs-5 text-primary mb-2">Process Validation</h4>
+          <p class="small text-muted mb-0">Validated processes and analytical documentation where applicable, verifying repeatability, cleaning validation, and analytical method verification.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Regulatory Standards Notice -->
+<section class="py-5 bg-light">
+  <div class="container py-3">
+    <div class="p-4 p-lg-5 bg-white rounded-4 border shadow-sm">
+      <div class="row align-items-center g-4">
+        <div class="col-md-8">
+          <h4 class="fw-bold text-primary mb-2"><i class="fa-solid fa-file-shield text-teal me-2"></i> Need Regulatory Dossier Samples?</h4>
+          <p class="text-muted mb-0">
+            Our regulatory affairs team provides tailored dossier packages (Modules 1 to 5) for product registration in international jurisdictions.
+          </p>
+        </div>
+        <div class="col-md-4 text-md-end">
+          <a href="{{ url_for('main.business_enquiry') }}" class="btn btn-rp-secondary">
+            Request Regulatory Dossier
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

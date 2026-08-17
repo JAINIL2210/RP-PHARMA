@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+
+{% block title %}Product Catalogue | RP PHARMA — Pharmaceutical &amp; Nutraceutical Portfolio{% endblock %}
+{% block meta_description %}Search and explore RP PHARMA's complete portfolio of pharmaceutical formulations and nutraceutical supplements manufactured in India for global export.{% endblock %}
+
+{% block content %}
+
+<!-- Header Banner -->
+<section class="py-5" style="background: radial-gradient(circle at 80% 20%, rgba(0, 168, 150, 0.12) 0%, rgba(11, 37, 69, 0.04) 70%), #F8FAFD; border-bottom:1px solid var(--border-light);">
+  <div class="container py-3">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb small">
+        <li class="breadcrumb-item"><a href="{{ url_for('main.index') }}">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Product Catalogue</li>
+      </ol>
+    </nav>
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <span class="section-tag"><i class="fa-solid fa-boxes-stacked"></i> Complete Portfolio</span>
+        <h1 class="display-6 fw-bold text-primary mb-2">Pharmaceutical &amp; Nutraceutical Catalogue</h1>
+        <p class="lead text-body fs-6 mb-0">
+          Search and filter our finished formulations, active compositions, and dietary supplements available for international B2B export and distribution.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Catalogue Search & Filters Main Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row g-4">
+      
+      <!-- Left Sidebar: Filters -->
+      <div class="col-lg-3">
+        <div class="p-4 bg-white rounded-3 border shadow-sm sticky-top" style="top: 90px; z-index: 10;">
+          <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+            <h5 class="fw-bold fs-6 text-primary mb-0"><i class="fa-solid fa-sliders text-teal me-2"></i> Filter Products</h5>
+            <button id="resetFiltersBtn" class="btn btn-sm btn-link text-decoration-none text-muted p-0" style="font-size:0.8rem;">
+              <i class="fa-solid fa-rotate-left"></i> Reset
+            </button>
+          </div>
+
+          <!-- Filter by Division / Type -->
+          <div class="mb-4">
+            <label class="form-label-custom d-block mb-2">Division</label>
+            <div class="d-flex flex-column gap-2">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="filterType" id="typeAll" value="all" {% if not selected_type %}checked{% endif %}>
+                <label class="form-check-label small fw-semibold" for="typeAll">All Formulations</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="filterType" id="typePharma" value="pharmaceutical" {% if selected_type == 'pharmaceutical' %}checked{% endif %}>
+                <label class="form-check-label small fw-semibold" for="typePharma">Pharmaceuticals</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="filterType" id="typeNutra" value="nutraceutical" {% if selected_type == 'nutraceutical' %}checked{% endif %}>
+                <label class="form-check-label small fw-semibold" for="typeNutra">Nutraceuticals</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Filter by Category -->
+          <div class="mb-4">
+            <label class="form-label-custom d-block mb-2">Therapeutic / Wellness Category</label>
+            <select class="form-select form-select-custom form-select-sm" id="filterCategorySelect">
+              <option value="">All Categories</option>
+              <optgroup label="Pharmaceuticals">
+                {% for cat in pharma_categories %}
+                <option value="{{ cat.slug }}" {% if selected_category and selected_category.slug == cat.slug %}selected{% endif %}>{{ cat.name }}</option>
+                {% endfor %}
+              </optgroup>
+              <optgroup label="Nutraceuticals">
+                {% for cat in nutra_categories %}
+                <option value="{{ cat.slug }}" {% if selected_category and selected_category.slug == cat.slug %}selected{% endif %}>{{ cat.name }}</option>
+                {% endfor %}
+              </optgroup>
+            </select>
+          </div>
+
+          <!-- Filter by Dosage Form -->
+          <div class="mb-3">
+            <label class="form-label-custom d-block mb-2">Dosage Form</label>
+            <select class="form-select form-select-custom form-select-sm" id="filterDosageSelect">
+              <option value="">All Dosage Forms</option>
+              {% for form in dosage_forms %}
+              <option value="{{ form }}" {% if selected_dosage == form %}selected{% endif %}>{{ form }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="pt-3 border-top text-muted small">
+            <i class="fa-solid fa-shield-halved text-teal me-1"></i> Technical dossiers available for all formulations.
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Search Bar & Product Cards Grid -->
+      <div class="col-lg-9">
+        
+        <!-- Search Input Bar -->
+        <div class="p-3 bg-white rounded-3 border shadow-sm mb-4">
+          <div class="row g-2 align-items-center">
+            <div class="col-md-8">
+              <div class="input-group">
+                <span class="input-group-text bg-white border-end-0"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
+                <input type="text" id="productSearchInput" class="form-control form-control-custom border-start-0" placeholder="Search by product name, composition (e.g. Amoxicillin, Metformin, Omega-3)..." value="{{ search_keyword }}">
+              </div>
+            </div>
+            <div class="col-md-4 text-md-end text-muted small">
+              Showing <span id="resultsCount" class="fw-bold text-primary">{{ products|length }}</span> formulations
+            </div>
+          </div>
+        </div>
+
+        <!-- No Results Fallback -->
+        <div id="noResultsMessage" class="p-5 text-center bg-white rounded-3 border" style="display:none;">
+          <i class="fa-solid fa-box-open text-muted fs-1 mb-3"></i>
+          <h4 class="fw-bold text-primary">No Matching Formulations Found</h4>
+          <p class="text-muted small mb-3">Try adjusting your keyword search or resetting active filters.</p>
+          <a href="{{ url_for('main.business_enquiry') }}" class="btn btn-sm btn-rp-secondary">
+            Request Custom Formulation
+          </a>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="row g-4" id="productsGrid">
+          {% for prod in products %}
+          <div class="col-md-6 col-xl-4 product-grid-item"
+               data-name="{{ prod.name }}"
+               data-composition="{{ prod.composition }}"
+               data-type="{{ prod.type }}"
+               data-category="{{ prod.category.slug if prod.category else '' }}"
+               data-dosage="{{ prod.dosage_form }}"
+               data-indications="{{ prod.indications or '' }}">
+            <div class="product-card">
+              <div class="product-card-header">
+                <span class="product-type-badge {% if prod.type == 'pharmaceutical' %}badge-pharma{% else %}badge-nutra{% endif %}">
+                  {{ prod.type|capitalize }}
+                </span>
+                <span class="small text-muted text-truncate ms-2" style="max-width: 140px;" title="{{ prod.dosage_form }}">
+                  <i class="fa-solid fa-tablets me-1"></i>{{ prod.dosage_form }}
+                </span>
+              </div>
+              <div class="product-card-body">
+                <h5 class="product-title">{{ prod.name }}</h5>
+                <div class="product-composition" title="{{ prod.composition }}">
+                  {{ prod.composition }}
+                </div>
+                <ul class="product-specs-list">
+                  <li><strong>Category:</strong> <span class="text-truncate">{{ prod.category.name if prod.category else 'General' }}</span></li>
+                  <li><strong>Strength:</strong> <span>{{ prod.strength or 'Standard' }}</span></li>
+                  <li><strong>Packaging:</strong> <span class="text-truncate">{{ prod.packaging or 'Blister / Strip / Bottle' }}</span></li>
+                </ul>
+              </div>
+              <div class="product-card-footer">
+                <a href="{{ url_for('products.product_detail', slug=prod.slug) }}" class="btn btn-sm btn-rp-outline flex-grow-1">
+                  View Details
+                </a>
+                <button type="button" class="btn btn-sm btn-rp-secondary" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#enquiryModal" 
+                        data-product-name="{{ prod.name }}" 
+                        data-category-name="{{ prod.category.name if prod.category else '' }}">
+                  <i class="fa-solid fa-paper-plane"></i> Enquire
+                </button>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Banner -->
+<section class="py-5" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color:#ffffff;">
+  <div class="container py-2 text-center">
+    <h3 class="fw-bold text-white mb-2">Can't Find a Specific Dosage Form or Formulation?</h3>
+    <p class="text-light lead fs-6 mb-3 mx-auto" style="max-width: 600px;">
+      RP PHARMA manufactures custom formulation strengths and packaging configurations through qualified facilities in India.
+    </p>
+    <a href="{{ url_for('main.business_enquiry') }}" class="btn btn-rp-secondary">
+      <i class="fa-solid fa-file-lines me-2"></i> Submit Custom Requirement
+    </a>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/products.js') }}"></script>
+{% endblock %}

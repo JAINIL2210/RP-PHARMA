@@ -1,0 +1,145 @@
+{% extends 'admin/base_admin.html' %}
+
+{% block title %}{% if product %}Edit Product &bull; {{ product.name }}{% else %}Add New Product{% endif %} &bull; RP PHARMA Admin{% endblock %}
+{% block page_title %}{% if product %}Edit Product: {{ product.name }}{% else %}Add New Product{% endif %}{% endblock %}
+
+{% block content %}
+
+<div class="admin-card">
+  <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+    <h5 class="fw-bold fs-6 text-primary mb-0">
+      <i class="fa-solid fa-capsules text-teal me-2"></i> Product Information
+    </h5>
+    <a href="{{ url_for('admin.products_list') }}" class="btn btn-sm btn-outline-secondary">
+      <i class="fa-solid fa-arrow-left me-1"></i> Back to Products
+    </a>
+  </div>
+
+  <form method="POST" enctype="multipart/form-data">
+    <div class="row g-3">
+      
+      <!-- Product Name -->
+      <div class="col-md-8">
+        <label class="form-label form-label-custom">Product Name <span class="text-danger">*</span></label>
+        <input type="text" class="form-control form-control-custom" name="name" required value="{{ product.name if product else '' }}" placeholder="e.g. Amoxicillin &amp; Potassium Clavulanate Tablets">
+      </div>
+
+      <!-- Division Type -->
+      <div class="col-md-4">
+        <label class="form-label form-label-custom">Division <span class="text-danger">*</span></label>
+        <select class="form-select form-select-custom" name="type" required>
+          <option value="pharmaceutical" {% if product and product.type == 'pharmaceutical' %}selected{% endif %}>Pharmaceutical</option>
+          <option value="nutraceutical" {% if product and product.type == 'nutraceutical' %}selected{% endif %}>Nutraceutical</option>
+        </select>
+      </div>
+
+      <!-- Category -->
+      <div class="col-md-6">
+        <label class="form-label form-label-custom">Category <span class="text-danger">*</span></label>
+        <select class="form-select form-select-custom" name="category_id" required>
+          <option value="" disabled {% if not product %}selected{% endif %}>Select Category</option>
+          {% for cat in categories %}
+          <option value="{{ cat.id }}" {% if product and product.category_id == cat.id %}selected{% endif %}>
+            {{ cat.name }} ({{ cat.type|capitalize }})
+          </option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <!-- Dosage Form -->
+      <div class="col-md-6">
+        <label class="form-label form-label-custom">Dosage Form <span class="text-danger">*</span></label>
+        <input type="text" class="form-control form-control-custom" name="dosage_form" required value="{{ product.dosage_form if product else '' }}" placeholder="e.g. Film-Coated Tablets, Softgels, Syrups, Injectables">
+      </div>
+
+      <!-- Composition -->
+      <div class="col-12">
+        <label class="form-label form-label-custom">Active Composition <span class="text-danger">*</span></label>
+        <textarea class="form-control form-control-custom" name="composition" rows="2" required placeholder="e.g. Amoxicillin Trihydrate IP eq. to Amoxicillin 500mg + Potassium Clavulanate Diluted IP eq. to Clavulanic Acid 125mg">{{ product.composition if product else '' }}</textarea>
+      </div>
+
+      <!-- Strength -->
+      <div class="col-md-6">
+        <label class="form-label form-label-custom">Strength / Potency</label>
+        <input type="text" class="form-control form-control-custom" name="strength" value="{{ product.strength if product else '' }}" placeholder="e.g. 625 mg, 500 mg, 1000 IU">
+      </div>
+
+      <!-- Packaging -->
+      <div class="col-md-6">
+        <label class="form-label form-label-custom">Packaging Configuration</label>
+        <input type="text" class="form-control form-control-custom" name="packaging" value="{{ product.packaging if product else '' }}" placeholder="e.g. 10 x 1 x 6 Alu-Alu Blister / 60 Tablets Bottle">
+      </div>
+
+      <!-- Indications / Therapeutic Segment -->
+      <div class="col-md-6">
+        <label class="form-label form-label-custom">Therapeutic Indications / Segment</label>
+        <input type="text" class="form-control form-control-custom" name="indications" value="{{ product.indications if product else '' }}" placeholder="e.g. Broad-Spectrum Antibacterial / Hypertension Care">
+      </div>
+
+      <!-- Available Markets -->
+      <div class="col-md-6">
+        <label class="form-label form-label-custom">Available Export Markets</label>
+        <input type="text" class="form-control form-control-custom" name="available_markets" value="{{ product.available_markets if product else 'Asia, Africa, Middle East, CIS, Latin America' }}" placeholder="Target continental regions">
+      </div>
+
+      <!-- Regulatory Dossier Status -->
+      <div class="col-md-4">
+        <label class="form-label form-label-custom">Dossier Availability</label>
+        <input type="text" class="form-control form-control-custom" name="dossier_status" value="{{ product.dossier_status if product else 'CTD / ACTD Dossier Available' }}" placeholder="e.g. CTD Format Dossier Ready">
+      </div>
+
+      <!-- Stability Status -->
+      <div class="col-md-4">
+        <label class="form-label form-label-custom">Stability Data</label>
+        <input type="text" class="form-control form-control-custom" name="stability_status" value="{{ product.stability_status if product else 'Zone IVb Real-Time & Accelerated Data' }}" placeholder="e.g. Zone IVb Stability Tested">
+      </div>
+
+      <!-- Process Validation -->
+      <div class="col-md-4">
+        <label class="form-label form-label-custom">Validation Status</label>
+        <input type="text" class="form-control form-control-custom" name="validation_status" value="{{ product.validation_status if product else 'Process & Analytical Validation Complete' }}" placeholder="e.g. Validated Analytical Methods">
+      </div>
+
+      <!-- Product Description -->
+      <div class="col-12">
+        <label class="form-label form-label-custom">Product Description (Technical Overview)</label>
+        <textarea class="form-control form-control-custom" name="description" rows="3" placeholder="Provide accurate technical description of formulation without unverified medical claims...">{{ product.description if product else '' }}</textarea>
+      </div>
+
+      <!-- Product Image Upload -->
+      <div class="col-md-6">
+        <label class="form-label form-label-custom">Product Image (Optional)</label>
+        <input type="file" class="form-control form-control-custom" name="image" accept=".jpg,.jpeg,.png,.webp">
+        <div class="form-help-text">JPG, PNG, WebP up to 5MB.</div>
+        {% if product and product.image_url %}
+        <div class="mt-2 small text-muted">
+          Current Image: <a href="{{ product.image_url }}" target="_blank">View File</a>
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- Checkboxes -->
+      <div class="col-md-6 d-flex align-items-center gap-4 pt-4">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="is_featured" id="is_featured" {% if product and product.is_featured %}checked{% endif %}>
+          <label class="form-check-label small fw-semibold" for="is_featured">Featured on Home Page</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="is_active" id="is_active" {% if not product or product.is_active %}checked{% endif %}>
+          <label class="form-check-label small fw-semibold" for="is_active">Active in Catalogue</label>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="col-12 pt-3 border-top mt-4">
+        <button type="submit" class="btn btn-rp-primary py-2 px-4">
+          <i class="fa-solid fa-floppy-disk me-2"></i> Save Formulation
+        </button>
+        <a href="{{ url_for('admin.products_list') }}" class="btn btn-outline-secondary py-2 px-4 ms-2">Cancel</a>
+      </div>
+
+    </div>
+  </form>
+</div>
+
+{% endblock %}

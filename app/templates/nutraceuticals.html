@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+
+{% block title %}Nutraceutical &amp; Wellness Solutions | RP PHARMA{% endblock %}
+{% block meta_description %}Discover RP PHARMA's premium nutraceutical formulations including vitamins, minerals, dietary supplements, softgels, and immunity boosters from India.{% endblock %}
+
+{% block content %}
+
+<!-- Header Banner -->
+<section class="py-5" style="background: radial-gradient(circle at 80% 20%, rgba(0, 168, 150, 0.15) 0%, rgba(11, 37, 69, 0.04) 70%), #F8FAFD; border-bottom:1px solid var(--border-light);">
+  <div class="container py-4">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb small">
+            <li class="breadcrumb-item"><a href="{{ url_for('main.index') }}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Nutraceuticals</li>
+          </ol>
+        </nav>
+        <span class="section-tag" style="background-color:#DCFCE7; color:#15803D;"><i class="fa-solid fa-leaf"></i> Nutraceutical Division</span>
+        <h1 class="display-5 fw-bold text-primary mb-3">Nutraceutical &amp; Wellness Solutions</h1>
+        <p class="lead text-body fs-6 mb-0">
+          Science-backed dietary supplements, bioavailable vitamins, essential minerals, and wellness formulations engineered for vitality, longevity, and preventative healthcare.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Overview Section -->
+<section class="py-5 bg-white">
+  <div class="container py-4">
+    <div class="row align-items-center g-5 mb-5">
+      <div class="col-lg-6">
+        <div class="section-tag"><i class="fa-solid fa-heart-pulse"></i> Science-Driven Nutrition</div>
+        <h2 class="section-title">Premium Dietary Supplements for Global Consumers</h2>
+        <p class="text-body lead fs-6 mb-3">
+          RP PHARMA’s nutraceutical portfolio is designed to bridge nutritional gaps, enhance vitality, and support holistic health across diverse demographic groups.
+        </p>
+        <p class="text-muted mb-4">
+          Manufactured in state-of-the-art facilities across India following applicable GMP and FSSAI standards, our supplements combine standardized active ingredients with advanced delivery formats such as softgel capsules, chewable tablets, and effervescent blends.
+        </p>
+        <div class="row g-2">
+          <div class="col-sm-6">
+            <div class="d-flex align-items-center gap-2 p-2 bg-light rounded border">
+              <i class="fa-solid fa-circle-check text-teal"></i>
+              <span class="small fw-semibold">Standardized Assay Potency</span>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="d-flex align-items-center gap-2 p-2 bg-light rounded border">
+              <i class="fa-solid fa-circle-check text-teal"></i>
+              <span class="small fw-semibold">Heavy Metal &amp; Purity Tested</span>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="d-flex align-items-center gap-2 p-2 bg-light rounded border">
+              <i class="fa-solid fa-circle-check text-teal"></i>
+              <span class="small fw-semibold">Stability Tested Packaging</span>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="d-flex align-items-center gap-2 p-2 bg-light rounded border">
+              <i class="fa-solid fa-circle-check text-teal"></i>
+              <span class="small fw-semibold">Technical Product Dossiers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="p-4 rounded-4" style="background: linear-gradient(135deg, #028090 0%, #00A896 100%); color:#ffffff; box-shadow: var(--shadow-lg);">
+          <h4 class="fw-bold mb-3"><i class="fa-solid fa-cubes text-white me-2"></i> Nutraceutical Delivery Formats</h4>
+          <p class="small text-light mb-4">We offer flexible manufacturing and packaging configurations suited for international regulatory bodies and consumer preferences.</p>
+          
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="p-3 bg-white bg-opacity-20 rounded-3">
+                <div class="fw-bold fs-6"><i class="fa-solid fa-capsules me-2"></i> Softgels</div>
+                <div class="small text-light">Deep sea fish oils, CoQ10, fat-soluble vitamins</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-3 bg-white bg-opacity-20 rounded-3">
+                <div class="fw-bold fs-6"><i class="fa-solid fa-tablets me-2"></i> Tablets</div>
+                <div class="small text-light">Film-coated, chewable &amp; effervescent options</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-3 bg-white bg-opacity-20 rounded-3">
+                <div class="fw-bold fs-6"><i class="fa-solid fa-prescription-bottle me-2"></i> Veg Capsules</div>
+                <div class="small text-light">Herbal extracts, mineral chelates &amp; probiotics</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-3 bg-white bg-opacity-20 rounded-3">
+                <div class="fw-bold fs-6"><i class="fa-solid fa-spoon me-2"></i> Powders</div>
+                <div class="small text-light">Protein isolates, collagen peptides &amp; electrolytes</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nutraceutical Categories -->
+    <div class="text-center mb-5">
+      <div class="section-tag"><i class="fa-solid fa-shapes"></i> Supplement Categories</div>
+      <h2 class="section-title">Explore Nutraceutical Segments</h2>
+      <p class="section-subtitle">Targeted formulations for everyday wellness, vitality, and specialized nutritional needs.</p>
+    </div>
+
+    <div class="row g-4">
+      {% for cat in categories %}
+      <div class="col-md-6 col-lg-4">
+        <div class="rp-card">
+          <div class="card-icon-wrap card-icon-teal">
+            <i class="fa-solid {{ cat.icon or 'fa-leaf' }}"></i>
+          </div>
+          <h4 class="fw-bold fs-5 text-primary mb-2">{{ cat.name }}</h4>
+          <p class="small text-muted flex-grow-1">{{ cat.description or 'Scientifically formulated supplements tested for purity, stability, and bioavailability.' }}</p>
+          <div class="pt-3 border-top mt-3 d-flex justify-content-between align-items-center">
+            <span class="small text-muted"><i class="fa-solid fa-check-double text-teal me-1"></i> Quality Tested</span>
+            <a href="{{ url_for('products.list_products') }}?category={{ cat.slug }}" class="btn btn-sm btn-rp-outline">
+              View Products <i class="fa-solid fa-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Featured Nutraceuticals Portfolio -->
+<section class="py-5 bg-light">
+  <div class="container py-4">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4">
+      <div>
+        <div class="section-tag"><i class="fa-solid fa-star"></i> Featured Nutrition</div>
+        <h2 class="section-title mb-0">Popular Nutraceutical Products</h2>
+      </div>
+      <a href="{{ url_for('products.list_products') }}?type=nutraceutical" class="btn btn-rp-primary mt-3 mt-md-0">
+        Browse All Nutraceuticals <i class="fa-solid fa-arrow-right ms-2"></i>
+      </a>
+    </div>
+
+    <div class="row g-4">
+      {% for prod in featured_products %}
+      <div class="col-md-6 col-lg-4">
+        <div class="product-card">
+          <div class="product-card-header">
+            <span class="product-type-badge badge-nutra">Nutra</span>
+            <span class="small text-muted">{{ prod.dosage_form }}</span>
+          </div>
+          <div class="product-card-body">
+            <h5 class="product-title">{{ prod.name }}</h5>
+            <div class="product-composition">{{ prod.composition }}</div>
+            <ul class="product-specs-list">
+              <li><strong>Strength:</strong> <span>{{ prod.strength or 'Standard' }}</span></li>
+              <li><strong>Packaging:</strong> <span>{{ prod.packaging or 'Bottles / Blisters' }}</span></li>
+              <li><strong>Documentation:</strong> <span>{{ prod.dossier_status or 'Available' }}</span></li>
+            </ul>
+          </div>
+          <div class="product-card-footer">
+            <a href="{{ url_for('products.product_detail', slug=prod.slug) }}" class="btn btn-sm btn-rp-outline flex-grow-1">View Details</a>
+            <button type="button" class="btn btn-sm btn-rp-secondary" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-product-name="{{ prod.name }}" data-category-name="{{ prod.category.name if prod.category else 'Nutraceutical' }}">
+              Enquire
+            </button>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Call to action -->
+<section class="py-5" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color:#ffffff;">
+  <div class="container py-3 text-center">
+    <h2 class="fw-bold mb-3 text-white">Expand Your Nutraceutical Brand with RP PHARMA</h2>
+    <p class="lead text-light mb-4 mx-auto" style="max-width: 650px;">
+      Access private label, bulk formulation, or export-ready branded dietary supplements manufactured under rigorous quality systems in India.
+    </p>
+    <a href="{{ url_for('main.business_enquiry') }}" class="btn btn-rp-secondary">
+      <i class="fa-solid fa-paper-plane me-2"></i> Submit Nutraceutical Enquiry
+    </a>
+  </div>
+</section>
+
+{% endblock %}

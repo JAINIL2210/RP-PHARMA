@@ -1,0 +1,179 @@
+{% extends 'admin/base_admin.html' %}
+
+{% block title %}Dashboard &bull; RP PHARMA Admin{% endblock %}
+{% block page_title %}Dashboard Overview{% endblock %}
+
+{% block content %}
+
+<!-- 1. Stats Counter Widgets -->
+<div class="row g-4 mb-4">
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card-widget">
+      <div class="stat-icon stat-icon-blue">
+        <i class="fa-solid fa-boxes-stacked"></i>
+      </div>
+      <div>
+        <div class="text-muted small fw-semibold">Total Products</div>
+        <div class="fs-3 fw-bold text-dark">{{ total_products }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card-widget">
+      <div class="stat-icon stat-icon-teal">
+        <i class="fa-solid fa-capsules"></i>
+      </div>
+      <div>
+        <div class="text-muted small fw-semibold">Pharmaceuticals</div>
+        <div class="fs-3 fw-bold text-dark">{{ pharma_count }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card-widget">
+      <div class="stat-icon stat-icon-purple">
+        <i class="fa-solid fa-leaf"></i>
+      </div>
+      <div>
+        <div class="text-muted small fw-semibold">Nutraceuticals</div>
+        <div class="fs-3 fw-bold text-dark">{{ nutra_count }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card-widget">
+      <div class="stat-icon stat-icon-amber">
+        <i class="fa-solid fa-inbox"></i>
+      </div>
+      <div>
+        <div class="text-muted small fw-semibold">Total Enquiries</div>
+        <div class="fs-3 fw-bold text-dark">{{ total_enquiries }}</div>
+        {% if new_enquiries_count > 0 %}
+          <span class="badge bg-danger">{{ new_enquiries_count }} New</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 2. Quick Actions Bar -->
+<div class="admin-card mb-4">
+  <div class="d-flex flex-wrap gap-2 align-items-center justify-content-between">
+    <div class="fw-bold text-primary"><i class="fa-solid fa-bolt text-teal me-2"></i> Quick Actions</div>
+    <div class="d-flex flex-wrap gap-2">
+      <a href="{{ url_for('admin.product_add') }}" class="btn btn-sm btn-rp-primary">
+        <i class="fa-solid fa-plus me-1"></i> Add New Product
+      </a>
+      <a href="{{ url_for('admin.categories_list') }}" class="btn btn-sm btn-rp-outline">
+        <i class="fa-solid fa-layer-group me-1"></i> Manage Categories
+      </a>
+      <a href="{{ url_for('admin.enquiries_export_csv') }}" class="btn btn-sm btn-outline-success">
+        <i class="fa-solid fa-file-excel me-1"></i> Export Enquiries (CSV)
+      </a>
+      <a href="{{ url_for('admin.settings') }}" class="btn btn-sm btn-outline-secondary">
+        <i class="fa-solid fa-sliders me-1"></i> Edit Placeholders &amp; Settings
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- 3. Two Columns: Recent Enquiries & Recent Products -->
+<div class="row g-4">
+  
+  <!-- Left: Recent Enquiries -->
+  <div class="col-lg-8">
+    <div class="admin-card">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="fw-bold fs-6 text-primary mb-0"><i class="fa-solid fa-inbox text-teal me-2"></i> Recent B2B Enquiries</h5>
+        <a href="{{ url_for('admin.enquiries_list') }}" class="text-primary small fw-semibold">View All &rarr;</a>
+      </div>
+
+      {% if recent_enquiries %}
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+          <thead class="table-light small">
+            <tr>
+              <th>Sender / Company</th>
+              <th>Country</th>
+              <th>Product / Category</th>
+              <th>Status</th>
+              <th>Received</th>
+              <th class="text-end">Action</th>
+            </tr>
+          </thead>
+          <tbody class="small">
+            {% for enq in recent_enquiries %}
+            <tr>
+              <td>
+                <div class="fw-bold text-dark">{{ enq.full_name }}</div>
+                <div class="text-muted">{{ enq.company_name or 'N/A' }}</div>
+              </td>
+              <td>{{ enq.country or 'International' }}</td>
+              <td>
+                <div class="text-truncate" style="max-width: 140px;">
+                  {{ enq.product_name or enq.category or 'General Partnership' }}
+                </div>
+              </td>
+              <td>
+                <span class="badge-status-{{ enq.status }}">{{ enq.status|replace('_', ' ')|capitalize }}</span>
+              </td>
+              <td class="text-muted">{{ enq.created_at.strftime('%d %b, %H:%M') if enq.created_at else '' }}</td>
+              <td class="text-end">
+                <a href="{{ url_for('admin.enquiry_detail', id=enq.id) }}" class="btn btn-xs btn-outline-primary btn-sm">
+                  View
+                </a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <div class="p-4 text-center text-muted">
+        <i class="fa-solid fa-inbox fs-3 mb-2"></i>
+        <p class="small mb-0">No enquiries received yet. Forms on the live site will save submissions here.</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Right: Recent Products -->
+  <div class="col-lg-4">
+    <div class="admin-card">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="fw-bold fs-6 text-primary mb-0"><i class="fa-solid fa-capsules text-teal me-2"></i> Recent Formulations</h5>
+        <a href="{{ url_for('admin.products_list') }}" class="text-primary small fw-semibold">View All &rarr;</a>
+      </div>
+
+      {% if recent_products %}
+      <div class="list-group list-group-flush">
+        {% for prod in recent_products %}
+        <div class="list-group-item px-0 py-2 d-flex justify-content-between align-items-center">
+          <div class="text-truncate me-2" style="max-width: 200px;">
+            <div class="fw-bold text-dark small text-truncate">{{ prod.name }}</div>
+            <div class="text-muted" style="font-size:0.75rem;">{{ prod.dosage_form }} &bull; {{ prod.category.name if prod.category else '' }}</div>
+          </div>
+          <a href="{{ url_for('admin.product_edit', id=prod.id) }}" class="btn btn-xs btn-outline-secondary btn-sm" title="Edit">
+            <i class="fa-solid fa-pen"></i>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <p class="text-muted small mb-0">No products added yet.</p>
+      {% endif %}
+
+      <div class="mt-3 pt-3 border-top text-center">
+        <a href="{{ url_for('admin.product_add') }}" class="btn btn-sm btn-outline-primary w-100">
+          <i class="fa-solid fa-plus me-1"></i> Add Product
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

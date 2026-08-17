@@ -1,0 +1,118 @@
+{% extends 'admin/base_admin.html' %}
+
+{% block title %}Enquiry #{{ enquiry.id }} &bull; RP PHARMA Admin{% endblock %}
+{% block page_title %}Enquiry Details: #{{ enquiry.id }}{% endblock %}
+
+{% block content %}
+
+<div class="row g-4">
+  
+  <!-- Left Column: Customer & Inquiry Details -->
+  <div class="col-lg-8">
+    <div class="admin-card">
+      <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+        <h5 class="fw-bold fs-6 text-primary mb-0">
+          <i class="fa-solid fa-address-card text-teal me-2"></i> Enquiry Submission Details
+        </h5>
+        <span class="badge-status-{{ enquiry.status }} fs-6">{{ enquiry.status|replace('_', ' ')|capitalize }}</span>
+      </div>
+
+      <div class="row g-3 mb-4">
+        <div class="col-md-6">
+          <label class="text-muted small fw-semibold d-block">Full Name</label>
+          <div class="fw-bold text-dark fs-6">{{ enquiry.full_name }}</div>
+        </div>
+        <div class="col-md-6">
+          <label class="text-muted small fw-semibold d-block">Company Name</label>
+          <div class="fw-bold text-dark fs-6">{{ enquiry.company_name or 'N/A' }}</div>
+        </div>
+        <div class="col-md-6">
+          <label class="text-muted small fw-semibold d-block">Business Email</label>
+          <div><a href="mailto:{{ enquiry.email }}" class="fw-semibold">{{ enquiry.email }}</a></div>
+        </div>
+        <div class="col-md-6">
+          <label class="text-muted small fw-semibold d-block">Phone / WhatsApp</label>
+          <div class="fw-semibold">{{ enquiry.phone or 'N/A' }}</div>
+        </div>
+        <div class="col-md-6">
+          <label class="text-muted small fw-semibold d-block">Country of Operation</label>
+          <div class="fw-semibold">{{ enquiry.country or 'N/A' }}</div>
+        </div>
+        <div class="col-md-6">
+          <label class="text-muted small fw-semibold d-block">Business Model / Type</label>
+          <div class="fw-semibold">{{ enquiry.business_type or 'General' }}</div>
+        </div>
+        <div class="col-md-6">
+          <label class="text-muted small fw-semibold d-block">Product of Interest</label>
+          <div class="fw-semibold text-primary">{{ enquiry.product_name or 'General Enquiry' }}</div>
+        </div>
+        <div class="col-md-6">
+          <label class="text-muted small fw-semibold d-block">Category</label>
+          <div class="fw-semibold">{{ enquiry.category or 'N/A' }}</div>
+        </div>
+      </div>
+
+      <!-- Message Content -->
+      <div class="mb-4">
+        <label class="text-muted small fw-semibold d-block mb-1">Message / Requirements</label>
+        <div class="p-3 bg-light rounded-3 border text-body" style="white-space: pre-wrap;">{{ enquiry.message }}</div>
+      </div>
+
+      <!-- Attached File Download -->
+      {% if enquiry.file_attachment %}
+      <div class="mb-4 p-3 bg-light rounded-3 border d-flex justify-content-between align-items-center">
+        <div>
+          <i class="fa-solid fa-paperclip text-teal me-2"></i>
+          <span class="fw-bold small">Attached Document:</span>
+          <span class="text-muted small ms-1">{{ enquiry.file_attachment }}</span>
+        </div>
+        <a href="{{ url_for('static', filename='uploads/enquiries/' + enquiry.file_attachment) }}" target="_blank" class="btn btn-sm btn-rp-outline">
+          <i class="fa-solid fa-download me-1"></i> Download File
+        </a>
+      </div>
+      {% endif %}
+
+      <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+        <a href="{{ url_for('admin.enquiries_list') }}" class="btn btn-sm btn-outline-secondary">
+          <i class="fa-solid fa-arrow-left me-1"></i> Back to Enquiries
+        </a>
+        <a href="mailto:{{ enquiry.email }}?subject=Regarding%20RP%20PHARMA%20Healthcare%20Solutions" class="btn btn-sm btn-rp-secondary">
+          <i class="fa-solid fa-reply me-1"></i> Reply via Email
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Column: Status & Internal Notes -->
+  <div class="col-lg-4">
+    <div class="admin-card">
+      <h5 class="fw-bold fs-6 text-primary mb-3">
+        <i class="fa-solid fa-pen-to-square text-teal me-2"></i> Update Review Status
+      </h5>
+
+      <form method="POST">
+        <div class="mb-3">
+          <label class="form-label form-label-custom">Status</label>
+          <select class="form-select form-select-custom" name="status">
+            <option value="new" {% if enquiry.status == 'new' %}selected{% endif %}>New</option>
+            <option value="in_review" {% if enquiry.status == 'in_review' %}selected{% endif %}>In Review</option>
+            <option value="contacted" {% if enquiry.status == 'contacted' %}selected{% endif %}>Contacted</option>
+            <option value="closed" {% if enquiry.status == 'closed' %}selected{% endif %}>Closed</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label form-label-custom">Internal Notes</label>
+          <textarea class="form-control form-control-custom" name="admin_notes" rows="5" placeholder="Add confidential notes on distributor discussions, quotes sent, or dossier status...">{{ enquiry.admin_notes or '' }}</textarea>
+        </div>
+
+        <button type="submit" class="btn btn-rp-primary w-100 py-2">
+          <i class="fa-solid fa-floppy-disk me-1"></i> Update Enquiry
+        </button>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
