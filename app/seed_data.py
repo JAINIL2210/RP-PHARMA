@@ -442,5 +442,9 @@ def seed_database():
                 )
                 db.session.add(prod)
                 
-    db.session.commit()
-    print("[+] Database successfully seeded with RP PHARMA categories, products, settings, and admin user.")
+    try:
+        db.session.commit()
+        print("[+] Database successfully seeded with RP PHARMA categories, products, settings, and admin user.")
+    except Exception as e:
+        db.session.rollback()
+        print(f"[!] Seed commit notice: {e}")
