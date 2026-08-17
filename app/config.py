@@ -4,9 +4,18 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+def _get_int_env(key, default):
+    val = os.environ.get(key)
+    if val:
+        try:
+            return int(val.strip())
+        except (ValueError, TypeError):
+            pass
+    return default
+
 class Config:
     """Base application configuration."""
-    SECRET_KEY = os.environ.get('SECRET_KEY', 'rp-pharma-secure-secret-key-2026-global-b2b')
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'rp-pharma-secure-secret-key-2026-global-b2b'
     
     # Check if running in Vercel / Serverless environment
     IS_SERVERLESS = os.environ.get('VERCEL') == '1' or 'AWS_LAMBDA_FUNCTION_NAME' in os.environ
@@ -22,13 +31,10 @@ class Config:
         UPLOAD_FOLDER = str(BASE_DIR / 'app' / 'static' / 'uploads')
         
     # Database Configuration (supports MySQL, Postgres or SQLite)
-    SQLALCHEMY_DATABASE_URI = os.environ.get(
-        'DATABASE_URI',
-        db_uri
-    )
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URI') or db_uri
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     
-    MAX_CONTENT_LENGTH = int(os.environ.get('MAX_CONTENT_LENGTH', 10 * 1024 * 1024))  # 10MB limit
+    MAX_CONTENT_LENGTH = _get_int_env('MAX_CONTENT_LENGTH', 10 * 1024 * 1024)  # 10MB limit
     ALLOWED_EXTENSIONS = {'pdf', 'doc', 'docx', 'jpg', 'jpeg', 'png', 'webp'}
     ALLOWED_IMAGE_EXTENSIONS = {'jpg', 'jpeg', 'png', 'webp'}
 
@@ -54,7 +60,7 @@ config = {
     'development': DevelopmentConfig,
     'production': ProductionConfig,
     'testing': TestingConfig,
-    'default': DevelopmentConfig if not os.environ.get('VERCEL') else ProductionConfig
+    'default': DevelopmentConfig if not (os.environ.get('VERCEL') == '1' or 'AWS_LAMBDA_FUNCTION_NAME' in os.environ) else ProductionConfig
 }
 
 config_by_name = config
