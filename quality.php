@@ -1,0 +1,162 @@
+<?php
+/**
+ * RP PHARMA — Quality & Compliance Page
+ */
+$page_title = 'Quality & Regulatory Compliance | RP PHARMA';
+$page_desc = 'Learn about RP PHARMA\'s commitment to quality assurance, QC testing, WHO-GMP partner standards, CTD regulatory dossiers, and Zone IVb stability testing.';
+
+require_once __DIR__ . '/includes/header.php';
+?>
+
+<!-- Header Banner -->
+<section class="py-5" style="background: linear-gradient(180deg, #F0F6FA 0%, #FFFFFF 100%); border-bottom:1px solid var(--border-color);">
+  <div class="container py-3">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb small mb-2">
+            <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Quality &amp; Compliance</li>
+          </ol>
+        </nav>
+        <span class="section-tag"><i class="fa-solid fa-certificate"></i> Compliance Framework</span>
+        <h1 class="display-6 fw-bold text-primary mb-2">Quality &amp; Regulatory Compliance</h1>
+        <p class="lead text-body fs-6 mb-0">
+          Unwavering commitment to quality assurance, rigorous laboratory testing, international GMP benchmarks, and comprehensive technical documentation.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Quality Philosophy -->
+<section class="py-5 bg-white">
+  <div class="container py-2 py-md-4">
+    <div class="row align-items-center g-4 g-lg-5 mb-5">
+      <div class="col-lg-7">
+        <div class="section-tag"><i class="fa-solid fa-shield-halved"></i> Our Quality Policy</div>
+        <h2 class="section-title">Quality Built into Every Step of the Formulation Lifecycle</h2>
+        <p class="text-body lead fs-6 mb-3">
+          At RP PHARMA, quality is not merely a final inspection step; it is systematically engineered into formulation design, raw material procurement, manufacturing processes, and final packaging.
+        </p>
+        <p class="text-muted mb-4">
+          Our formulations are manufactured through state-of-the-art facilities across India that adhere to applicable WHO-GMP and EU-GMP standards and requirements. We maintain complete batch traceability and analytical transparency to ensure healthcare products meet the highest safety, efficacy, and regulatory criteria.
+        </p>
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <div class="p-3 bg-light rounded-3 border h-100">
+              <h6 class="fw-bold text-primary mb-1"><i class="fa-solid fa-check-circle text-primary me-2"></i> Pharmacopeial Monograph</h6>
+              <p class="small text-muted mb-0">Products formulated to IP, BP, USP, and international monographs.</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="p-3 bg-light rounded-3 border h-100">
+              <h6 class="fw-bold text-primary mb-1"><i class="fa-solid fa-check-circle text-primary me-2"></i> Batch Consistency</h6>
+              <p class="small text-muted mb-0">Stringent in-process controls verifying content uniformity and dissolution.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="p-4 p-md-5 rounded-4" style="background: linear-gradient(145deg, var(--primary) 0%, var(--primary-light) 100%); color:#ffffff; box-shadow: var(--shadow-lg);">
+          <h4 class="fw-bold text-white mb-4"><i class="fa-solid fa-microscope me-2"></i> Quality Architecture</h4>
+          
+          <div class="mb-3 d-flex gap-3">
+            <div class="bg-white bg-opacity-10 p-3 rounded-circle d-flex align-items-center justify-content-center" style="width:48px;height:48px;flex-shrink:0;">
+              <i class="fa-solid fa-vial text-white fs-5"></i>
+            </div>
+            <div>
+              <div class="fw-bold text-white">Quality Control (QC)</div>
+              <div class="small text-light">HPLC, GC, dissolution profiling, and microbiological assays.</div>
+            </div>
+          </div>
+
+          <div class="mb-3 d-flex gap-3">
+            <div class="bg-white bg-opacity-10 p-3 rounded-circle d-flex align-items-center justify-content-center" style="width:48px;height:48px;flex-shrink:0;">
+              <i class="fa-solid fa-file-signature text-white fs-5"></i>
+            </div>
+            <div>
+              <div class="fw-bold text-white">Quality Assurance (QA)</div>
+              <div class="small text-light">SOP enforcement, change control, validation, and batch release protocols.</div>
+            </div>
+          </div>
+
+          <div class="d-flex gap-3">
+            <div class="bg-white bg-opacity-10 p-3 rounded-circle d-flex align-items-center justify-content-center" style="width:48px;height:48px;flex-shrink:0;">
+              <i class="fa-solid fa-box-tissue text-white fs-5"></i>
+            </div>
+            <div>
+              <div class="fw-bold text-white">Traceability &amp; Integrity</div>
+              <div class="small text-light">Comprehensive batch manufacturing records (BMR) and audit trails.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 Main Compliance Cards -->
+    <div class="text-center mb-4 mb-md-5">
+      <div class="section-tag"><i class="fa-solid fa-file-contract"></i> Regulatory Support</div>
+      <h2 class="section-title">Comprehensive Technical Documentation</h2>
+      <p class="section-subtitle">We support our global distribution partners with end-to-end regulatory filings tailored to international health authorities.</p>
+    </div>
+
+    <div class="row g-3 g-md-4">
+      <div class="col-sm-6 col-lg-3">
+        <div class="rp-card">
+          <div class="card-icon-wrap card-icon-teal">
+            <i class="fa-solid fa-shield-check"></i>
+          </div>
+          <h4 class="fw-bold fs-5 text-primary mb-2">Quality Assurance</h4>
+          <p class="small text-muted mb-0">Consistent product quality, certified partner facilities, and QA oversight across all production lines.</p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-3">
+        <div class="rp-card">
+          <div class="card-icon-wrap card-icon-blue">
+            <i class="fa-solid fa-folder-open"></i>
+          </div>
+          <h4 class="fw-bold fs-5 text-primary mb-2">Regulatory Dossiers</h4>
+          <p class="small text-muted mb-0">Technical documentation in CTD / ACTD format, Certificates of Pharmaceutical Product (COPP), and Free Sale Certificates.</p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-3">
+        <div class="rp-card">
+          <div class="card-icon-wrap card-icon-teal">
+            <i class="fa-solid fa-temperature-full"></i>
+          </div>
+          <h4 class="fw-bold fs-5 text-primary mb-2">Stability Studies</h4>
+          <p class="small text-muted mb-0">Stability data tested under ICH Zone IVb climatic conditions (30°C / 75% RH &amp; 40°C / 75% RH).</p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-3">
+        <div class="rp-card">
+          <div class="card-icon-wrap card-icon-blue">
+            <i class="fa-solid fa-list-check"></i>
+          </div>
+          <h4 class="fw-bold fs-5 text-primary mb-2">Process Validation</h4>
+          <p class="small text-muted mb-0">Validated processes and analytical documentation verifying repeatability and cleaning validation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to action -->
+<section class="py-5 text-white" style="background-color: var(--primary);">
+  <div class="container py-2 text-center">
+    <h2 class="fw-bold mb-3 text-white">Need Regulatory Dossier Samples?</h2>
+    <p class="lead text-light mb-4 mx-auto" style="max-width: 650px;">
+      Our regulatory affairs team provides tailored dossier packages (Modules 1 to 5) for product registration in international jurisdictions.
+    </p>
+    <a href="contact.php" class="btn btn-rp-secondary">
+      <i class="fa-solid fa-paper-plane me-1"></i> Contact Regulatory Desk
+    </a>
+  </div>
+</section>
+
+<?php require_once __DIR__ . '/includes/footer.php'; ?>

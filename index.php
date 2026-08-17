@@ -1,0 +1,576 @@
+<?php
+/**
+ * RP PHARMA — Home Page
+ */
+$page_title = 'RP PHARMA | Pharmaceutical & Nutraceutical Solutions India';
+$page_desc = 'RP PHARMA is a leading global pharmaceutical and nutraceutical company headquartered in India. Supplying WHO-GMP compliant formulations worldwide.';
+
+require_once __DIR__ . '/includes/header.php';
+
+$pharma_categories = get_categories('pharmaceutical');
+$featured_pharma = get_featured_products('pharmaceutical', 4);
+$featured_nutra = get_featured_products('nutraceutical', 4);
+?>
+
+<!-- 1. HERO SECTION -->
+<section class="hero-section">
+  <div class="container">
+    <div class="row align-items-center g-4 g-lg-5">
+      <!-- Left Column: Copy & CTAs -->
+      <div class="col-lg-7">
+        <div class="hero-badge">
+          <i class="fa-solid fa-certificate"></i>
+          <span>WHO-GMP &bull; EU-GMP Partner Network Standards</span>
+        </div>
+        <h1 class="hero-heading">
+          Your Trusted Partner in <span class="text-primary">Pharmaceuticals</span> &amp; <span style="color:var(--accent);">Nutraceuticals</span>
+        </h1>
+        <p class="hero-lead">
+          Delivering quality-focused pharmaceutical and nutraceutical solutions from India to global markets, supported by robust regulatory documentation and technical excellence.
+        </p>
+        <div class="d-flex flex-column flex-sm-row flex-wrap gap-2 gap-sm-3 mb-4">
+          <a href="products.php" class="btn btn-rp-primary">
+            <i class="fa-solid fa-capsules"></i> Explore Products
+          </a>
+          <a href="contact.php" class="btn btn-rp-secondary">
+            <i class="fa-solid fa-handshake"></i> Business Enquiry
+          </a>
+        </div>
+        
+        <!-- Key Trust Badges -->
+        <div class="d-flex flex-wrap align-items-center gap-3 gap-md-4 pt-3 border-top border-light">
+          <div class="d-flex align-items-center gap-2">
+            <i class="fa-solid fa-file-shield fs-5" style="color:var(--accent);"></i>
+            <span class="small fw-semibold text-muted">CTD / ACTD Dossiers</span>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <i class="fa-solid fa-vial-circle-check fs-5" style="color:var(--accent);"></i>
+            <span class="small fw-semibold text-muted">Zone IVb Stability</span>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <i class="fa-solid fa-earth-americas fs-5" style="color:var(--accent);"></i>
+            <span class="small fw-semibold text-muted">Global Export Focus</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Visual Feature Card -->
+      <div class="col-lg-5">
+        <div class="hero-visual-card">
+          <div class="d-flex align-items-center justify-content-between mb-3 mb-md-4">
+            <span class="badge bg-white text-primary fw-bold px-3 py-2">RP PHARMA Core Ecosystem</span>
+            <i class="fa-solid fa-dna text-white fs-4"></i>
+          </div>
+          
+          <div class="hero-pill-badge">
+            <div class="bg-white text-primary rounded-circle p-2 d-flex align-items-center justify-content-center" style="width:36px;height:36px;flex-shrink:0;">
+              <i class="fa-solid fa-tablets"></i>
+            </div>
+            <div>
+              <div class="fw-bold text-white small">Finished Formulations</div>
+              <div class="text-light" style="font-size:0.75rem;">Tablets, Capsules, Syrups &amp; Injections</div>
+            </div>
+          </div>
+
+          <div class="hero-pill-badge">
+            <div class="bg-white text-primary rounded-circle p-2 d-flex align-items-center justify-content-center" style="width:36px;height:36px;flex-shrink:0;">
+              <i class="fa-solid fa-leaf"></i>
+            </div>
+            <div>
+              <div class="fw-bold text-white small">Advanced Nutraceuticals</div>
+              <div class="text-light" style="font-size:0.75rem;">Vitamins, Minerals, Softgels &amp; Wellness Blends</div>
+            </div>
+          </div>
+
+          <div class="hero-pill-badge">
+            <div class="bg-white text-primary rounded-circle p-2 d-flex align-items-center justify-content-center" style="width:36px;height:36px;flex-shrink:0;">
+              <i class="fa-solid fa-boxes-packing"></i>
+            </div>
+            <div>
+              <div class="fw-bold text-white small">Qualified Facilities in India</div>
+              <div class="text-light" style="font-size:0.75rem;">WHO-GMP &amp; EU-GMP Partner Infrastructure</div>
+            </div>
+          </div>
+
+          <div class="mt-3 text-center">
+            <a href="about.php" class="text-white text-decoration-underline small fw-semibold">
+              Learn more about our technical expertise <i class="fa-solid fa-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. TRUST STATISTICS COUNTERS -->
+<section class="stats-section">
+  <div class="container">
+    <div class="row g-3 g-md-4 justify-content-center">
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="stat-item">
+          <div class="stat-number"><?= htmlspecialchars($site_settings['stat_experience'] ?? '15+') ?></div>
+          <div class="stat-label">Years of Experience</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="stat-item">
+          <div class="stat-number text-teal"><?= htmlspecialchars($site_settings['stat_countries'] ?? '25+') ?></div>
+          <div class="stat-label">Countries Served</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="stat-item">
+          <div class="stat-number"><?= htmlspecialchars($site_settings['stat_categories'] ?? '10+') ?></div>
+          <div class="stat-label">Product Categories</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="stat-item">
+          <div class="stat-number text-teal"><?= htmlspecialchars($site_settings['stat_manufacturing_partners'] ?? '10+') ?></div>
+          <div class="stat-label">Manufacturing Partners</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="stat-item">
+          <div class="stat-number"><?= htmlspecialchars($site_settings['stat_global_markets'] ?? '5') ?></div>
+          <div class="stat-label">Global Regions</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. ABOUT RP PHARMA SECTION -->
+<section class="py-5 bg-white">
+  <div class="container py-2 py-md-4">
+    <div class="row align-items-center g-4 g-lg-5">
+      <div class="col-lg-6">
+        <div class="section-tag"><i class="fa-solid fa-building-shield"></i> About RP PHARMA</div>
+        <h2 class="section-title">A Global Healthcare Partner Headquartered in India</h2>
+        <p class="text-body lead fs-6 mb-3">
+          RP PHARMA is a global pharmaceutical company headquartered in India, with proven expertise in the pharmaceutical industry. We bring together deep knowledge in technical, regulatory and international marketing to deliver high-quality healthcare solutions across global markets.
+        </p>
+        <p class="text-muted mb-4">
+          Our formulations are manufactured in state-of-the-art facilities across India, following applicable WHO-GMP and EU-GMP standards and requirements. Products are supported by comprehensive technical documentation, including dossiers, stability studies and validation data.
+        </p>
+
+        <div class="row g-3 mb-4">
+          <div class="col-sm-6">
+            <div class="p-3 bg-light rounded-3 border h-100">
+              <div class="fw-bold text-primary mb-1"><i class="fa-solid fa-bullseye me-2" style="color:var(--accent);"></i> Our Vision</div>
+              <p class="small text-muted mb-0"><?= htmlspecialchars($site_settings['vision'] ?? 'To become a trusted global partner for healthcare solutions.') ?></p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="p-3 bg-light rounded-3 border h-100">
+              <div class="fw-bold text-primary mb-1"><i class="fa-solid fa-compass me-2" style="color:var(--accent);"></i> Our Mission</div>
+              <p class="small text-muted mb-0"><?= htmlspecialchars($site_settings['mission'] ?? 'To deliver quality-focused, compliant healthcare products.') ?></p>
+            </div>
+          </div>
+        </div>
+
+        <a href="about.php" class="btn btn-rp-outline">
+          Discover Full Company Profile <i class="fa-solid fa-arrow-right ms-2"></i>
+        </a>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="row g-3">
+          <div class="col-6">
+            <div class="rp-card text-center">
+              <div class="card-icon-wrap card-icon-blue mx-auto">
+                <i class="fa-solid fa-microscope"></i>
+              </div>
+              <h5 class="fw-bold fs-6 text-primary">Technical Expertise</h5>
+              <p class="small text-muted mb-0">Comprehensive dossiers, stability data, and validation protocols.</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="rp-card text-center">
+              <div class="card-icon-wrap card-icon-teal mx-auto">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <h5 class="fw-bold fs-6 text-primary">Regulatory Compliance</h5>
+              <p class="small text-muted mb-0">Adherence to applicable WHO-GMP and international standards.</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="rp-card text-center">
+              <div class="card-icon-wrap card-icon-teal mx-auto">
+                <i class="fa-solid fa-truck-fast"></i>
+              </div>
+              <h5 class="fw-bold fs-6 text-primary">Reliable Supply Chain</h5>
+              <p class="small text-muted mb-0">Timely global logistics and reliable product availability.</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="rp-card text-center">
+              <div class="card-icon-wrap card-icon-blue mx-auto">
+                <i class="fa-solid fa-handshake-angle"></i>
+              </div>
+              <h5 class="fw-bold fs-6 text-primary">B2B Partnerships</h5>
+              <p class="small text-muted mb-0">Dedicated international marketing support and collaboration.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. PHARMACEUTICAL HIGHLIGHTS SECTION -->
+<section class="py-5 bg-light">
+  <div class="container py-2 py-md-4">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4 mb-md-5">
+      <div>
+        <div class="section-tag"><i class="fa-solid fa-capsules"></i> Pharmaceutical Formulations</div>
+        <h2 class="section-title mb-0">Essential Pharmaceutical Categories</h2>
+      </div>
+      <a href="pharmaceuticals.php" class="btn btn-rp-outline mt-3 mt-md-0">
+        View All Pharmaceuticals <i class="fa-solid fa-arrow-right ms-2"></i>
+      </a>
+    </div>
+
+    <!-- Category Grid -->
+    <div class="row g-3 g-md-4 mb-5">
+      <?php foreach (array_slice($pharma_categories, 0, 6) as $cat): ?>
+      <div class="col-sm-6 col-lg-4">
+        <div class="rp-card">
+          <div class="card-icon-wrap card-icon-blue">
+            <i class="fa-solid <?= htmlspecialchars($cat['icon'] ?? 'fa-pills') ?>"></i>
+          </div>
+          <h4 class="fw-bold fs-5 text-primary mb-2"><?= htmlspecialchars($cat['name']) ?></h4>
+          <p class="small text-muted flex-grow-1"><?= htmlspecialchars($cat['description'] ?? 'Quality-tested pharmaceutical formulations.') ?></p>
+          <a href="products.php?category=<?= urlencode($cat['slug']) ?>" class="fw-bold text-primary small mt-3 d-inline-flex align-items-center gap-1">
+            Explore Formulations <i class="fa-solid fa-chevron-right fs-xs" style="color:var(--accent);"></i>
+          </a>
+        </div>
+      </div>
+      <?php endforeach; ?>
+    </div>
+
+    <!-- Featured Formulations Cards -->
+    <div class="row g-3 g-md-4">
+      <?php foreach ($featured_pharma as $prod): ?>
+      <div class="col-sm-6 col-lg-3">
+        <div class="product-card">
+          <div class="product-card-header">
+            <span class="product-type-badge badge-pharma">Pharma</span>
+            <span class="small text-muted text-truncate" style="max-width:120px;"><i class="fa-solid fa-tag me-1"></i><?= htmlspecialchars($prod['dosage_form']) ?></span>
+          </div>
+          <div class="product-card-body">
+            <h5 class="product-title"><?= htmlspecialchars($prod['name']) ?></h5>
+            <div class="product-composition"><?= htmlspecialchars($prod['composition']) ?></div>
+            <ul class="product-specs-list">
+              <li><strong>Packaging:</strong> <span><?= htmlspecialchars($prod['packaging'] ?? 'Standard Export') ?></span></li>
+              <li><strong>Dossier:</strong> <span><?= htmlspecialchars($prod['dossier_status'] ?? 'Available') ?></span></li>
+            </ul>
+          </div>
+          <div class="product-card-footer">
+            <a href="product-detail.php?slug=<?= urlencode($prod['slug']) ?>" class="btn btn-sm btn-rp-outline flex-grow-1">Details</a>
+            <button type="button" class="btn btn-sm btn-rp-secondary" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-product-name="<?= htmlspecialchars($prod['name']) ?>" data-category-name="<?= htmlspecialchars($prod['category_name'] ?? 'Pharmaceutical') ?>">
+              Enquire
+            </button>
+          </div>
+        </div>
+      </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<!-- 5. NUTRACEUTICAL HIGHLIGHTS SECTION -->
+<section class="py-5 bg-white">
+  <div class="container py-2 py-md-4">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4 mb-md-5">
+      <div>
+        <div class="section-tag"><i class="fa-solid fa-leaf"></i> Nutraceutical Solutions</div>
+        <h2 class="section-title mb-0">Nutritional &amp; Wellness Supplements</h2>
+      </div>
+      <a href="nutraceuticals.php" class="btn btn-rp-outline mt-3 mt-md-0">
+        View All Nutraceuticals <i class="fa-solid fa-arrow-right ms-2"></i>
+      </a>
+    </div>
+
+    <div class="row g-3 g-md-4">
+      <?php foreach ($featured_nutra as $prod): ?>
+      <div class="col-sm-6 col-lg-3">
+        <div class="product-card">
+          <div class="product-card-header">
+            <span class="product-type-badge badge-nutra">Nutra</span>
+            <span class="small text-muted text-truncate" style="max-width:120px;"><i class="fa-solid fa-leaf me-1"></i><?= htmlspecialchars($prod['dosage_form']) ?></span>
+          </div>
+          <div class="product-card-body">
+            <h5 class="product-title"><?= htmlspecialchars($prod['name']) ?></h5>
+            <div class="product-composition"><?= htmlspecialchars($prod['composition']) ?></div>
+            <ul class="product-specs-list">
+              <li><strong>Strength:</strong> <span><?= htmlspecialchars($prod['strength'] ?? 'Standard') ?></span></li>
+              <li><strong>Packaging:</strong> <span><?= htmlspecialchars($prod['packaging'] ?? 'Bottles / Blisters') ?></span></li>
+            </ul>
+          </div>
+          <div class="product-card-footer">
+            <a href="product-detail.php?slug=<?= urlencode($prod['slug']) ?>" class="btn btn-sm btn-rp-outline flex-grow-1">Details</a>
+            <button type="button" class="btn btn-sm btn-rp-secondary" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-product-name="<?= htmlspecialchars($prod['name']) ?>" data-category-name="<?= htmlspecialchars($prod['category_name'] ?? 'Nutraceutical') ?>">
+              Enquire
+            </button>
+          </div>
+        </div>
+      </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<!-- 6. QUALITY & COMPLIANCE PILLARS -->
+<section class="py-5 bg-light">
+  <div class="container py-2 py-md-4">
+    <div class="text-center mb-4 mb-md-5">
+      <div class="section-tag"><i class="fa-solid fa-award"></i> Quality Framework</div>
+      <h2 class="section-title">Stringent Quality &amp; Regulatory Compliance</h2>
+      <p class="section-subtitle">
+        Every batch is manufactured through qualified partner facilities following applicable WHO-GMP requirements, backed by comprehensive testing and regulatory dossiers.
+      </p>
+    </div>
+
+    <div class="row g-3 g-md-4">
+      <div class="col-sm-6 col-lg-3">
+        <div class="rp-card text-center">
+          <div class="card-icon-wrap card-icon-teal mx-auto">
+            <i class="fa-solid fa-shield-check"></i>
+          </div>
+          <h4 class="fw-bold fs-5 text-primary mb-2">Quality Assurance</h4>
+          <p class="small text-muted mb-0">Systematic protocols ensuring consistent batch-to-batch reproducibility.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="rp-card text-center">
+          <div class="card-icon-wrap card-icon-blue mx-auto">
+            <i class="fa-solid fa-file-contract"></i>
+          </div>
+          <h4 class="fw-bold fs-5 text-primary mb-2">Regulatory Dossiers</h4>
+          <p class="small text-muted mb-0">Comprehensive technical documentation in CTD / ACTD formats.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="rp-card text-center">
+          <div class="card-icon-wrap card-icon-teal mx-auto">
+            <i class="fa-solid fa-temperature-arrow-up"></i>
+          </div>
+          <h4 class="fw-bold fs-5 text-primary mb-2">Stability Studies</h4>
+          <p class="small text-muted mb-0">Real-time and accelerated stability data tested under ICH Zone IVb conditions.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="rp-card text-center">
+          <div class="card-icon-wrap card-icon-blue mx-auto">
+            <i class="fa-solid fa-clipboard-check"></i>
+          </div>
+          <h4 class="fw-bold fs-5 text-primary mb-2">Process Validation</h4>
+          <p class="small text-muted mb-0">Validated manufacturing and analytical testing procedures.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. MANUFACTURING ECOSYSTEM -->
+<section class="py-5 bg-white">
+  <div class="container py-2 py-md-4">
+    <div class="text-center mb-4 mb-md-5">
+      <div class="section-tag"><i class="fa-solid fa-gears"></i> End-to-End Flow</div>
+      <h2 class="section-title">Our Manufacturing &amp; Supply Ecosystem</h2>
+      <p class="section-subtitle">
+        Formulations are manufactured through our qualified manufacturing partners and facilities in India under strict regulatory compliance.
+      </p>
+    </div>
+
+    <!-- 7 Step Process Grid -->
+    <div class="row g-3 justify-content-center">
+      <div class="col-6 col-md-4 col-lg">
+        <div class="workflow-step">
+          <div class="workflow-num">1</div>
+          <h6 class="fw-bold text-primary mb-1">Development</h6>
+          <p class="small text-muted mb-0">Formulation &amp; pilot trial</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg">
+        <div class="workflow-step">
+          <div class="workflow-num">2</div>
+          <h6 class="fw-bold text-primary mb-1">Manufacturing</h6>
+          <p class="small text-muted mb-0">WHO-GMP partner facilities</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg">
+        <div class="workflow-step">
+          <div class="workflow-num">3</div>
+          <h6 class="fw-bold text-primary mb-1">Quality Control</h6>
+          <p class="small text-muted mb-0">IP / BP / USP testing</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg">
+        <div class="workflow-step">
+          <div class="workflow-num">4</div>
+          <h6 class="fw-bold text-primary mb-1">Documentation</h6>
+          <p class="small text-muted mb-0">CTD dossiers &amp; COA</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg">
+        <div class="workflow-step">
+          <div class="workflow-num">5</div>
+          <h6 class="fw-bold text-primary mb-1">Packaging</h6>
+          <p class="small text-muted mb-0">Alu-Alu &amp; bottles</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg">
+        <div class="workflow-step">
+          <div class="workflow-num">6</div>
+          <h6 class="fw-bold text-primary mb-1">Supply Chain</h6>
+          <p class="small text-muted mb-0">Global export freight</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. GLOBAL PRESENCE TEASER -->
+<section class="py-5 bg-light">
+  <div class="container py-2 py-md-4">
+    <div class="map-container-wrap">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <span class="section-tag section-tag-light mb-3"><i class="fa-solid fa-globe"></i> International Reach</span>
+          <h2 class="text-white fw-bold mb-3">From India to Global Markets</h2>
+          <p class="text-white opacity-75 lead fs-6 mb-4">
+            RP PHARMA connects world-class Indian pharmaceutical and nutraceutical manufacturing with international healthcare distributors and importers across emerging markets.
+          </p>
+          <div class="d-flex flex-wrap gap-2 mb-4">
+            <span class="badge bg-white bg-opacity-10 text-white border border-white border-opacity-25 px-3 py-2">Southeast Asia</span>
+            <span class="badge bg-white bg-opacity-10 text-white border border-white border-opacity-25 px-3 py-2">Africa</span>
+            <span class="badge bg-white bg-opacity-10 text-white border border-white border-opacity-25 px-3 py-2">Middle East</span>
+            <span class="badge bg-white bg-opacity-10 text-white border border-white border-opacity-25 px-3 py-2">CIS Countries</span>
+            <span class="badge bg-white bg-opacity-10 text-white border border-white border-opacity-25 px-3 py-2">Latin America</span>
+          </div>
+          <a href="contact.php" class="btn btn-rp-secondary">
+            <i class="fa-solid fa-handshake"></i> Become a Business Partner
+          </a>
+        </div>
+        <div class="col-lg-5">
+          <div class="p-4 bg-white bg-opacity-10 rounded-4 border border-white border-opacity-10">
+            <h5 class="text-white fw-bold mb-3"><i class="fa-solid fa-handshake-angle me-2"></i> Why Partner with RP PHARMA?</h5>
+            <ul class="text-white opacity-90 small list-unstyled mb-0">
+              <li class="mb-2"><i class="fa-solid fa-check me-2"></i> Comprehensive technical dossiers (CTD/ACTD format).</li>
+              <li class="mb-2"><i class="fa-solid fa-check me-2"></i> Strict compliance with WHO-GMP benchmarks.</li>
+              <li class="mb-2"><i class="fa-solid fa-check me-2"></i> Transparent communication &amp; competitive export pricing.</li>
+              <li><i class="fa-solid fa-check me-2"></i> Dedicated export documentation and prompt coordination.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. FAQ SECTION -->
+<section class="py-5 bg-white" id="faq">
+  <div class="container py-2 py-md-4">
+    <div class="text-center mb-4 mb-md-5">
+      <div class="section-tag"><i class="fa-solid fa-circle-question"></i> FAQs</div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Common questions regarding our products, export procedures, and B2B partnerships.</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="accordion" id="faqAccordion">
+          
+          <div class="accordion-item border rounded-3 mb-3 overflow-hidden shadow-sm">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button fw-bold text-primary collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                What products does RP PHARMA offer?
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                RP PHARMA focuses on pharmaceutical and nutraceutical products for domestic and international business markets, covering finished dosage forms such as tablets, capsules, syrups, suspensions, and wellness formulations.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border rounded-3 mb-3 overflow-hidden shadow-sm">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button fw-bold text-primary collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Does RP PHARMA support international business enquiries?
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                Yes. International distributors, importers, wholesalers and healthcare businesses can contact the company for product inquiries, distribution rights, and B2B business partnerships.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border rounded-3 mb-3 overflow-hidden shadow-sm">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button fw-bold text-primary collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Can I request product information and specifications?
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                Yes. Visitors can submit an enquiry through any product detail page, catalogue item, or the dedicated Contact Us page to receive specifications, pack styles, and sample documentation.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border rounded-3 mb-3 overflow-hidden shadow-sm">
+            <h2 class="accordion-header" id="headingFour">
+              <button class="accordion-button fw-bold text-primary collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                Does RP PHARMA provide technical and regulatory documentation?
+              </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                Technical documentation including CTD/ACTD dossiers, Certificate of Analysis (COA), stability study data (Zone IVb), and method validation reports can be provided where applicable.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border rounded-3 mb-3 overflow-hidden shadow-sm">
+            <h2 class="accordion-header" id="headingFive">
+              <button class="accordion-button fw-bold text-primary collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                How can I become a distributor for RP PHARMA?
+              </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                Submit the <a href="contact.php" class="text-primary fw-semibold">Contact Us form</a> or call / WhatsApp us directly at <a href="tel:<?= htmlspecialchars($site_settings['phone_digits'] ?? '918469034869') ?>" class="fw-semibold"><?= htmlspecialchars($site_settings['official_phone'] ?? '+91 84690 34869') ?></a>.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. BOTTOM CTA BANNER -->
+<section class="py-5 text-white" style="background-color:var(--primary) !important;">
+  <div class="container py-2 text-center">
+    <h2 class="fw-bold mb-3 text-white">Let's Build a Sustainable Healthcare Partnership</h2>
+    <p class="lead text-light mb-4 mx-auto" style="max-width: 650px;">
+      Connect with RP PHARMA today to access high-quality pharmaceutical formulations and nutraceutical solutions manufactured in India for global healthcare markets.
+    </p>
+    <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+      <a href="tel:<?= htmlspecialchars($site_settings['phone_digits'] ?? '918469034869') ?>" class="btn btn-rp-secondary">
+        <i class="fa-solid fa-phone me-1"></i> Call <?= htmlspecialchars($site_settings['official_phone'] ?? '+91 84690 34869') ?>
+      </a>
+      <a href="contact.php" class="btn btn-rp-outline-white">
+        <i class="fa-solid fa-envelope me-1"></i> Send Enquiry Message
+      </a>
+    </div>
+  </div>
+</section>
+
+<?php require_once __DIR__ . '/includes/footer.php'; ?>

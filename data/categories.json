@@ -1,0 +1,128 @@
+[
+  {
+    "id": 1,
+    "name": "Antibiotics & Anti-Infectives",
+    "slug": "antibiotics-anti-infectives",
+    "type": "pharmaceutical",
+    "description": "Broad-spectrum antibacterial, antifungal, and antiviral oral and injectable formulations.",
+    "icon": "fa-shield-virus",
+    "display_order": 1
+  },
+  {
+    "id": 2,
+    "name": "Cardiovascular",
+    "slug": "cardiovascular",
+    "type": "pharmaceutical",
+    "description": "Formulations for hypertension, cardiovascular management, and lipid care.",
+    "icon": "fa-heart-pulse",
+    "display_order": 2
+  },
+  {
+    "id": 3,
+    "name": "Gastrointestinal",
+    "slug": "gastrointestinal",
+    "type": "pharmaceutical",
+    "description": "Formulations for acid peptic disorders, GI motility, and digestive health.",
+    "icon": "fa-pills",
+    "display_order": 3
+  },
+  {
+    "id": 4,
+    "name": "Anti-diabetic",
+    "slug": "anti-diabetic",
+    "type": "pharmaceutical",
+    "description": "Oral hypoglycemic agents and metabolic health formulations.",
+    "icon": "fa-dna",
+    "display_order": 4
+  },
+  {
+    "id": 5,
+    "name": "Pain Management & Analgesics",
+    "slug": "pain-management-analgesics",
+    "type": "pharmaceutical",
+    "description": "Non-steroidal anti-inflammatory drugs (NSAIDs) and analgesic formulations.",
+    "icon": "fa-hand-holding-medical",
+    "display_order": 5
+  },
+  {
+    "id": 6,
+    "name": "Vitamins & Minerals (Pharma)",
+    "slug": "vitamins-minerals-pharma",
+    "type": "pharmaceutical",
+    "description": "Therapeutic grade vitamins, minerals, and hematinics.",
+    "icon": "fa-flask",
+    "display_order": 6
+  },
+  {
+    "id": 7,
+    "name": "Specialty Formulations",
+    "slug": "specialty-formulations",
+    "type": "pharmaceutical",
+    "description": "Targeted formulations across specialty therapeutic segments.",
+    "icon": "fa-microscope",
+    "display_order": 7
+  },
+  {
+    "id": 8,
+    "name": "Respiratory & Anti-Allergic",
+    "slug": "respiratory-anti-allergic",
+    "type": "pharmaceutical",
+    "description": "Formulations for respiratory care, bronchodilation, and anti-allergic support.",
+    "icon": "fa-lungs",
+    "display_order": 8
+  },
+  {
+    "id": 9,
+    "name": "Vitamins & Multivitamins",
+    "slug": "vitamins-multivitamins",
+    "type": "nutraceutical",
+    "description": "Comprehensive daily vitamin formulations for wellness and vitality.",
+    "icon": "fa-sun",
+    "display_order": 1
+  },
+  {
+    "id": 10,
+    "name": "Essential Minerals & Calcium",
+    "slug": "essential-minerals-calcium",
+    "type": "nutraceutical",
+    "description": "Targeted mineral supplements, bone health, and electrolyte balance.",
+    "icon": "fa-bone",
+    "display_order": 2
+  },
+  {
+    "id": 11,
+    "name": "Nutritional & Protein Supplements",
+    "slug": "nutritional-protein-supplements",
+    "type": "nutraceutical",
+    "description": "Advanced dietary nutrition, amino acids, and protein blends.",
+    "icon": "fa-dumbbell",
+    "display_order": 3
+  },
+  {
+    "id": 12,
+    "name": "General Wellness & Immunity",
+    "slug": "general-wellness-immunity",
+    "type": "nutraceutical",
+    "description": "Daily wellness, antioxidant complex, and immune defense supplements.",
+    "icon": "fa-leaf",
+    "display_order": 4
+  },
+  {
+    "id": 13,
+    "name": "Specialty Nutrition",
+    "slug": "specialty-nutrition",
+    "type": "nutraceutical",
+    "description": "Targeted nutrition for joint health, cognitive focus, and cardiovascular wellness.",
+    "icon": "fa-brain",
+    "display_order": 5
+  },
+  {
+    "id": 14,
+    "name": "Herbal & Botanical Extracts",
+    "slug": "herbal-botanical-extracts",
+    "type": "nutraceutical",
+    "description": "Standardized herbal and botanical wellness supplements.",
+    "icon": "fa-seedling",
+    "display_order": 6
+  }
+]

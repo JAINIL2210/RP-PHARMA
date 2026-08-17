@@ -1,0 +1,237 @@
+<?php
+/**
+ * RP PHARMA — About Us Page
+ */
+$page_title = 'About Us | RP PHARMA — Global Healthcare Solutions from India';
+$page_desc = 'Learn about RP PHARMA, our vision, mission, core values, regulatory expertise, and manufacturing network delivering quality pharmaceutical and nutraceutical solutions.';
+
+require_once __DIR__ . '/includes/header.php';
+?>
+
+<!-- Header Banner -->
+<section class="py-5" style="background: linear-gradient(180deg, #F0F6FA 0%, #FFFFFF 100%); border-bottom:1px solid var(--border-color);">
+  <div class="container py-3">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb small mb-2">
+            <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">About Us</li>
+          </ol>
+        </nav>
+        <span class="section-tag"><i class="fa-solid fa-building-shield"></i> Corporate Profile</span>
+        <h1 class="display-6 fw-bold text-primary mb-2">About RP PHARMA</h1>
+        <p class="lead text-body fs-6 mb-0">
+          A global pharmaceutical and nutraceutical company headquartered in India, dedicated to excellence in formulation manufacturing, regulatory compliance, and international exports.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Company Introduction & Story -->
+<section class="py-5 bg-white">
+  <div class="container py-2 py-md-4">
+    <div class="row align-items-center g-4 g-lg-5">
+      <div class="col-lg-7">
+        <div class="section-tag"><i class="fa-solid fa-dna"></i> Our Purpose</div>
+        <h2 class="section-title mb-3">Delivering High-Quality Healthcare Solutions Across Global Markets</h2>
+        <div class="text-body lead fs-6">
+          <p>
+            <strong>RP PHARMA</strong> is a global pharmaceutical company headquartered in India, with proven expertise in the pharmaceutical industry. We bring together deep knowledge in technical, regulatory and international marketing to deliver high-quality healthcare solutions across global markets.
+          </p>
+          <p>
+            Our team of highly skilled marketing professionals and technical experts is dedicated to ensuring that every product meets high standards of quality, safety and compliance.
+          </p>
+          <p>
+            Our formulations are manufactured in state-of-the-art facilities across India, following applicable WHO-GMP and EU-GMP standards and requirements. Products are supported by comprehensive technical documentation, including dossiers, stability studies and validation data, reinforcing our commitment to transparency and regulatory compliance.
+          </p>
+          <p>
+            Our portfolio focuses on pharmaceutical and nutraceutical products. We work closely with international partners to support efficient supply chains and reliable product availability in the markets we serve.
+          </p>
+          <p class="mb-0">
+            Sustainability, quality and ethical business practices remain important parts of our operations. Through our commitment to excellence, RP PHARMA aims to become a trusted global healthcare partner and contribute to a healthier world.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="p-4 p-md-5 rounded-4" style="background: linear-gradient(145deg, var(--primary) 0%, var(--primary-light) 100%); color:#ffffff; box-shadow: var(--shadow-lg);">
+          <div class="d-flex align-items-center gap-3 mb-4 border-bottom border-white border-opacity-10 pb-3">
+            <div class="brand-symbol" style="width:44px;height:44px;font-size:1.25rem;">RP</div>
+            <div>
+              <div class="fw-bold fs-5 text-white">RP PHARMA</div>
+              <div class="text-light small">Global Healthcare Partner</div>
+            </div>
+          </div>
+
+          <h5 class="text-white fw-bold mb-3"><i class="fa-solid fa-handshake-angle me-2"></i> Core Competencies</h5>
+          <ul class="list-unstyled text-light small mb-0">
+            <li class="mb-3 d-flex gap-2">
+              <i class="fa-solid fa-circle-check text-white mt-1"></i>
+              <span><strong>Formulation Manufacturing:</strong> Access to qualified facilities across India complying with WHO-GMP.</span>
+            </li>
+            <li class="mb-3 d-flex gap-2">
+              <i class="fa-solid fa-circle-check text-white mt-1"></i>
+              <span><strong>Regulatory Expertise:</strong> In-house capability for CTD/ACTD dossier compilation and regulatory filings.</span>
+            </li>
+            <li class="mb-3 d-flex gap-2">
+              <i class="fa-solid fa-circle-check text-white mt-1"></i>
+              <span><strong>Export Operations:</strong> Complete export logistics, temperature-controlled packaging, and documentation.</span>
+            </li>
+            <li class="d-flex gap-2">
+              <i class="fa-solid fa-circle-check text-white mt-1"></i>
+              <span><strong>Customized Solutions:</strong> Tailored packaging, labeling, and strengths for destination market requirements.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Vision & Mission -->
+<section class="py-5 bg-light">
+  <div class="container py-2 py-md-4">
+    <div class="row g-4">
+      <!-- Vision -->
+      <div class="col-md-6">
+        <div class="rp-card border-top border-4 border-primary p-4 h-100">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="card-icon-wrap card-icon-blue mb-0">
+              <i class="fa-solid fa-eye"></i>
+            </div>
+            <h3 class="fw-bold fs-4 text-primary mb-0">Our Vision</h3>
+          </div>
+          <p class="fs-5 text-dark fw-semibold mb-2">
+            "<?= htmlspecialchars($site_settings['vision'] ?? 'To become a trusted global partner for pharmaceutical and nutraceutical solutions.') ?>"
+          </p>
+          <p class="text-muted small mb-0">
+            We strive to expand global access to affordable, premium healthcare formulations by bridging Indian manufacturing excellence with international distribution channels.
+          </p>
+        </div>
+      </div>
+
+      <!-- Mission -->
+      <div class="col-md-6">
+        <div class="rp-card border-top border-4 p-4 h-100" style="border-top-color: var(--accent) !important;">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="card-icon-wrap card-icon-teal mb-0">
+              <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <h3 class="fw-bold fs-4 text-primary mb-0">Our Mission</h3>
+          </div>
+          <p class="fs-5 text-dark fw-semibold mb-2">
+            "<?= htmlspecialchars($site_settings['mission'] ?? 'To deliver quality-focused, compliant and reliable healthcare products while building long-term relationships with customers and partners.') ?>"
+          </p>
+          <p class="text-muted small mb-0">
+            We achieve this by upholding stringent quality controls, comprehensive regulatory compliance, and consistent supply reliability across all markets we serve.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Values -->
+<section class="py-5 bg-white">
+  <div class="container py-2 py-md-4">
+    <div class="text-center mb-4 mb-md-5">
+      <div class="section-tag"><i class="fa-solid fa-gem"></i> Guiding Principles</div>
+      <h2 class="section-title">Our Core Values</h2>
+      <p class="section-subtitle">The foundational principles that guide every formulation, partnership, and operational decision at RP PHARMA.</p>
+    </div>
+
+    <div class="row g-3 g-md-4 justify-content-center">
+      <div class="col-sm-6 col-lg-4">
+        <div class="rp-card text-center">
+          <div class="card-icon-wrap card-icon-blue mx-auto">
+            <i class="fa-solid fa-award"></i>
+          </div>
+          <h4 class="fw-bold fs-5 text-primary mb-2">Quality</h4>
+          <p class="small text-muted mb-0">Uncompromising adherence to pharmacopeial standards and batch consistency.</p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4">
+        <div class="rp-card text-center">
+          <div class="card-icon-wrap card-icon-teal mx-auto">
+            <i class="fa-solid fa-scale-balanced"></i>
+          </div>
+          <h4 class="fw-bold fs-5 text-primary mb-2">Integrity</h4>
+          <p class="small text-muted mb-0">Transparent communication, ethical business dealings, and accountability.</p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4">
+        <div class="rp-card text-center">
+          <div class="card-icon-wrap card-icon-blue mx-auto">
+            <i class="fa-solid fa-file-shield"></i>
+          </div>
+          <h4 class="fw-bold fs-5 text-primary mb-2">Compliance</h4>
+          <p class="small text-muted mb-0">Rigorous compliance with applicable WHO-GMP standards and drug regulatory mandates.</p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4">
+        <div class="rp-card text-center">
+          <div class="card-icon-wrap card-icon-teal mx-auto">
+            <i class="fa-solid fa-lightbulb"></i>
+          </div>
+          <h4 class="fw-bold fs-5 text-primary mb-2">Innovation</h4>
+          <p class="small text-muted mb-0">Continuous optimization in formulation matrices, stability, and modern packaging.</p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4">
+        <div class="rp-card text-center">
+          <div class="card-icon-wrap card-icon-blue mx-auto">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+          </div>
+          <h4 class="fw-bold fs-5 text-primary mb-2">Reliability</h4>
+          <p class="small text-muted mb-0">Dependable lead times, robust supply chains, and consistent product availability.</p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4">
+        <div class="rp-card text-center">
+          <div class="card-icon-wrap card-icon-teal mx-auto">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <h4 class="fw-bold fs-5 text-primary mb-2">Customer Focus</h4>
+          <p class="small text-muted mb-0">Partner-centric support providing customized dossiers, labeling, and account management.</p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4">
+        <div class="rp-card text-center">
+          <div class="card-icon-wrap card-icon-blue mx-auto">
+            <i class="fa-solid fa-leaf"></i>
+          </div>
+          <h4 class="fw-bold fs-5 text-primary mb-2">Sustainability</h4>
+          <p class="small text-muted mb-0">Responsible sourcing, eco-conscious packaging practices, and long-term healthcare contribution.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to action -->
+<section class="py-5 text-white" style="background-color: var(--primary);">
+  <div class="container py-2 text-center">
+    <h2 class="fw-bold mb-3 text-white">Partner with RP PHARMA Today</h2>
+    <p class="lead text-light mb-4 mx-auto" style="max-width: 650px;">
+      Explore our product catalogue or connect with our international business development department for distribution opportunities.
+    </p>
+    <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+      <a href="products.php" class="btn btn-rp-secondary">
+        <i class="fa-solid fa-capsules me-1"></i> View Products
+      </a>
+      <a href="contact.php" class="btn btn-rp-outline-white">
+        <i class="fa-solid fa-phone me-1"></i> Contact Us
+      </a>
+    </div>
+  </div>
+</section>
+
+<?php require_once __DIR__ . '/includes/footer.php'; ?>
