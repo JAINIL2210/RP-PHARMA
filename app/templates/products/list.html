@@ -6,10 +6,10 @@
 {% block content %}
 
 <!-- Header Banner -->
-<section class="py-5" style="background: radial-gradient(circle at 80% 20%, rgba(0, 168, 150, 0.12) 0%, rgba(11, 37, 69, 0.04) 70%), #F8FAFD; border-bottom:1px solid var(--border-light);">
+<section class="py-5" style="background: linear-gradient(180deg, #F0F6FA 0%, #FFFFFF 100%); border-bottom:1px solid var(--border-color);">
   <div class="container py-3">
     <nav aria-label="breadcrumb">
-      <ol class="breadcrumb small">
+      <ol class="breadcrumb small mb-2">
         <li class="breadcrumb-item"><a href="{{ url_for('main.index') }}">Home</a></li>
         <li class="breadcrumb-item active" aria-current="page">Product Catalogue</li>
       </ol>
@@ -33,9 +33,9 @@
       
       <!-- Left Sidebar: Filters -->
       <div class="col-lg-3">
-        <div class="p-4 bg-white rounded-3 border shadow-sm sticky-top" style="top: 90px; z-index: 10;">
+        <div class="p-3 p-md-4 bg-white rounded-3 border shadow-sm sticky-top" style="top: 80px; z-index: 10;">
           <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
-            <h5 class="fw-bold fs-6 text-primary mb-0"><i class="fa-solid fa-sliders text-teal me-2"></i> Filter Products</h5>
+            <h5 class="fw-bold fs-6 text-primary mb-0"><i class="fa-solid fa-sliders me-2" style="color:var(--accent);"></i> Filter Products</h5>
             <button id="resetFiltersBtn" class="btn btn-sm btn-link text-decoration-none text-muted p-0" style="font-size:0.8rem;">
               <i class="fa-solid fa-rotate-left"></i> Reset
             </button>
@@ -90,7 +90,7 @@
           </div>
 
           <div class="pt-3 border-top text-muted small">
-            <i class="fa-solid fa-shield-halved text-teal me-1"></i> Technical dossiers available for all formulations.
+            <i class="fa-solid fa-shield-halved me-1" style="color:var(--accent);"></i> Technical dossiers available for all formulations.
           </div>
         </div>
       </div>
@@ -104,7 +104,7 @@
             <div class="col-md-8">
               <div class="input-group">
                 <span class="input-group-text bg-white border-end-0"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
-                <input type="text" id="productSearchInput" class="form-control form-control-custom border-start-0" placeholder="Search by product name, composition (e.g. Amoxicillin, Metformin, Omega-3)..." value="{{ search_keyword }}">
+                <input type="text" id="productSearchInput" class="form-control form-control-custom border-start-0" placeholder="Search by name, active molecule (e.g. Amoxicillin, Metformin, Omega-3)..." value="{{ search_keyword }}">
               </div>
             </div>
             <div class="col-md-4 text-md-end text-muted small">
@@ -118,15 +118,15 @@
           <i class="fa-solid fa-box-open text-muted fs-1 mb-3"></i>
           <h4 class="fw-bold text-primary">No Matching Formulations Found</h4>
           <p class="text-muted small mb-3">Try adjusting your keyword search or resetting active filters.</p>
-          <a href="{{ url_for('main.business_enquiry') }}" class="btn btn-sm btn-rp-secondary">
-            Request Custom Formulation
+          <a href="{{ url_for('main.contact') }}" class="btn btn-sm btn-rp-secondary">
+            Contact for Custom Requirements
           </a>
         </div>
 
         <!-- Product Grid -->
-        <div class="row g-4" id="productsGrid">
+        <div class="row g-3 g-md-4" id="productsGrid">
           {% for prod in products %}
-          <div class="col-md-6 col-xl-4 product-grid-item"
+          <div class="col-sm-6 col-xl-4 product-grid-item"
                data-name="{{ prod.name }}"
                data-composition="{{ prod.composition }}"
                data-type="{{ prod.type }}"
@@ -138,7 +138,7 @@
                 <span class="product-type-badge {% if prod.type == 'pharmaceutical' %}badge-pharma{% else %}badge-nutra{% endif %}">
                   {{ prod.type|capitalize }}
                 </span>
-                <span class="small text-muted text-truncate ms-2" style="max-width: 140px;" title="{{ prod.dosage_form }}">
+                <span class="small text-muted text-truncate ms-2" style="max-width: 130px;" title="{{ prod.dosage_form }}">
                   <i class="fa-solid fa-tablets me-1"></i>{{ prod.dosage_form }}
                 </span>
               </div>
@@ -150,7 +150,7 @@
                 <ul class="product-specs-list">
                   <li><strong>Category:</strong> <span class="text-truncate">{{ prod.category.name if prod.category else 'General' }}</span></li>
                   <li><strong>Strength:</strong> <span>{{ prod.strength or 'Standard' }}</span></li>
-                  <li><strong>Packaging:</strong> <span class="text-truncate">{{ prod.packaging or 'Blister / Strip / Bottle' }}</span></li>
+                  <li><strong>Packaging:</strong> <span class="text-truncate">{{ prod.packaging or 'Blister / Bottle' }}</span></li>
                 </ul>
               </div>
               <div class="product-card-footer">
@@ -176,13 +176,13 @@
 </section>
 
 <!-- Call to Action Banner -->
-<section class="py-5" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color:#ffffff;">
+<section class="py-5 text-white" style="background-color: var(--primary);">
   <div class="container py-2 text-center">
     <h3 class="fw-bold text-white mb-2">Can't Find a Specific Dosage Form or Formulation?</h3>
     <p class="text-light lead fs-6 mb-3 mx-auto" style="max-width: 600px;">
       RP PHARMA manufactures custom formulation strengths and packaging configurations through qualified facilities in India.
     </p>
-    <a href="{{ url_for('main.business_enquiry') }}" class="btn btn-rp-secondary">
+    <a href="{{ url_for('main.contact') }}" class="btn btn-rp-secondary">
       <i class="fa-solid fa-file-lines me-2"></i> Submit Custom Requirement
     </a>
   </div>

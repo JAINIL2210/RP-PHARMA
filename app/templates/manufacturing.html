@@ -6,18 +6,18 @@
 {% block content %}
 
 <!-- Header Banner -->
-<section class="py-5" style="background: radial-gradient(circle at 80% 20%, rgba(0, 168, 150, 0.15) 0%, rgba(11, 37, 69, 0.04) 70%), #F8FAFD; border-bottom:1px solid var(--border-light);">
-  <div class="container py-4">
+<section class="py-5" style="background: linear-gradient(180deg, #F0F6FA 0%, #FFFFFF 100%); border-bottom:1px solid var(--border-color);">
+  <div class="container py-3">
     <div class="row align-items-center">
       <div class="col-lg-8">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb small">
+          <ol class="breadcrumb small mb-2">
             <li class="breadcrumb-item"><a href="{{ url_for('main.index') }}">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Manufacturing</li>
           </ol>
         </nav>
         <span class="section-tag"><i class="fa-solid fa-industry"></i> Production Ecosystem</span>
-        <h1 class="display-5 fw-bold text-primary mb-3">Manufacturing &amp; Supply Ecosystem</h1>
+        <h1 class="display-6 fw-bold text-primary mb-2">Manufacturing &amp; Supply Ecosystem</h1>
         <p class="lead text-body fs-6 mb-0">
           Formulations manufactured through qualified partner facilities in India, following applicable WHO-GMP and international standards to ensure consistent healthcare supply.
         </p>
@@ -28,93 +28,93 @@
 
 <!-- Ecosystem Flow Section -->
 <section class="py-5 bg-white">
-  <div class="container py-4">
-    <div class="text-center mb-5">
+  <div class="container py-2 py-md-4">
+    <div class="text-center mb-4 mb-md-5">
       <div class="section-tag"><i class="fa-solid fa-arrows-spin"></i> End-to-End Workflow</div>
       <h2 class="section-title">The 7-Step Manufacturing &amp; Distribution Cycle</h2>
       <p class="section-subtitle">A synchronized, rigorous process from initial formulation formulation to international delivery.</p>
     </div>
 
     <!-- 7 Steps Visual Cards -->
-    <div class="row g-4 mb-5">
-      <div class="col-md-6 col-lg-3">
-        <div class="workflow-step h-100">
+    <div class="row g-3 mb-5">
+      <div class="col-6 col-md-4 col-lg">
+        <div class="workflow-step">
           <div class="workflow-num">1</div>
-          <h5 class="fw-bold text-primary mb-2">Product Development</h5>
-          <p class="small text-muted mb-0">Formulation design, pre-formulation stability, and pilot trial batch optimization.</p>
+          <h6 class="fw-bold text-primary mb-1">Development</h6>
+          <p class="small text-muted mb-0">Formulation design &amp; trial batch</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="workflow-step h-100">
+      <div class="col-6 col-md-4 col-lg">
+        <div class="workflow-step">
           <div class="workflow-num">2</div>
-          <h5 class="fw-bold text-primary mb-2">Modern Manufacturing</h5>
-          <p class="small text-muted mb-0">Commercial manufacturing through qualified partner facilities across India adhering to WHO-GMP.</p>
+          <h6 class="fw-bold text-primary mb-1">Manufacturing</h6>
+          <p class="small text-muted mb-0">WHO-GMP partner facilities</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="workflow-step h-100">
+      <div class="col-6 col-md-4 col-lg">
+        <div class="workflow-step">
           <div class="workflow-num">3</div>
-          <h5 class="fw-bold text-primary mb-2">Quality Control</h5>
-          <p class="small text-muted mb-0">Comprehensive analytical release testing, dissolution profiling, and microbiological checks.</p>
+          <h6 class="fw-bold text-primary mb-1">Quality Control</h6>
+          <p class="small text-muted mb-0">IP / BP / USP analytical release</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="workflow-step h-100">
+      <div class="col-6 col-md-4 col-lg">
+        <div class="workflow-step">
           <div class="workflow-num">4</div>
-          <h5 class="fw-bold text-primary mb-2">Documentation</h5>
-          <p class="small text-muted mb-0">CTD/ACTD dossier preparation, Certificate of Analysis (COA), and batch manufacturing records.</p>
+          <h6 class="fw-bold text-primary mb-1">Documentation</h6>
+          <p class="small text-muted mb-0">CTD / ACTD dossier &amp; COA</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="workflow-step h-100">
+      <div class="col-6 col-md-4 col-lg">
+        <div class="workflow-step">
           <div class="workflow-num">5</div>
-          <h5 class="fw-bold text-primary mb-2">Packaging</h5>
-          <p class="small text-muted mb-0">Tropicalized Alu-Alu, PVC/PVDC blisters, and tamper-evident HDPE bottles in multilingual cartons.</p>
+          <h6 class="fw-bold text-primary mb-1">Packaging</h6>
+          <p class="small text-muted mb-0">Tropicalized Alu-Alu &amp; bottles</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="workflow-step h-100">
+      <div class="col-6 col-md-4 col-lg">
+        <div class="workflow-step">
           <div class="workflow-num">6</div>
-          <h5 class="fw-bold text-primary mb-2">Supply Chain</h5>
-          <p class="small text-muted mb-0">Reliable warehousing, climate-controlled storage, and freight consolidation from Indian ports.</p>
+          <h6 class="fw-bold text-primary mb-1">Supply Chain</h6>
+          <p class="small text-muted mb-0">Controlled storage &amp; freight</p>
         </div>
       </div>
-      <div class="col-md-12 col-lg-4">
-        <div class="workflow-step h-100">
+      <div class="col-12 col-md-4 col-lg">
+        <div class="workflow-step">
           <div class="workflow-num">7</div>
-          <h5 class="fw-bold text-primary mb-2">Global Distribution</h5>
-          <p class="small text-muted mb-0">Swift customs clearance, destination market logistics, and reliable product availability.</p>
+          <h6 class="fw-bold text-primary mb-1">Distribution</h6>
+          <p class="small text-muted mb-0">Global export delivery</p>
         </div>
       </div>
     </div>
 
     <!-- Core Manufacturing Pillars -->
-    <div class="row g-4 pt-4 border-top">
-      <div class="col-md-6 col-lg-4">
+    <div class="row g-3 g-md-4 pt-4 border-top">
+      <div class="col-sm-6 col-lg-4">
         <div class="rp-card">
           <div class="card-icon-wrap card-icon-blue">
             <i class="fa-solid fa-city"></i>
           </div>
           <h4 class="fw-bold fs-5 text-primary mb-2">Modern Manufacturing</h4>
           <p class="small text-muted mb-0">
-            Manufactured through our qualified manufacturing partners and state-of-the-art facilities in India, utilizing automated compression, encapsulation, and liquid filling lines.
+            Manufactured through qualified manufacturing partners and state-of-the-art facilities in India, utilizing automated compression, encapsulation, and filling lines.
           </p>
         </div>
       </div>
 
-      <div class="col-md-6 col-lg-4">
+      <div class="col-sm-6 col-lg-4">
         <div class="rp-card">
           <div class="card-icon-wrap card-icon-teal">
             <i class="fa-solid fa-flask"></i>
           </div>
           <h4 class="fw-bold fs-5 text-primary mb-2">Quality Control &amp; Testing</h4>
           <p class="small text-muted mb-0">
-            Equipped with modern testing instruments including HPLC, GC, FTIR, and dissolution testers to verify active ingredient assays against IP/BP/USP pharmacopeias.
+            Equipped with testing instruments including HPLC, GC, FTIR, and dissolution testers to verify active ingredient assays against IP/BP/USP pharmacopeias.
           </p>
         </div>
       </div>
 
-      <div class="col-md-6 col-lg-4">
+      <div class="col-sm-6 col-lg-4">
         <div class="rp-card">
           <div class="card-icon-wrap card-icon-blue">
             <i class="fa-solid fa-box"></i>
@@ -126,7 +126,7 @@
         </div>
       </div>
 
-      <div class="col-md-6 col-lg-4">
+      <div class="col-sm-6 col-lg-4">
         <div class="rp-card">
           <div class="card-icon-wrap card-icon-teal">
             <i class="fa-solid fa-file-lines"></i>
@@ -138,7 +138,7 @@
         </div>
       </div>
 
-      <div class="col-md-6 col-lg-4">
+      <div class="col-sm-6 col-lg-4">
         <div class="rp-card">
           <div class="card-icon-wrap card-icon-blue">
             <i class="fa-solid fa-truck-ramp-box"></i>
@@ -150,7 +150,7 @@
         </div>
       </div>
 
-      <div class="col-md-6 col-lg-4">
+      <div class="col-sm-6 col-lg-4">
         <div class="rp-card">
           <div class="card-icon-wrap card-icon-teal">
             <i class="fa-solid fa-plane-departure"></i>
@@ -166,14 +166,14 @@
 </section>
 
 <!-- Call to action -->
-<section class="py-5" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color:#ffffff;">
-  <div class="container py-3 text-center">
+<section class="py-5 text-white" style="background-color: var(--primary);">
+  <div class="container py-2 text-center">
     <h2 class="fw-bold mb-3 text-white">Need Contract Manufacturing or Product Dossiers?</h2>
     <p class="lead text-light mb-4 mx-auto" style="max-width: 650px;">
       Discuss custom manufacturing requirements, packaging styles, and distribution rights with our team.
     </p>
-    <a href="{{ url_for('main.business_enquiry') }}" class="btn btn-rp-secondary">
-      <i class="fa-solid fa-paper-plane me-2"></i> Submit Manufacturing Enquiry
+    <a href="{{ url_for('main.contact') }}" class="btn btn-rp-secondary">
+      <i class="fa-solid fa-paper-plane me-1"></i> Contact Us
     </a>
   </div>
 </section>

@@ -1,12 +1,13 @@
 import os
 from flask import Flask, render_template, request
 from app.config import config
-from app.models import db, SiteSetting, Category
+from app.models import db, Product, Category, Enquiry, SiteSetting, AdminUser
+from app.seed_data import seed_database
 
 def create_app(config_name='default'):
     """Flask application factory."""
     app = Flask(__name__)
-    app.config.from_object(config[config_name])
+    app.config.from_object(config.get(config_name, config['default']))
     
     # Ensure directories exist
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
@@ -20,7 +21,6 @@ def create_app(config_name='default'):
     with app.app_context():
         try:
             db.create_all()
-            from app.seed_data import seed_database
             seed_database()
         except Exception as e:
             print(f"[!] DB init notice: {e}")

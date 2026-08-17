@@ -29,7 +29,7 @@
 {% block content %}
 
 <!-- Header Banner -->
-<section class="py-4" style="background: radial-gradient(circle at 80% 20%, rgba(0, 168, 150, 0.12) 0%, rgba(11, 37, 69, 0.04) 70%), #F8FAFD; border-bottom:1px solid var(--border-light);">
+<section class="py-4" style="background: linear-gradient(180deg, #F0F6FA 0%, #FFFFFF 100%); border-bottom:1px solid var(--border-color);">
   <div class="container">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb small mb-2">
@@ -47,41 +47,41 @@
 <!-- Product Details Main Section -->
 <section class="py-5 bg-white">
   <div class="container py-2">
-    <div class="row g-5">
+    <div class="row g-4 g-lg-5">
       
       <!-- Left Column: Product Overview & Badges -->
       <div class="col-lg-5">
         <div class="p-4 rounded-4 border bg-light text-center mb-4">
-          <div class="d-inline-flex align-items-center justify-content-center p-4 bg-white rounded-circle shadow-sm mb-3" style="width:120px;height:120px;">
-            <i class="fa-solid {% if product.type == 'pharmaceutical' %}fa-tablets text-primary{% else %}fa-leaf text-teal{% endif %} fs-1"></i>
+          <div class="d-inline-flex align-items-center justify-content-center p-3 bg-white rounded-circle shadow-sm mb-3" style="width:100px;height:100px;">
+            <i class="fa-solid {% if product.type == 'pharmaceutical' %}fa-tablets text-primary{% else %}fa-leaf text-accent{% endif %} fs-1" style="color:var(--primary);"></i>
           </div>
           <div class="mb-2">
             <span class="product-type-badge {% if product.type == 'pharmaceutical' %}badge-pharma{% else %}badge-nutra{% endif %} px-3 py-1 fs-6">
               {{ product.type|capitalize }} Formulation
             </span>
           </div>
-          <h2 class="fw-bold text-primary fs-4 mt-2">{{ product.name }}</h2>
+          <h2 class="fw-bold text-primary fs-4 mt-2 mb-1">{{ product.name }}</h2>
           <p class="text-muted small mb-0">{{ product.category.name if product.category else 'Therapeutic Healthcare Segment' }}</p>
         </div>
 
         <!-- Technical Verification Badges -->
         <div class="p-4 rounded-4 bg-light border">
-          <h5 class="fw-bold fs-6 text-primary mb-3"><i class="fa-solid fa-file-circle-check text-teal me-2"></i> Quality &amp; Regulatory Compliance</h5>
+          <h5 class="fw-bold fs-6 text-primary mb-3"><i class="fa-solid fa-file-circle-check me-2" style="color:var(--accent);"></i> Quality &amp; Compliance</h5>
           <ul class="list-unstyled small mb-0">
             <li class="mb-2 d-flex align-items-start gap-2">
-              <i class="fa-solid fa-check text-teal mt-1"></i>
-              <span><strong>Manufacturing:</strong> Qualified facilities in India complying with WHO-GMP standards.</span>
+              <i class="fa-solid fa-check text-primary mt-1"></i>
+              <span><strong>Manufacturing:</strong> Qualified facilities in India complying with WHO-GMP.</span>
             </li>
             <li class="mb-2 d-flex align-items-start gap-2">
-              <i class="fa-solid fa-check text-teal mt-1"></i>
+              <i class="fa-solid fa-check text-primary mt-1"></i>
               <span><strong>Pharmacopeia:</strong> Formulated in compliance with IP / BP / USP monographs.</span>
             </li>
             <li class="mb-2 d-flex align-items-start gap-2">
-              <i class="fa-solid fa-check text-teal mt-1"></i>
+              <i class="fa-solid fa-check text-primary mt-1"></i>
               <span><strong>Batch Testing:</strong> Comprehensive Certificate of Analysis (COA) issued per lot.</span>
             </li>
             <li class="d-flex align-items-start gap-2">
-              <i class="fa-solid fa-check text-teal mt-1"></i>
+              <i class="fa-solid fa-check text-primary mt-1"></i>
               <span><strong>Climatic Zone:</strong> Stability testing under ICH Zone IVb conditions where applicable.</span>
             </li>
           </ul>
@@ -91,15 +91,15 @@
       <!-- Right Column: Detailed Product Profile & Specifications -->
       <div class="col-lg-7">
         <h1 class="display-6 fw-bold text-primary mb-2">{{ product.name }}</h1>
-        <p class="lead text-secondary fs-6 mb-4">{{ product.indications or 'Therapeutic Formulation for International B2B Markets' }}</p>
+        <p class="lead text-muted fs-6 mb-4">{{ product.indications or 'Therapeutic Formulation for International B2B Markets' }}</p>
 
         <!-- Action CTAs -->
-        <div class="d-flex flex-wrap gap-3 mb-4 pb-4 border-bottom">
+        <div class="d-flex flex-column flex-sm-row flex-wrap gap-2 gap-sm-3 mb-4 pb-4 border-bottom">
           <button type="button" class="btn btn-rp-secondary" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-product-name="{{ product.name }}" data-category-name="{{ product.category.name if product.category else '' }}">
             <i class="fa-solid fa-paper-plane me-1"></i> Send Enquiry / Get Quotation
           </button>
-          <a href="{{ url_for('main.business_enquiry') }}?product={{ product.name }}" class="btn btn-rp-outline">
-            <i class="fa-solid fa-file-contract me-1"></i> Request Product Dossier
+          <a href="tel:+918469034869" class="btn btn-rp-outline">
+            <i class="fa-solid fa-phone me-1"></i> Call +91 84690 34869
           </a>
         </div>
 
@@ -122,7 +122,7 @@
               </tr>
               <tr>
                 <th class="bg-light text-dark">Packaging Style</th>
-                <td>{{ product.packaging or 'Alu-Alu Blister / Strip / HDPE Container in Monocarton' }}</td>
+                <td>{{ product.packaging or 'Alu-Alu Blister / Strip / HDPE Container' }}</td>
               </tr>
               <tr>
                 <th class="bg-light text-dark">Therapeutic Segment</th>
@@ -141,25 +141,25 @@
         <div class="row g-3 mb-4">
           <div class="col-sm-6">
             <div class="p-3 bg-light rounded-3 border">
-              <div class="fw-bold text-primary small mb-1"><i class="fa-solid fa-file-shield text-teal me-2"></i> Regulatory Dossier</div>
+              <div class="fw-bold text-primary small mb-1"><i class="fa-solid fa-file-shield me-2" style="color:var(--accent);"></i> Regulatory Dossier</div>
               <div class="small text-muted">{{ product.dossier_status or 'CTD / ACTD Dossier Available on Request' }}</div>
             </div>
           </div>
           <div class="col-sm-6">
             <div class="p-3 bg-light rounded-3 border">
-              <div class="fw-bold text-primary small mb-1"><i class="fa-solid fa-vial-circle-check text-teal me-2"></i> Stability Studies</div>
+              <div class="fw-bold text-primary small mb-1"><i class="fa-solid fa-vial-circle-check me-2" style="color:var(--accent);"></i> Stability Studies</div>
               <div class="small text-muted">{{ product.stability_status or 'Zone IVb Stability Tested' }}</div>
             </div>
           </div>
           <div class="col-sm-6">
             <div class="p-3 bg-light rounded-3 border">
-              <div class="fw-bold text-primary small mb-1"><i class="fa-solid fa-clipboard-check text-teal me-2"></i> Process Validation</div>
+              <div class="fw-bold text-primary small mb-1"><i class="fa-solid fa-clipboard-check me-2" style="color:var(--accent);"></i> Process Validation</div>
               <div class="small text-muted">{{ product.validation_status or 'Validated Manufacturing Process' }}</div>
             </div>
           </div>
           <div class="col-sm-6">
             <div class="p-3 bg-light rounded-3 border">
-              <div class="fw-bold text-primary small mb-1"><i class="fa-solid fa-stamp text-teal me-2"></i> Quality Certificate</div>
+              <div class="fw-bold text-primary small mb-1"><i class="fa-solid fa-stamp me-2" style="color:var(--accent);"></i> Quality Certificate</div>
               <div class="small text-muted">{{ product.coa_status or 'Certificate of Analysis per Batch' }}</div>
             </div>
           </div>
@@ -180,16 +180,16 @@
 {% if related_products %}
 <section class="py-5 bg-light">
   <div class="container py-2">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-      <h3 class="fw-bold text-primary fs-4 mb-0">Related Formulations in {{ product.category.name if product.category else 'this Segment' }}</h3>
+    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center mb-4">
+      <h3 class="fw-bold text-primary fs-5 mb-2 mb-sm-0">Related Formulations in {{ product.category.name if product.category else 'this Segment' }}</h3>
       <a href="{{ url_for('products.list_products') }}?category={{ product.category.slug if product.category else '' }}" class="btn btn-sm btn-rp-outline">
         View All in Category <i class="fa-solid fa-arrow-right ms-1"></i>
       </a>
     </div>
 
-    <div class="row g-4">
+    <div class="row g-3 g-md-4">
       {% for rel in related_products %}
-      <div class="col-md-4">
+      <div class="col-sm-6 col-md-4">
         <div class="product-card">
           <div class="product-card-header">
             <span class="product-type-badge {% if rel.type == 'pharmaceutical' %}badge-pharma{% else %}badge-nutra{% endif %}">

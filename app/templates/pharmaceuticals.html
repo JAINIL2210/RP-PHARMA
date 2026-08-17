@@ -6,18 +6,18 @@
 {% block content %}
 
 <!-- Header Banner -->
-<section class="py-5" style="background: radial-gradient(circle at 80% 20%, rgba(3, 105, 161, 0.12) 0%, rgba(11, 37, 69, 0.04) 70%), #F8FAFD; border-bottom:1px solid var(--border-light);">
-  <div class="container py-4">
+<section class="py-5" style="background: linear-gradient(180deg, #F0F6FA 0%, #FFFFFF 100%); border-bottom:1px solid var(--border-color);">
+  <div class="container py-3">
     <div class="row align-items-center">
       <div class="col-lg-8">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb small">
+          <ol class="breadcrumb small mb-2">
             <li class="breadcrumb-item"><a href="{{ url_for('main.index') }}">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Pharmaceuticals</li>
           </ol>
         </nav>
         <span class="section-tag"><i class="fa-solid fa-capsules"></i> Pharmaceutical Division</span>
-        <h1 class="display-5 fw-bold text-primary mb-3">Pharmaceutical Formulations &amp; Dosage Forms</h1>
+        <h1 class="display-6 fw-bold text-primary mb-2">Pharmaceutical Formulations &amp; Dosage Forms</h1>
         <p class="lead text-body fs-6 mb-0">
           RP PHARMA focuses on delivering high-quality pharmaceutical formulations manufactured across state-of-the-art facilities in India following applicable WHO-GMP requirements for international healthcare markets.
         </p>
@@ -28,8 +28,8 @@
 
 <!-- Overview & Key Dosage Forms -->
 <section class="py-5 bg-white">
-  <div class="container py-4">
-    <div class="row align-items-center g-5 mb-5">
+  <div class="container py-2 py-md-4">
+    <div class="row align-items-center g-4 g-lg-5 mb-5">
       <div class="col-lg-6">
         <div class="section-tag"><i class="fa-solid fa-flask-vial"></i> Formulation Capabilities</div>
         <h2 class="section-title">Finished Dosage Forms Tailored for Global Health Needs</h2>
@@ -40,41 +40,41 @@
           All pharmaceutical products are manufactured through qualified partner facilities in India following strict WHO-GMP and international pharmacopeial standards (IP, BP, USP).
         </p>
         <div class="d-flex flex-wrap gap-2">
-          <span class="badge bg-light text-dark border p-2 px-3 fw-semibold"><i class="fa-solid fa-check text-teal me-1"></i> CTD / ACTD Dossiers</span>
-          <span class="badge bg-light text-dark border p-2 px-3 fw-semibold"><i class="fa-solid fa-check text-teal me-1"></i> Zone IVb Stability</span>
-          <span class="badge bg-light text-dark border p-2 px-3 fw-semibold"><i class="fa-solid fa-check text-teal me-1"></i> Bioequivalence &amp; COA</span>
-          <span class="badge bg-light text-dark border p-2 px-3 fw-semibold"><i class="fa-solid fa-check text-teal me-1"></i> Custom Packaging</span>
+          <span class="badge bg-light text-dark border p-2 px-3 fw-semibold"><i class="fa-solid fa-check text-primary me-1"></i> CTD / ACTD Dossiers</span>
+          <span class="badge bg-light text-dark border p-2 px-3 fw-semibold"><i class="fa-solid fa-check text-primary me-1"></i> Zone IVb Stability</span>
+          <span class="badge bg-light text-dark border p-2 px-3 fw-semibold"><i class="fa-solid fa-check text-primary me-1"></i> Bioequivalence &amp; COA</span>
+          <span class="badge bg-light text-dark border p-2 px-3 fw-semibold"><i class="fa-solid fa-check text-primary me-1"></i> Custom Packaging</span>
         </div>
       </div>
 
       <div class="col-lg-6">
         <div class="row g-3">
           <div class="col-6">
-            <div class="p-3 bg-light rounded-3 border text-center">
+            <div class="p-3 bg-light rounded-3 border text-center h-100">
               <i class="fa-solid fa-tablets text-primary fs-3 mb-2"></i>
-              <h6 class="fw-bold text-dark mb-1">Solid Orals (Tablets)</h6>
-              <p class="small text-muted mb-0">Film-coated, enteric-coated, sustained release &amp; dispersible</p>
+              <h6 class="fw-bold text-dark mb-1">Solid Orals</h6>
+              <p class="small text-muted mb-0">Film-coated, sustained release &amp; dispersible tablets</p>
             </div>
           </div>
           <div class="col-6">
-            <div class="p-3 bg-light rounded-3 border text-center">
-              <i class="fa-solid fa-capsules text-teal fs-3 mb-2"></i>
+            <div class="p-3 bg-light rounded-3 border text-center h-100">
+              <i class="fa-solid fa-capsules text-primary fs-3 mb-2"></i>
               <h6 class="fw-bold text-dark mb-1">Capsules &amp; Pellets</h6>
               <p class="small text-muted mb-0">Hard gelatin, delayed release &amp; multi-pellet blends</p>
             </div>
           </div>
           <div class="col-6">
-            <div class="p-3 bg-light rounded-3 border text-center">
+            <div class="p-3 bg-light rounded-3 border text-center h-100">
               <i class="fa-solid fa-bottle-droplet text-primary fs-3 mb-2"></i>
               <h6 class="fw-bold text-dark mb-1">Liquid Orals</h6>
               <p class="small text-muted mb-0">Syrups, oral suspensions &amp; pediatric drops</p>
             </div>
           </div>
           <div class="col-6">
-            <div class="p-3 bg-light rounded-3 border text-center">
-              <i class="fa-solid fa-syringe text-teal fs-3 mb-2"></i>
-              <h6 class="fw-bold text-dark mb-1">Injectables &amp; Dry Powder</h6>
-              <p class="small text-muted mb-0">Sterile liquid vials, ampoules &amp; lyophilized dry powders</p>
+            <div class="p-3 bg-light rounded-3 border text-center h-100">
+              <i class="fa-solid fa-syringe text-primary fs-3 mb-2"></i>
+              <h6 class="fw-bold text-dark mb-1">Injectables</h6>
+              <p class="small text-muted mb-0">Sterile liquid vials, ampoules &amp; dry powders</p>
             </div>
           </div>
         </div>
@@ -82,15 +82,15 @@
     </div>
 
     <!-- Therapeutic Categories Grid -->
-    <div class="text-center mb-5">
+    <div class="text-center mb-4 mb-md-5">
       <div class="section-tag"><i class="fa-solid fa-layer-group"></i> Therapeutic Segments</div>
       <h2 class="section-title">Pharmaceutical Categories</h2>
       <p class="section-subtitle">Explore our specialized therapeutic segments and associated pharmaceutical formulations.</p>
     </div>
 
-    <div class="row g-4">
+    <div class="row g-3 g-md-4">
       {% for cat in categories %}
-      <div class="col-md-6 col-lg-4">
+      <div class="col-sm-6 col-lg-4">
         <div class="rp-card">
           <div class="card-icon-wrap card-icon-blue">
             <i class="fa-solid {{ cat.icon or 'fa-pills' }}"></i>
@@ -98,7 +98,7 @@
           <h4 class="fw-bold fs-5 text-primary mb-2">{{ cat.name }}</h4>
           <p class="small text-muted flex-grow-1">{{ cat.description or 'WHO-GMP compliant pharmaceutical formulations supported by complete regulatory files.' }}</p>
           <div class="pt-3 border-top mt-3 d-flex justify-content-between align-items-center">
-            <span class="small text-muted"><i class="fa-solid fa-box-archive me-1"></i> Quality Formulations</span>
+            <span class="small text-muted"><i class="fa-solid fa-box-archive me-1"></i> Quality Tested</span>
             <a href="{{ url_for('products.list_products') }}?category={{ cat.slug }}" class="btn btn-sm btn-rp-outline">
               View Products <i class="fa-solid fa-arrow-right ms-1"></i>
             </a>
@@ -112,20 +112,20 @@
 
 <!-- Featured Formulations Showcase -->
 <section class="py-5 bg-light">
-  <div class="container py-4">
+  <div class="container py-2 py-md-4">
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4">
       <div>
         <div class="section-tag"><i class="fa-solid fa-star"></i> Featured Portfolio</div>
         <h2 class="section-title mb-0">Key Pharmaceutical Products</h2>
       </div>
       <a href="{{ url_for('products.list_products') }}?type=pharmaceutical" class="btn btn-rp-primary mt-3 mt-md-0">
-        Browse Full Pharma Catalogue <i class="fa-solid fa-arrow-right ms-2"></i>
+        Browse Full Catalogue <i class="fa-solid fa-arrow-right ms-2"></i>
       </a>
     </div>
 
-    <div class="row g-4">
+    <div class="row g-3 g-md-4">
       {% for prod in featured_products %}
-      <div class="col-md-6 col-lg-4">
+      <div class="col-sm-6 col-lg-4">
         <div class="product-card">
           <div class="product-card-header">
             <span class="product-type-badge badge-pharma">Pharma</span>
@@ -154,14 +154,14 @@
 </section>
 
 <!-- Call to action -->
-<section class="py-5" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color:#ffffff;">
-  <div class="container py-3 text-center">
+<section class="py-5 text-white" style="background-color: var(--primary);">
+  <div class="container py-2 text-center">
     <h2 class="fw-bold mb-3 text-white">Looking for a Pharmaceutical Manufacturing &amp; Export Partner?</h2>
     <p class="lead text-light mb-4 mx-auto" style="max-width: 650px;">
       Contact our international business division to discuss dossier licensing, commercial supply agreements, or distributor representation.
     </p>
-    <a href="{{ url_for('main.business_enquiry') }}" class="btn btn-rp-secondary">
-      <i class="fa-solid fa-paper-plane me-2"></i> Submit Business Enquiry
+    <a href="{{ url_for('main.contact') }}" class="btn btn-rp-secondary">
+      <i class="fa-solid fa-paper-plane me-2"></i> Contact Our Export Desk
     </a>
   </div>
 </section>

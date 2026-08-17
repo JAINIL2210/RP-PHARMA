@@ -7,7 +7,7 @@
 <!-- 1. HERO SECTION -->
 <section class="hero-section">
   <div class="container">
-    <div class="row align-items-center g-5">
+    <div class="row align-items-center g-4 g-lg-5">
       <!-- Left Column: Copy & CTAs -->
       <div class="col-lg-7">
         <div class="hero-badge">
@@ -15,33 +15,33 @@
           <span>WHO-GMP &bull; EU-GMP Partner Network Standards</span>
         </div>
         <h1 class="hero-heading">
-          Your Trusted Partner in <span class="text-primary">Pharmaceuticals</span> &amp; <span class="text-teal" style="color:var(--secondary);">Nutraceuticals</span>
+          Your Trusted Partner in <span class="text-primary">Pharmaceuticals</span> &amp; <span class="text-accent" style="color:var(--accent);">Nutraceuticals</span>
         </h1>
         <p class="hero-lead">
           Delivering quality-focused pharmaceutical and nutraceutical solutions from India to global markets, supported by robust regulatory documentation and technical excellence.
         </p>
-        <div class="d-flex flex-wrap gap-3 mb-4">
+        <div class="d-flex flex-column flex-sm-row flex-wrap gap-2 gap-sm-3 mb-4">
           <a href="{{ url_for('products.list_products') }}" class="btn btn-rp-primary">
             <i class="fa-solid fa-capsules"></i> Explore Products
           </a>
-          <a href="{{ url_for('main.business_enquiry') }}" class="btn btn-rp-secondary">
+          <a href="{{ url_for('main.contact') }}" class="btn btn-rp-secondary">
             <i class="fa-solid fa-handshake"></i> Business Enquiry
           </a>
         </div>
         
         <!-- Key Trust Badges -->
-        <div class="d-flex flex-wrap align-items-center gap-4 pt-3 border-top border-light">
+        <div class="d-flex flex-wrap align-items-center gap-3 gap-md-4 pt-3 border-top border-light">
           <div class="d-flex align-items-center gap-2">
-            <i class="fa-solid fa-file-shield text-teal fs-5"></i>
-            <span class="small fw-semibold text-secondary">CTD / ACTD Dossiers</span>
+            <i class="fa-solid fa-file-shield text-accent fs-5" style="color:var(--accent);"></i>
+            <span class="small fw-semibold text-muted">CTD / ACTD Dossiers</span>
           </div>
           <div class="d-flex align-items-center gap-2">
-            <i class="fa-solid fa-vial-circle-check text-teal fs-5"></i>
-            <span class="small fw-semibold text-secondary">Zone IVb Stability</span>
+            <i class="fa-solid fa-vial-circle-check text-accent fs-5" style="color:var(--accent);"></i>
+            <span class="small fw-semibold text-muted">Zone IVb Stability</span>
           </div>
           <div class="d-flex align-items-center gap-2">
-            <i class="fa-solid fa-earth-americas text-teal fs-5"></i>
-            <span class="small fw-semibold text-secondary">Global Export Focus</span>
+            <i class="fa-solid fa-earth-americas text-accent fs-5" style="color:var(--accent);"></i>
+            <span class="small fw-semibold text-muted">Global Export Focus</span>
           </div>
         </div>
       </div>
@@ -49,13 +49,13 @@
       <!-- Right Column: Visual Feature Card -->
       <div class="col-lg-5">
         <div class="hero-visual-card">
-          <div class="d-flex align-items-center justify-content-between mb-4">
-            <span class="badge bg-light text-dark fw-bold px-3 py-2">RP PHARMA Core Ecosystem</span>
-            <i class="fa-solid fa-dna text-teal fs-4"></i>
+          <div class="d-flex align-items-center justify-content-between mb-3 mb-md-4">
+            <span class="badge bg-white text-primary fw-bold px-3 py-2">RP PHARMA Core Ecosystem</span>
+            <i class="fa-solid fa-dna text-white fs-4"></i>
           </div>
           
           <div class="hero-pill-badge">
-            <div class="bg-primary text-teal rounded-circle p-2 d-flex align-items-center justify-content-center" style="width:38px;height:38px;">
+            <div class="bg-white text-primary rounded-circle p-2 d-flex align-items-center justify-content-center" style="width:36px;height:36px;flex-shrink:0;">
               <i class="fa-solid fa-tablets"></i>
             </div>
             <div>
@@ -65,7 +65,7 @@
           </div>
 
           <div class="hero-pill-badge">
-            <div class="bg-primary text-teal rounded-circle p-2 d-flex align-items-center justify-content-center" style="width:38px;height:38px;">
+            <div class="bg-white text-primary rounded-circle p-2 d-flex align-items-center justify-content-center" style="width:36px;height:36px;flex-shrink:0;">
               <i class="fa-solid fa-leaf"></i>
             </div>
             <div>
@@ -75,7 +75,7 @@
           </div>
 
           <div class="hero-pill-badge">
-            <div class="bg-primary text-teal rounded-circle p-2 d-flex align-items-center justify-content-center" style="width:38px;height:38px;">
+            <div class="bg-white text-primary rounded-circle p-2 d-flex align-items-center justify-content-center" style="width:36px;height:36px;flex-shrink:0;">
               <i class="fa-solid fa-boxes-packing"></i>
             </div>
             <div>
@@ -84,7 +84,7 @@
             </div>
           </div>
 
-          <div class="mt-4 text-center">
+          <div class="mt-3 text-center">
             <a href="{{ url_for('main.about') }}" class="text-white text-decoration-underline small fw-semibold">
               Learn more about our technical expertise <i class="fa-solid fa-arrow-right ms-1"></i>
             </a>
@@ -98,7 +98,7 @@
 <!-- 2. TRUST STATISTICS COUNTERS -->
 <section class="stats-section">
   <div class="container">
-    <div class="row g-4 justify-content-center">
+    <div class="row g-3 g-md-4 justify-content-center">
       <div class="col-6 col-md-4 col-lg-2">
         <div class="stat-item">
           <div class="stat-number stat-counter" data-target="{{ site_settings.get('stat_experience', '15+') }}">{{ site_settings.get('stat_experience', '15+') }}</div>
@@ -126,7 +126,7 @@
       <div class="col-6 col-md-4 col-lg-3">
         <div class="stat-item">
           <div class="stat-number stat-counter" data-target="{{ site_settings.get('stat_global_markets', '5') }}">{{ site_settings.get('stat_global_markets', '5') }}</div>
-          <div class="stat-label">Global Continental Regions</div>
+          <div class="stat-label">Global Regions</div>
         </div>
       </div>
     </div>
@@ -135,8 +135,8 @@
 
 <!-- 3. ABOUT RP PHARMA SECTION -->
 <section class="py-5 bg-white">
-  <div class="container py-4">
-    <div class="row align-items-center g-5">
+  <div class="container py-2 py-md-4">
+    <div class="row align-items-center g-4 g-lg-5">
       <div class="col-lg-6">
         <div class="section-tag"><i class="fa-solid fa-building-shield"></i> About RP PHARMA</div>
         <h2 class="section-title">A Global Healthcare Partner Headquartered in India</h2>
@@ -144,19 +144,19 @@
           RP PHARMA is a global pharmaceutical company headquartered in India, with proven expertise in the pharmaceutical industry. We bring together deep knowledge in technical, regulatory and international marketing to deliver high-quality healthcare solutions across global markets.
         </p>
         <p class="text-muted mb-4">
-          Our formulations are manufactured in state-of-the-art facilities across India, following applicable WHO-GMP and EU-GMP standards and requirements. Products are supported by comprehensive technical documentation, including dossiers, stability studies and validation data, reinforcing our commitment to transparency and regulatory compliance.
+          Our formulations are manufactured in state-of-the-art facilities across India, following applicable WHO-GMP and EU-GMP standards and requirements. Products are supported by comprehensive technical documentation, including dossiers, stability studies and validation data.
         </p>
 
         <div class="row g-3 mb-4">
           <div class="col-sm-6">
-            <div class="p-3 bg-light rounded-3 border">
-              <div class="fw-bold text-primary mb-1"><i class="fa-solid fa-bullseye text-teal me-2"></i> Our Vision</div>
+            <div class="p-3 bg-light rounded-3 border h-100">
+              <div class="fw-bold text-primary mb-1"><i class="fa-solid fa-bullseye me-2" style="color:var(--accent);"></i> Our Vision</div>
               <p class="small text-muted mb-0">To become a trusted global partner for pharmaceutical and nutraceutical solutions.</p>
             </div>
           </div>
           <div class="col-sm-6">
-            <div class="p-3 bg-light rounded-3 border">
-              <div class="fw-bold text-primary mb-1"><i class="fa-solid fa-compass text-teal me-2"></i> Our Mission</div>
+            <div class="p-3 bg-light rounded-3 border h-100">
+              <div class="fw-bold text-primary mb-1"><i class="fa-solid fa-compass me-2" style="color:var(--accent);"></i> Our Mission</div>
               <p class="small text-muted mb-0">To deliver quality-focused, compliant healthcare products while building long-term partner relationships.</p>
             </div>
           </div>
@@ -184,7 +184,7 @@
                 <i class="fa-solid fa-shield-halved"></i>
               </div>
               <h5 class="fw-bold fs-6 text-primary">Regulatory Compliance</h5>
-              <p class="small text-muted mb-0">Adherence to applicable WHO-GMP and international registration standards.</p>
+              <p class="small text-muted mb-0">Adherence to applicable WHO-GMP and international standards.</p>
             </div>
           </div>
           <div class="col-6">
@@ -193,7 +193,7 @@
                 <i class="fa-solid fa-truck-fast"></i>
               </div>
               <h5 class="fw-bold fs-6 text-primary">Reliable Supply Chain</h5>
-              <p class="small text-muted mb-0">Timely global logistics and reliable product availability for distributors.</p>
+              <p class="small text-muted mb-0">Timely global logistics and reliable product availability.</p>
             </div>
           </div>
           <div class="col-6">
@@ -202,7 +202,7 @@
                 <i class="fa-solid fa-handshake-angle"></i>
               </div>
               <h5 class="fw-bold fs-6 text-primary">B2B Partnerships</h5>
-              <p class="small text-muted mb-0">Dedicated international marketing support and long-term collaboration.</p>
+              <p class="small text-muted mb-0">Dedicated international marketing support and collaboration.</p>
             </div>
           </div>
         </div>
@@ -213,8 +213,8 @@
 
 <!-- 4. PHARMACEUTICAL HIGHLIGHTS SECTION -->
 <section class="py-5 bg-light">
-  <div class="container py-4">
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5">
+  <div class="container py-2 py-md-4">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4 mb-md-5">
       <div>
         <div class="section-tag"><i class="fa-solid fa-capsules"></i> Pharmaceutical Formulations</div>
         <h2 class="section-title mb-0">Essential Pharmaceutical Categories</h2>
@@ -225,9 +225,9 @@
     </div>
 
     <!-- Category Grid -->
-    <div class="row g-4 mb-5">
+    <div class="row g-3 g-md-4 mb-5">
       {% for cat in pharma_categories[:6] %}
-      <div class="col-md-6 col-lg-4">
+      <div class="col-sm-6 col-lg-4">
         <div class="rp-card">
           <div class="card-icon-wrap card-icon-blue">
             <i class="fa-solid {{ cat.icon or 'fa-pills' }}"></i>
@@ -235,7 +235,7 @@
           <h4 class="fw-bold fs-5 text-primary mb-2">{{ cat.name }}</h4>
           <p class="small text-muted flex-grow-1">{{ cat.description or 'Quality-tested pharmaceutical formulations supported by CTD dossiers.' }}</p>
           <a href="{{ url_for('products.list_products') }}?category={{ cat.slug }}" class="fw-bold text-primary small mt-3 d-inline-flex align-items-center gap-1">
-            Explore Formulations <i class="fa-solid fa-chevron-right text-teal fs-xs"></i>
+            Explore Formulations <i class="fa-solid fa-chevron-right fs-xs" style="color:var(--accent);"></i>
           </a>
         </div>
       </div>
@@ -243,13 +243,13 @@
     </div>
 
     <!-- Featured Products Cards -->
-    <div class="row g-4">
+    <div class="row g-3 g-md-4">
       {% for prod in featured_pharma %}
-      <div class="col-md-6 col-lg-3">
+      <div class="col-sm-6 col-lg-3">
         <div class="product-card">
           <div class="product-card-header">
             <span class="product-type-badge badge-pharma">Pharma</span>
-            <span class="small text-muted"><i class="fa-solid fa-tag me-1"></i>{{ prod.dosage_form }}</span>
+            <span class="small text-muted text-truncate" style="max-width:120px;"><i class="fa-solid fa-tag me-1"></i>{{ prod.dosage_form }}</span>
           </div>
           <div class="product-card-body">
             <h5 class="product-title">{{ prod.name }}</h5>
@@ -274,10 +274,10 @@
 
 <!-- 5. NUTRACEUTICAL HIGHLIGHTS SECTION -->
 <section class="py-5 bg-white">
-  <div class="container py-4">
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5">
+  <div class="container py-2 py-md-4">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4 mb-md-5">
       <div>
-        <div class="section-tag" style="background-color:#DCFCE7; color:#15803D;"><i class="fa-solid fa-leaf"></i> Nutraceutical Solutions</div>
+        <div class="section-tag"><i class="fa-solid fa-leaf"></i> Nutraceutical Solutions</div>
         <h2 class="section-title mb-0">Nutritional &amp; Wellness Supplements</h2>
       </div>
       <a href="{{ url_for('products.nutraceuticals') }}" class="btn btn-rp-outline mt-3 mt-md-0">
@@ -285,13 +285,13 @@
       </a>
     </div>
 
-    <div class="row g-4">
+    <div class="row g-3 g-md-4">
       {% for prod in featured_nutra %}
-      <div class="col-md-6 col-lg-3">
+      <div class="col-sm-6 col-lg-3">
         <div class="product-card">
           <div class="product-card-header">
             <span class="product-type-badge badge-nutra">Nutra</span>
-            <span class="small text-muted"><i class="fa-solid fa-leaf me-1"></i>{{ prod.dosage_form }}</span>
+            <span class="small text-muted text-truncate" style="max-width:120px;"><i class="fa-solid fa-leaf me-1"></i>{{ prod.dosage_form }}</span>
           </div>
           <div class="product-card-body">
             <h5 class="product-title">{{ prod.name }}</h5>
@@ -316,8 +316,8 @@
 
 <!-- 6. QUALITY & COMPLIANCE PILLARS -->
 <section class="py-5 bg-light">
-  <div class="container py-4">
-    <div class="text-center mb-5">
+  <div class="container py-2 py-md-4">
+    <div class="text-center mb-4 mb-md-5">
       <div class="section-tag"><i class="fa-solid fa-award"></i> Quality Framework</div>
       <h2 class="section-title">Stringent Quality &amp; Regulatory Compliance</h2>
       <p class="section-subtitle">
@@ -325,41 +325,41 @@
       </p>
     </div>
 
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-3">
+    <div class="row g-3 g-md-4">
+      <div class="col-sm-6 col-lg-3">
         <div class="rp-card text-center">
           <div class="card-icon-wrap card-icon-teal mx-auto">
             <i class="fa-solid fa-shield-check"></i>
           </div>
           <h4 class="fw-bold fs-5 text-primary mb-2">Quality Assurance</h4>
-          <p class="small text-muted mb-0">Systematic protocols ensuring consistent batch-to-batch reproducibility and quality standards.</p>
+          <p class="small text-muted mb-0">Systematic protocols ensuring consistent batch-to-batch reproducibility.</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3">
+      <div class="col-sm-6 col-lg-3">
         <div class="rp-card text-center">
           <div class="card-icon-wrap card-icon-blue mx-auto">
             <i class="fa-solid fa-file-contract"></i>
           </div>
           <h4 class="fw-bold fs-5 text-primary mb-2">Regulatory Dossiers</h4>
-          <p class="small text-muted mb-0">Comprehensive technical documentation in CTD / ACTD formats for swift health authority filings.</p>
+          <p class="small text-muted mb-0">Comprehensive technical documentation in CTD / ACTD formats.</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3">
+      <div class="col-sm-6 col-lg-3">
         <div class="rp-card text-center">
           <div class="card-icon-wrap card-icon-teal mx-auto">
             <i class="fa-solid fa-temperature-arrow-up"></i>
           </div>
           <h4 class="fw-bold fs-5 text-primary mb-2">Stability Studies</h4>
-          <p class="small text-muted mb-0">Real-time and accelerated stability data tested under ICH Zone IVb climatic conditions.</p>
+          <p class="small text-muted mb-0">Real-time and accelerated stability data tested under ICH Zone IVb conditions.</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3">
+      <div class="col-sm-6 col-lg-3">
         <div class="rp-card text-center">
           <div class="card-icon-wrap card-icon-blue mx-auto">
             <i class="fa-solid fa-clipboard-check"></i>
           </div>
           <h4 class="fw-bold fs-5 text-primary mb-2">Process Validation</h4>
-          <p class="small text-muted mb-0">Validated manufacturing and analytical testing procedures verifying product integrity.</p>
+          <p class="small text-muted mb-0">Validated manufacturing and analytical testing procedures.</p>
         </div>
       </div>
     </div>
@@ -368,8 +368,8 @@
 
 <!-- 7. MANUFACTURING ECOSYSTEM -->
 <section class="py-5 bg-white">
-  <div class="container py-4">
-    <div class="text-center mb-5">
+  <div class="container py-2 py-md-4">
+    <div class="text-center mb-4 mb-md-5">
       <div class="section-tag"><i class="fa-solid fa-gears"></i> End-to-End Flow</div>
       <h2 class="section-title">Our Manufacturing &amp; Supply Ecosystem</h2>
       <p class="section-subtitle">
@@ -377,48 +377,48 @@
       </p>
     </div>
 
-    <!-- 7 Step Process Grid -->
+    <!-- 7 Step Process Grid (Fluid) -->
     <div class="row g-3 justify-content-center">
-      <div class="col-md-4 col-lg">
+      <div class="col-6 col-md-4 col-lg">
         <div class="workflow-step">
           <div class="workflow-num">1</div>
           <h6 class="fw-bold text-primary mb-1">Development</h6>
-          <p class="small text-muted mb-0">Formulation development &amp; pilot batches</p>
+          <p class="small text-muted mb-0">Formulation &amp; pilot trial</p>
         </div>
       </div>
-      <div class="col-md-4 col-lg">
+      <div class="col-6 col-md-4 col-lg">
         <div class="workflow-step">
           <div class="workflow-num">2</div>
           <h6 class="fw-bold text-primary mb-1">Manufacturing</h6>
-          <p class="small text-muted mb-0">WHO-GMP partner facilities in India</p>
+          <p class="small text-muted mb-0">WHO-GMP partner facilities</p>
         </div>
       </div>
-      <div class="col-md-4 col-lg">
+      <div class="col-6 col-md-4 col-lg">
         <div class="workflow-step">
           <div class="workflow-num">3</div>
           <h6 class="fw-bold text-primary mb-1">Quality Control</h6>
-          <p class="small text-muted mb-0">IP / BP / USP Pharmacopeial assay &amp; testing</p>
+          <p class="small text-muted mb-0">IP / BP / USP testing</p>
         </div>
       </div>
-      <div class="col-md-4 col-lg">
+      <div class="col-6 col-md-4 col-lg">
         <div class="workflow-step">
           <div class="workflow-num">4</div>
           <h6 class="fw-bold text-primary mb-1">Documentation</h6>
-          <p class="small text-muted mb-0">CTD dossiers, COA &amp; stability studies</p>
+          <p class="small text-muted mb-0">CTD dossiers &amp; COA</p>
         </div>
       </div>
-      <div class="col-md-4 col-lg">
+      <div class="col-6 col-md-4 col-lg">
         <div class="workflow-step">
           <div class="workflow-num">5</div>
           <h6 class="fw-bold text-primary mb-1">Packaging</h6>
-          <p class="small text-muted mb-0">Tropicalized Alu-Alu, blister &amp; HDPE containers</p>
+          <p class="small text-muted mb-0">Alu-Alu &amp; bottles</p>
         </div>
       </div>
-      <div class="col-md-4 col-lg">
+      <div class="col-6 col-md-4 col-lg">
         <div class="workflow-step">
           <div class="workflow-num">6</div>
-          <h6 class="fw-bold text-primary mb-1">Supply &amp; Export</h6>
-          <p class="small text-muted mb-0">Global freight logistics &amp; customs support</p>
+          <h6 class="fw-bold text-primary mb-1">Supply Chain</h6>
+          <p class="small text-muted mb-0">Global export freight</p>
         </div>
       </div>
     </div>
@@ -427,34 +427,34 @@
 
 <!-- 8. GLOBAL PRESENCE TEASER -->
 <section class="py-5 bg-light">
-  <div class="container py-4">
+  <div class="container py-2 py-md-4">
     <div class="map-container-wrap">
       <div class="row align-items-center g-4">
-        <div class="col-lg-6">
+        <div class="col-lg-7">
           <span class="section-tag section-tag-light mb-3"><i class="fa-solid fa-globe"></i> International Reach</span>
-          <h2 class="text-white fw-bold display-6 mb-3">From India to Global Markets</h2>
-          <p class="text-light lead fs-6 mb-4">
-            RP PHARMA connects world-class Indian pharmaceutical and nutraceutical manufacturing with international healthcare distributors, importers, and institutional buyers across emerging markets.
+          <h2 class="text-white fw-bold mb-3">From India to Global Markets</h2>
+          <p class="text-white opacity-75 lead fs-6 mb-4">
+            RP PHARMA connects world-class Indian pharmaceutical and nutraceutical manufacturing with international healthcare distributors and importers across emerging markets.
           </p>
           <div class="d-flex flex-wrap gap-2 mb-4">
-            <span class="badge bg-secondary bg-opacity-50 text-white px-3 py-2">Southeast Asia</span>
-            <span class="badge bg-secondary bg-opacity-50 text-white px-3 py-2">Africa</span>
-            <span class="badge bg-secondary bg-opacity-50 text-white px-3 py-2">Middle East &amp; GCC</span>
-            <span class="badge bg-secondary bg-opacity-50 text-white px-3 py-2">CIS Countries</span>
-            <span class="badge bg-secondary bg-opacity-50 text-white px-3 py-2">Latin America</span>
+            <span class="badge bg-white bg-opacity-10 text-white border border-white border-opacity-25 px-3 py-2">Southeast Asia</span>
+            <span class="badge bg-white bg-opacity-10 text-white border border-white border-opacity-25 px-3 py-2">Africa</span>
+            <span class="badge bg-white bg-opacity-10 text-white border border-white border-opacity-25 px-3 py-2">Middle East</span>
+            <span class="badge bg-white bg-opacity-10 text-white border border-white border-opacity-25 px-3 py-2">CIS Countries</span>
+            <span class="badge bg-white bg-opacity-10 text-white border border-white border-opacity-25 px-3 py-2">Latin America</span>
           </div>
-          <a href="{{ url_for('main.business_enquiry') }}" class="btn btn-rp-secondary">
+          <a href="{{ url_for('main.contact') }}" class="btn btn-rp-secondary">
             <i class="fa-solid fa-handshake"></i> Become a Business Partner
           </a>
         </div>
-        <div class="col-lg-6">
-          <div class="p-4 bg-white bg-opacity-10 rounded-4 border border-white border-opacity-10 backdrop-blur">
-            <h5 class="text-white fw-bold mb-3"><i class="fa-solid fa-handshake-angle text-teal me-2"></i> Why Partner with RP PHARMA?</h5>
-            <ul class="text-light small list-unstyled mb-0">
-              <li class="mb-2"><i class="fa-solid fa-check text-teal me-2"></i> Comprehensive technical dossiers (CTD/ACTD format) for rapid market registration.</li>
-              <li class="mb-2"><i class="fa-solid fa-check text-teal me-2"></i> Strict compliance with WHO-GMP and partner quality benchmarks.</li>
-              <li class="mb-2"><i class="fa-solid fa-check text-teal me-2"></i> Transparent communication, competitive export pricing, and customized packaging.</li>
-              <li><i class="fa-solid fa-check text-teal me-2"></i> Dedicated export documentation and prompt freight coordination.</li>
+        <div class="col-lg-5">
+          <div class="p-4 bg-white bg-opacity-10 rounded-4 border border-white border-opacity-10">
+            <h5 class="text-white fw-bold mb-3"><i class="fa-solid fa-handshake-angle me-2"></i> Why Partner with RP PHARMA?</h5>
+            <ul class="text-white opacity-90 small list-unstyled mb-0">
+              <li class="mb-2"><i class="fa-solid fa-check me-2"></i> Comprehensive technical dossiers (CTD/ACTD format).</li>
+              <li class="mb-2"><i class="fa-solid fa-check me-2"></i> Strict compliance with WHO-GMP benchmarks.</li>
+              <li class="mb-2"><i class="fa-solid fa-check me-2"></i> Transparent communication &amp; competitive export pricing.</li>
+              <li><i class="fa-solid fa-check me-2"></i> Dedicated export documentation and prompt coordination.</li>
             </ul>
           </div>
         </div>
@@ -465,8 +465,8 @@
 
 <!-- 9. FAQ SECTION -->
 <section class="py-5 bg-white" id="faq">
-  <div class="container py-4">
-    <div class="text-center mb-5">
+  <div class="container py-2 py-md-4">
+    <div class="text-center mb-4 mb-md-5">
       <div class="section-tag"><i class="fa-solid fa-circle-question"></i> FAQs</div>
       <h2 class="section-title">Frequently Asked Questions</h2>
       <p class="section-subtitle">Common questions regarding our products, export procedures, and B2B partnerships.</p>
@@ -510,7 +510,7 @@
             </h2>
             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
               <div class="accordion-body text-muted">
-                Yes. Visitors can submit an enquiry through any product detail page, catalogue item, or the dedicated Contact &amp; Business Enquiry forms to receive specifications, pack styles, and sample documentation.
+                Yes. Visitors can submit an enquiry through any product detail page, catalogue item, or the dedicated Contact Us page to receive specifications, pack styles, and sample documentation.
               </div>
             </div>
           </div>
@@ -536,7 +536,7 @@
             </h2>
             <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
               <div class="accordion-body text-muted">
-                Submit the <a href="{{ url_for('main.business_enquiry') }}" class="text-primary fw-semibold">Business Enquiry form</a> with your company profile, country of operation, license details, and therapeutic segments of interest. Our international business development team will review and contact you.
+                Submit the <a href="{{ url_for('main.contact') }}" class="text-primary fw-semibold">Contact Us form</a> or call / WhatsApp us directly at <a href="tel:+918469034869" class="fw-semibold">+91 84690 34869</a> with your company profile and market details.
               </div>
             </div>
           </div>
@@ -548,18 +548,18 @@
 </section>
 
 <!-- 10. BOTTOM CTA BANNER -->
-<section class="py-5" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color:#ffffff;">
-  <div class="container py-3 text-center">
+<section class="py-5 bg-primary text-white" style="background-color:var(--primary) !important;">
+  <div class="container py-2 text-center">
     <h2 class="fw-bold mb-3 text-white">Let's Build a Sustainable Healthcare Partnership</h2>
     <p class="lead text-light mb-4 mx-auto" style="max-width: 650px;">
       Connect with RP PHARMA today to access high-quality pharmaceutical formulations and nutraceutical solutions manufactured in India for global healthcare markets.
     </p>
-    <div class="d-flex flex-wrap justify-content-center gap-3">
-      <a href="{{ url_for('main.business_enquiry') }}" class="btn btn-rp-secondary">
-        <i class="fa-solid fa-paper-plane"></i> Submit Business Enquiry
+    <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+      <a href="tel:{{ site_settings.get('official_phone', '+918469034869') }}" class="btn btn-rp-secondary">
+        <i class="fa-solid fa-phone me-1"></i> Call +91 84690 34869
       </a>
       <a href="{{ url_for('main.contact') }}" class="btn btn-rp-outline-white">
-        <i class="fa-solid fa-headset"></i> Contact Us
+        <i class="fa-solid fa-envelope me-1"></i> Send Enquiry Message
       </a>
     </div>
   </div>
