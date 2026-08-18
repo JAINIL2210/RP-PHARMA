@@ -17,7 +17,7 @@ $featured_nutra = get_featured_products('nutraceutical', 4);
   <div class="container">
     <div class="row align-items-center g-4 g-lg-5">
       <!-- Left Column: Copy & CTAs -->
-      <div class="col-lg-7">
+      <div class="col-lg-7 reveal reveal-left">
         <div class="hero-badge">
           <i class="fa-solid fa-certificate"></i>
           <span>WHO-GMP &bull; EU-GMP Partner Network Standards</span>
@@ -55,8 +55,8 @@ $featured_nutra = get_featured_products('nutraceutical', 4);
       </div>
 
       <!-- Right Column: Visual Feature Card -->
-      <div class="col-lg-5">
-        <div class="hero-visual-card">
+      <div class="col-lg-5 reveal reveal-right">
+        <div class="hero-visual-card" id="heroTiltCard">
           <div class="d-flex align-items-center justify-content-between mb-3 mb-md-4">
             <span class="badge bg-white text-primary fw-bold px-3 py-2">RP PHARMA Core Ecosystem</span>
             <i class="fa-solid fa-dna text-white fs-4"></i>

@@ -37,29 +37,28 @@ $page_desc = $page_desc ?? 'RP PHARMA is a global pharmaceutical company headqua
   <link rel="stylesheet" href="assets/css/style.css">
   
   <?php if (!empty($extra_head)) echo $extra_head; ?>
+</head>
 <body>
 
   <!-- Top Scroll Progress Indicator -->
   <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- Opening View / Preloader -->
+  <!-- Interactive Particle Background Canvas -->
+  <canvas id="particle-canvas"></canvas>
+  <div class="mouse-spotlight" id="mouseSpotlight"></div>
+
+  <!-- Custom Glowing Cursor (Desktop) -->
+  <div class="custom-cursor-dot" id="cursorDot"></div>
+  <div class="custom-cursor-ring" id="cursorRing"></div>
+
+  <!-- Preloader Opening Screen -->
   <div id="preloader">
     <div class="preloader-content">
-      <div class="preloader-brand-badge">
-        <div class="preloader-symbol">RP</div>
-        <div class="preloader-pulse-ring"></div>
-      </div>
-      <div class="preloader-logo-title">RP PHARMA</div>
-      <div class="preloader-tagline">Healthcare &bull; Global Exports &bull; Formulations</div>
-      
+      <div class="preloader-logo">&lt;RP PHARMA /&gt;</div>
       <div class="preloader-bar-bg">
         <div class="preloader-bar" id="preloaderBar"></div>
       </div>
-      
-      <div class="preloader-status">
-        <span class="preloader-spinner-dot"></span>
-        <span class="preloader-text" id="preloaderText">Initializing Healthcare Network...</span>
-      </div>
+      <div class="preloader-text" id="preloaderText">Initializing Healthcare Network...</div>
     </div>
   </div>
 
