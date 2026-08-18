@@ -1,101 +1,111 @@
 /**
  * RP PHARMA — Global Frontend Script
+ * Includes Opening View / Preloader, Scroll Progress, Sticky Navigation, and Modals
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Sticky Navbar styling on scroll
+
+  /* ------------------------------------------------------------------------
+     1. OPENING VIEW / PRELOADER ANIMATION
+     ------------------------------------------------------------------------ */
+  const preloader = document.getElementById('preloader');
+  const preloaderBar = document.getElementById('preloaderBar');
+  const preloaderText = document.getElementById('preloaderText');
+
+  if (preloader) {
+    let progress = 0;
+    const stages = [
+      { at: 20, text: 'Initializing Healthcare Network...' },
+      { at: 50, text: 'Verifying WHO-GMP Formulations...' },
+      { at: 80, text: 'Preparing Global Product Catalogue...' },
+      { at: 100, text: 'Welcome to RP PHARMA' }
+    ];
+
+    const loadInterval = setInterval(() => {
+      progress += Math.floor(Math.random() * 18) + 14;
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(loadInterval);
+        if (preloaderBar) preloaderBar.style.width = '100%';
+        if (preloaderText) preloaderText.textContent = 'Welcome to RP PHARMA';
+
+        setTimeout(() => {
+          preloader.classList.add('fade-out');
+        }, 400);
+      } else {
+        if (preloaderBar) preloaderBar.style.width = progress + '%';
+        for (let i = stages.length - 1; i >= 0; i--) {
+          if (progress >= stages[i].at) {
+            if (preloaderText) preloaderText.textContent = stages[i].text;
+            break;
+          }
+        }
+      }
+    }, 80);
+  }
+
+  /* ------------------------------------------------------------------------
+     2. TOP SCROLL PROGRESS BAR
+     ------------------------------------------------------------------------ */
+  const scrollProgress = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', () => {
+    if (scrollProgress) {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (height > 0) ? (winScroll / height) * 100 : 0;
+      scrollProgress.style.width = scrolled + '%';
+    }
+  });
+
+  /* ------------------------------------------------------------------------
+     3. STICKY NAVBAR & BACK TO TOP BUTTON
+     ------------------------------------------------------------------------ */
   const navbar = document.querySelector('.rp-navbar');
-  const backToTop = document.querySelector('.back-to-top');
+  const backToTopBtn = document.getElementById('backToTopBtn');
 
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
       if (navbar) navbar.classList.add('is-scrolled');
-      if (backToTop) backToTop.classList.add('show');
+      if (backToTopBtn) backToTopBtn.classList.add('show');
     } else {
       if (navbar) navbar.classList.remove('is-scrolled');
-      if (backToTop) backToTop.classList.remove('show');
+      if (backToTopBtn) backToTopBtn.classList.remove('show');
     }
   });
 
-  // 2. Back to top action
-  if (backToTop) {
-    backToTop.addEventListener('click', (e) => {
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', (e) => {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 
-  // 3. Trust Counter Animation (Count-up on scroll view)
-  const counterElements = document.querySelectorAll('.stat-counter');
-  if (counterElements.length > 0) {
-    const animateCounter = (el) => {
-      const targetStr = el.getAttribute('data-target') || '0';
-      const cleanNum = parseInt(targetStr.replace(/[^0-9]/g, '')) || 0;
-      const suffix = targetStr.replace(/[0-9]/g, '');
-      
-      let start = 0;
-      const duration = 1600;
-      const stepTime = 25;
-      const steps = duration / stepTime;
-      const increment = cleanNum / steps;
-
-      const timer = setInterval(() => {
-        start += increment;
-        if (start >= cleanNum) {
-          el.innerText = `${cleanNum}${suffix}`;
-          clearInterval(timer);
-        } else {
-          el.innerText = `${Math.floor(start)}${suffix}`;
-        }
-      }, stepTime);
-    };
-
-    const counterObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    counterElements.forEach(el => counterObserver.observe(el));
-  }
-
-  // 4. Pre-fill Enquiry Modal when clicking "Enquire Now" on any card
+  /* ------------------------------------------------------------------------
+     4. QUICK ENQUIRY MODAL POPULATOR
+     ------------------------------------------------------------------------ */
   const enquiryModal = document.getElementById('enquiryModal');
   if (enquiryModal) {
     enquiryModal.addEventListener('show.bs.modal', function (event) {
       const button = event.relatedTarget;
       if (button) {
         const productName = button.getAttribute('data-product-name');
-        const categoryName = button.getAttribute('data-category-name');
-        
-        const modalProdInput = enquiryModal.querySelector('#modal_product_name');
-        const modalCatInput = enquiryModal.querySelector('#modal_category');
-        const modalTitle = enquiryModal.querySelector('#enquiryModalLabel');
-        
-        if (modalProdInput && productName) {
-          modalProdInput.value = productName;
+        const modalProductName = enquiryModal.querySelector('#modalProductName') || enquiryModal.querySelector('#modal_product_name');
+        const modalProductInput = enquiryModal.querySelector('#modalProductInput') || enquiryModal.querySelector('#modal_product_name');
+        const modalCategoryName = enquiryModal.querySelector('#modalCategoryName') || enquiryModal.querySelector('#modal_category');
+        const productCategory = button.getAttribute('data-category-name');
+
+        if (modalProductName && productName) {
+          modalProductName.textContent = productName;
+          if (modalProductName.tagName === 'INPUT') modalProductName.value = productName;
         }
-        if (modalCatInput && categoryName) {
-          modalCatInput.value = categoryName;
+        if (modalProductInput && productName) {
+          modalProductInput.value = productName;
         }
-        if (modalTitle && productName) {
-          modalTitle.textContent = `Enquire About: ${productName}`;
+        if (modalCategoryName && productCategory) {
+          modalCategoryName.textContent = productCategory;
+          if (modalCategoryName.tagName === 'INPUT') modalCategoryName.value = productCategory;
         }
       }
     });
   }
-
-  // 5. Auto dismiss flash alerts after 6 seconds
-  const flashAlerts = document.querySelectorAll('.alert-dismissible');
-  flashAlerts.forEach(alert => {
-    setTimeout(() => {
-      try {
-        const bsAlert = new bootstrap.Alert(alert);
-        bsAlert.close();
-      } catch (e) {}
-    }, 6000);
-  });
 });
