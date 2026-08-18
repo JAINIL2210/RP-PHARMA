@@ -13,42 +13,49 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ------------------------------------------------------------------------
-     1. PRELOADER & OPENING VIEW SEQUENCE
+     1. PRELOADER & OPENING VIEW SEQUENCE (3-Second Duration)
      ------------------------------------------------------------------------ */
   const preloader = document.getElementById('preloader');
   const preloaderBar = document.getElementById('preloaderBar');
   const preloaderText = document.getElementById('preloaderText');
 
-  let progress = 0;
-  const stages = [
-    { at: 20, text: 'Initializing Healthcare Environment...' },
-    { at: 50, text: 'Verifying WHO-GMP Formulations...' },
-    { at: 80, text: 'Loading Global Product Catalogue...' },
-    { at: 100, text: 'System Ready!' }
-  ];
+  if (preloader) {
+    let progress = 0;
+    const stages = [
+      { at: 15, text: 'Initializing Healthcare Environment...' },
+      { at: 45, text: 'Verifying WHO-GMP Formulations...' },
+      { at: 75, text: 'Loading Global Product Catalogue...' },
+      { at: 98, text: 'System Ready!' }
+    ];
 
-  const loadInterval = setInterval(() => {
-    progress += Math.floor(Math.random() * 16) + 12;
-    if (progress >= 100) {
-      progress = 100;
-      clearInterval(loadInterval);
-      if (preloaderBar) preloaderBar.style.width = '100%';
-      if (preloaderText) preloaderText.textContent = 'System Ready!';
-      
-      setTimeout(() => {
-        if (preloader) preloader.classList.add('fade-out');
-        initScrollObservers();
-      }, 450);
-    } else {
+    const startTime = Date.now();
+    const duration = 2800; // 2.8s smooth fill + 0.4s final hold = ~3.2s
+
+    const loadInterval = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      progress = Math.min(100, Math.floor((elapsed / duration) * 100));
+
       if (preloaderBar) preloaderBar.style.width = progress + '%';
+
       for (let i = stages.length - 1; i >= 0; i--) {
         if (progress >= stages[i].at) {
           if (preloaderText) preloaderText.textContent = stages[i].text;
           break;
         }
       }
-    }
-  }, 75);
+
+      if (progress >= 100) {
+        clearInterval(loadInterval);
+        if (preloaderBar) preloaderBar.style.width = '100%';
+        if (preloaderText) preloaderText.textContent = 'System Ready!';
+        
+        setTimeout(() => {
+          preloader.classList.add('fade-out');
+          initScrollObservers();
+        }, 400);
+      }
+    }, 40);
+  }
 
   /* ------------------------------------------------------------------------
      2. INTERACTIVE PARTICLE CANVAS BACKGROUND
