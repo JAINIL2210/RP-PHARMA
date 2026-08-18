@@ -13,7 +13,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ------------------------------------------------------------------------
-     1. PRELOADER & OPENING VIEW SEQUENCE (3-Second Duration)
+     1. PRELOADER & OPENING VIEW SEQUENCE (2-Second Duration)
      ------------------------------------------------------------------------ */
   const preloader = document.getElementById('preloader');
   const preloaderBar = document.getElementById('preloaderBar');
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const startTime = Date.now();
-    const duration = 2800; // 2.8s smooth fill + 0.4s final hold = ~3.2s
+    const duration = 1700; // 1.7s smooth progress + 0.3s hold = ~2.0s total
 
     const loadInterval = setInterval(() => {
       const elapsed = Date.now() - startTime;
@@ -52,9 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           preloader.classList.add('fade-out');
           initScrollObservers();
-        }, 400);
+        }, 300);
       }
-    }, 40);
+    }, 30);
   }
 
   /* ------------------------------------------------------------------------
